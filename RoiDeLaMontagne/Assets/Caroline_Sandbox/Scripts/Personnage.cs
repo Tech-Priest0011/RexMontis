@@ -1,75 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ using System.Collections;
+ using System.Collections.Generic;
+ using UnityEngine;
+ 
+ public class Personnage : MonoBehaviour {
+     public float speed = 25.0F;
+     public float jumpSpeed = 8.0F; 
+     public float gravity = 20.0F;
+     private Vector3 moveDirection = Vector3.zero;
+     private float turner;
+     private float looker;
+     public float sensitivity = 5;
+     
+     // Use this for initialization
+     void Start () {
+         
+     }
+     
+     // Update is called once per frame
+     void Update () {
+         CharacterController controller = GetComponent<CharacterController>();
+         // is the controller on the ground?
+         if (controller.isGrounded) {
+             //Feed moveDirection with input.
+             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+             moveDirection = transform.TransformDirection(moveDirection);
+             //Multiply it by speed.
+             moveDirection *= speed;
+             //Jumping
+             if (Input.GetButton("Jump")) {
+                moveDirection.y = jumpSpeed;
+             }
 
-public class Personnage : MonoBehaviour
-{
-
-    public bool inWindZone = false;
-    public GameObject windZone;
-
-    public bool inGravityHole = false;
-    public GameObject gravityHole;
-    public float pullForce = 1; 
-
-/*     private Collider collider; */
-
-    private Rigidbody rb;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void FixedUpdate() {
-        if (inWindZone) {
-            rb.AddForce(windZone.GetComponent<WindArea>().direction * windZone.GetComponent<WindArea>().strength);
-        }
-
-        if (inGravityHole) {
-/*             Vector3 forceDirection = transform.position - gravityHole.GetComponent<Collider>().transform.position;
-
-            Debug.Log(forceDirection);
-
-            rb.AddForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime); */
-
-            transform.position = Vector3.Lerp(transform.position, gravityHole.transform.position, Time.fixedDeltaTime);
-        }
-    }
-
-    void OnTriggerEnter(Collider col) {
-        if (col.gameObject.tag == "windArea") {
-            windZone = col.gameObject;
-            inWindZone = true;
-        }
-
-        if (col.gameObject.tag == "gravityHole") {
-            gravityHole = col.gameObject;
-            inGravityHole = true;
-
-            Debug.Log(inGravityHole);
-
-/*             collider.GetComponent<Collider>(); */
-        }
-    }
-
-    void OnTriggerExit(Collider col) {
-        if (col.gameObject.tag == "windArea") {
-            inWindZone = false;
-        }
-
-        if (col.gameObject.tag == "gravityHole") {
-            inGravityHole = false;
-        }
-    }
-
-    
-
-}
+             
+         }
+/*          turner = Input.GetAxis ("Mouse X")* sensitivity;
+         looker = -Input.GetAxis ("Mouse Y")* sensitivity;
+         if(turner != 0){
+             //Code for action on mouse moving right
+             transform.eulerAngles += new Vector3 (0,turner,0);
+         }
+         if(looker != 0){
+             //Code for action on mouse moving right
+             transform.eulerAngles += new Vector3 (looker,0,0);
+         } */
+         //Applying gravity to the controller
+         moveDirection.y -= gravity * Time.deltaTime;
+         //Making the character move
+         controller.Move(moveDirection * Time.deltaTime);
+     }
+ }

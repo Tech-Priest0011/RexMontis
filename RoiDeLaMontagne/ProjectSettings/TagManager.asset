@@ -6,6 +6,7 @@ TagManager:
   tags:
   - windArea
   - gravityHole
+  - gravityZone
   layers:
   - Default
   - TransparentFX

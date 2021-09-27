@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //Variables pour le temps
-    private float tempsDejeu = 15f;
+    private float tempsDejeu = 30f;
     private float tempsDepart;
     static public float tempsFinal = 0f;
 
@@ -87,7 +87,13 @@ public class GameManager : MonoBehaviour
             interval -= 1 * Time.deltaTime;
             if(interval <= 0){
                 interval += 2;
-                score += 10;
+
+                if(tempsDejeu >= 10){
+                    score += 10;
+                }else{
+                    score += 30;
+                }
+                
             }
             
 
@@ -121,6 +127,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Scene1");
         nomDuJoueur =champsNomEntre.text;
     }
+
+
     
 
 

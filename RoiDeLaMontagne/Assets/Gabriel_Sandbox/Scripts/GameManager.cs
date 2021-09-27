@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -11,17 +12,27 @@ public class GameManager : MonoBehaviour
     static public float tempsFinal = 0f;
     public GameObject character;
     private int score;
+    private string scene;
+    static private string nomDuJoueur;
 
   
     [Header("UI Elements")]
 
     public Text champsTemps;
     public Text champsScore;
+    public Text champsNomEntre;
+    public Text champsNom;
 
 
     void Start()
     {
         tempsDepart = tempsDejeu; 
+        scene = SceneManager.GetActiveScene().name;
+
+        if(scene == "Scene1"){
+            champsNom.text = nomDuJoueur;
+            
+        }
     }
 
     
@@ -29,12 +40,18 @@ public class GameManager : MonoBehaviour
     {
         Decompte();
         Score();
+        Noms();
     }
+
+  
+
+   
 
 
     public void Decompte()
-    {
-        if (tempsDejeu <= 99f && tempsDejeu > 9f)
+    {   
+        if(scene != "Intro"){
+            if (tempsDejeu <= 99f && tempsDejeu > 9f)
         {
             champsTemps.text = "00:" + Mathf.Ceil(tempsDejeu);
 
@@ -53,30 +70,48 @@ public class GameManager : MonoBehaviour
 
 
         }
+        }
+        
     }
 
     public void Score()
     {
-        score = character.GetComponent<Character>().scorePerso;
-        if(score >= 1000)
-        {
-            champsScore.text = "Score : " + score;
+        if(scene != "Intro"){
+            score = character.GetComponent<Character>().scorePerso;
+            if(score >= 1000)
+            {
+                champsScore.text = "Score : " + score;
+            }
+            else if (score >= 100)
+            {
+                champsScore.text = "Score : 0" + score;
+            }
+            else if (score >= 10)
+            {
+                champsScore.text = "Score : 00" + score;
+            }
+            else if(score >= 0)
+            {
+                champsScore.text = "Score : 000" + score;
+            }
         }
-        else if (score >= 100)
-        {
-            champsScore.text = "Score : 0" + score;
-        }
-        else if (score >= 10)
-        {
-            champsScore.text = "Score : 00" + score;
-        }
-        else if(score >= 0)
-        {
-             champsScore.text = "Score : 000" + score;
-        }
+        
              
     }
 
+    public void Noms(){
+
+        
+        Debug.Log(nomDuJoueur);
+      
+      
+    }
+
+
+    public void Jouer(){
+        SceneManager.LoadScene("Scene1");
+        nomDuJoueur =champsNomEntre.text;
+    }
     
 
 

@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 184291702}
   - component: {fileID: 184291706}
   - component: {fileID: 184291707}
+  - component: {fileID: 184291708}
   m_Layer: 0
   m_Name: Personnage
   m_TagString: Untagged
@@ -240,7 +241,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &184291707
 MonoBehaviour:
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184291701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdf9914ff39f97e41a11b39b1dcb6d46, type: 3}
   m_Name: 
@@ -258,6 +259,20 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 20
   sensitivity: 1
+--- !u!114 &184291708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184291701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f0a9162b2ba9104a8680926b4ccbacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 5000
 --- !u!1 &506252771
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +384,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &506252777
 MonoBehaviour:

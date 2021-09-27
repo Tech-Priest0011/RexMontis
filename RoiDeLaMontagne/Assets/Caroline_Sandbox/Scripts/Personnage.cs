@@ -10,6 +10,10 @@
      private float turner;
      private float looker;
      public float sensitivity = 5;
+
+     //
+/*      public Camera camera;
+     public float rotateSpeed; */
      
      // Use this for initialization
      void Start () {
@@ -33,19 +37,45 @@
 
              
          }
-/*          turner = Input.GetAxis ("Mouse X")* sensitivity;
-         looker = -Input.GetAxis ("Mouse Y")* sensitivity;
-         if(turner != 0){
+
+        
+
+
+
+         //turner = Input.GetAxis("Horizontal")* sensitivity;
+         //looker = -Input.GetAxis("Vertical")* sensitivity;
+         //if(turner != 0){
              //Code for action on mouse moving right
-             transform.eulerAngles += new Vector3 (0,turner,0);
-         }
-         if(looker != 0){
+        //transform.eulerAngles += new Vector3 (0,turner,0);
+         //}
+         
+/*          if(looker != 0){
              //Code for action on mouse moving right
              transform.eulerAngles += new Vector3 (looker,0,0);
          } */
+
+
          //Applying gravity to the controller
          moveDirection.y -= gravity * Time.deltaTime;
          //Making the character move
          controller.Move(moveDirection * Time.deltaTime);
+
+        //
+         //RotateTowardMovement();
+
      }
+
+/*      private void RotateTowardMovement(){
+         var target = Quaternion.Euler(0, camera.gameObject.transform.eulerAngles.y, 0) * moveDirection;
+
+         if (target.magnitude == 0) {
+             return;
+         }
+
+         var rotation = Quaternion.LookRotation(target);
+         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed);
+
+     } */
+
+
  }

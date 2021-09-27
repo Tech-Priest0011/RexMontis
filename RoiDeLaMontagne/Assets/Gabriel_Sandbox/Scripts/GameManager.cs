@@ -7,13 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //Variables pour le temps
     private float tempsDejeu = 15f;
     private float tempsDepart;
     static public float tempsFinal = 0f;
+
+
     public GameObject character;
     private int score;
     private string scene;
     static private string nomDuJoueur;
+
+    private float interval = 2;
 
   
     [Header("UI Elements")]
@@ -40,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         Decompte();
         Score();
-        Noms();
+        
     }
 
   
@@ -77,7 +82,18 @@ public class GameManager : MonoBehaviour
     public void Score()
     {
         if(scene != "Intro"){
-            score = character.GetComponent<Character>().scorePerso;
+            //score = character.GetComponent<Character>().scorePerso;
+
+            interval -= 1 * Time.deltaTime;
+            if(interval <= 0){
+                interval += 2;
+                score += 10;
+            }
+            
+
+            
+
+
             if(score >= 1000)
             {
                 champsScore.text = "Score : " + score;
@@ -94,18 +110,11 @@ public class GameManager : MonoBehaviour
             {
                 champsScore.text = "Score : 000" + score;
             }
-        }
-        
-             
+
+        } 
     }
 
-    public void Noms(){
-
-        
-        Debug.Log(nomDuJoueur);
-      
-      
-    }
+    
 
 
     public void Jouer(){

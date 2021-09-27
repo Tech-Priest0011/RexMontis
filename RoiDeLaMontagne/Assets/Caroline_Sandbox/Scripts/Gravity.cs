@@ -28,9 +28,11 @@ public class Gravity : MonoBehaviour
             isAttracting = false;
         }
 
-        Rotation();
+        //Rotation();
+        ChangeGravityDirection();
     }
 
+    //Test pour orienter la force. La direction ne change pas avec la rotation.
     void Rotation() {
         if (Input.GetKey(KeyCode.W)) {
             Quaternion target = Quaternion.Euler(0, 270, 0);
@@ -38,6 +40,32 @@ public class Gravity : MonoBehaviour
             transform.rotation =  Quaternion.Slerp(transform.rotation, target, Time.fixedDeltaTime * 1f);
 
              /* transform.rotation = new Vector3 (0, 270, 0); */
+        }
+    }
+
+    //Test pour changer la direction de la gravite en fonction des touches directionnelles.
+    //**Fonctionne**
+    private void ChangeGravityDirection() {
+        int gravityValue = 6;
+
+        if (Input.GetKey(KeyCode.W)) {
+            //direction
+            direction = new Vector3 (0, 0, gravityValue);
+        }
+
+        if (Input.GetKey(KeyCode.D)) {
+            //direction
+            direction = new Vector3 (gravityValue, 0, 0);
+        }
+
+        if (Input.GetKey(KeyCode.S)) {
+            //direction
+            direction = new Vector3 (0, 0, -gravityValue);
+        }
+
+        if (Input.GetKey(KeyCode.A)) {
+            //direction
+            direction = new Vector3 (-gravityValue, 0, 0);
         }
     }
 }

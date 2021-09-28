@@ -15,9 +15,9 @@ public class TestInputSystem : MonoBehaviour
         sphereRigidbody = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
 
-        PlayerInputActions playerInputActions = new PlayerInputActions();
+        playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
-        playerInputActions.Player.Jump.performed += Jump;
+        playerInputActions.Player.Jump.performed += Jump; 
     }
 
     private void FixedUpdate()

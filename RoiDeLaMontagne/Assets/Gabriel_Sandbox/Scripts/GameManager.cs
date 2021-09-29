@@ -8,27 +8,106 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //Variables pour le temps
-    private float tempsDejeu = 3f;
+    private float tempsDejeu = 100f;
     private float tempsDeDepart;
     static private float tempsFinal = 0f;
-    static private string pointageFinal;
+    private float interval = 2;
 
-
-    public GameObject character;
+    //Variables pour le score
     private int score;
+    static private string pointageFinal;
+    private float hauteurTemplate = 60f;
+    private List<tableScores> listeDesScores;
+    private List<Transform> listeDesTransformDesScores;
+
+    //Variables non-classées
+    public GameObject character;
     private string scene;
     static private string nomDuJoueur;
 
-    private float interval = 2;
-
-  
     [Header("UI Elements")]
 
     public Text champsTemps;
     public Text champsScore;
     public Text champsNomEntre;
     public Text champsNom;
+    public Transform scoreContainer;
+    public Transform scoreTemplate;
 
+
+    private void Awake()
+    {
+        scoreTemplate.gameObject.SetActive(false);
+
+        listeDesScores = new List<tableScores>()
+        {
+            new tableScores { scoreUnique = 5899, nomUnique = "Max" },
+            new tableScores { scoreUnique = 8000, nomUnique = "Caro" },
+            new tableScores { scoreUnique = 9899, nomUnique = "Gab" },
+            new tableScores { scoreUnique = 7899, nomUnique = "Jerry" },
+            new tableScores { scoreUnique = 6899, nomUnique = "Jé" },
+            new tableScores { scoreUnique = 2899, nomUnique = "Sam" },
+            new tableScores { scoreUnique = 4899, nomUnique = "Mik" },
+            new tableScores { scoreUnique = 3899, nomUnique = "Rudy" },
+            
+        };
+
+        //Met les scores dans le bon ordre
+        for (int i = 0; i < listeDesScores.Count; i++)
+        {
+            for (int j = i + 1; j < listeDesScores.Count; j++)
+            {
+                if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
+                {
+                    //Interchange les positions
+                    tableScores temporaire = listeDesScores[i];
+                    listeDesScores[i] = listeDesScores[j];
+                    listeDesScores[j] = temporaire;
+                }
+            }
+        }
+        listeDesTransformDesScores = new List<Transform>();
+        foreach(tableScores tableDesScores in listeDesScores)
+        {
+            AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
+        }
+       
+    }
+
+    private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
+    {
+        Transform scoreTransform = Instantiate(scoreTemplate, container);
+        RectTransform scoreRectTransform = scoreTransform.GetComponent<RectTransform>();
+        scoreRectTransform.anchoredPosition = new Vector2(0, -hauteurTemplate * listeDeTransform.Count);
+        scoreTransform.gameObject.SetActive(true);
+
+        int rang = listeDeTransform.Count + 1;
+        string rangString;
+
+        switch (rang)
+        {
+            default: rangString = rang + "e"; break;
+            case 1: rangString = "1er"; break;
+
+        }
+        scoreTransform.Find("positionText").GetComponent<Text>().text = rangString;
+
+        int scoreText = tableDesScores.scoreUnique;
+        scoreTransform.Find("nomsText").GetComponent<Text>().text = scoreText.ToString();
+
+        string nomsText = tableDesScores.nomUnique;
+        scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
+
+        listeDeTransform.Add(scoreTransform);
+    }
+
+    //Représente un seul score et un seul nom
+    private class tableScores
+    {
+        public int scoreUnique;
+        public string nomUnique;
+
+    }
 
     void Start()
     {
@@ -62,11 +141,6 @@ public class GameManager : MonoBehaviour
         Score();
         
     }
-
-  
-
-   
-
 
     public void Decompte()
     {   
@@ -132,9 +206,6 @@ public class GameManager : MonoBehaviour
 
         } 
     }
-
-    
-
 
     public void Jouer(){
         SceneManager.LoadScene("Scene1");

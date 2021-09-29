@@ -15,11 +15,11 @@ C:/Users/jbcav/OneDrive/Bureau/RexMontis/GitHub/RexMontis/RoiDeLaMontagne
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55383
+52449
 Successfully changed project path to: C:/Users/jbcav/OneDrive/Bureau/RexMontis/GitHub/RexMontis/RoiDeLaMontagne
 C:/Users/jbcav/OneDrive/Bureau/RexMontis/GitHub/RexMontis/RoiDeLaMontagne
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 28.12 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 27.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.13f1 (71691879b7f5)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Resources/UnitySubsystems
@@ -35,40 +35,40 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56812
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001684 seconds.
+Registered in 0.001703 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 26.14 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 25.99 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.869 seconds
+- Completed reload, in  0.848 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002734 seconds.
+Registered in 0.002779 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 27.21 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 25.50 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.858 seconds
+- Completed reload, in  0.832 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.31 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1858 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 81.4 MB.
-System memory in use after: 81.5 MB.
+System memory in use before: 81.5 MB.
+System memory in use after: 81.6 MB.
 
 Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2293.
-Total: 1.767300 ms (FindLiveObjects: 0.131600 ms CreateObjectMapping: 0.049200 ms MarkObjects: 1.540500 ms  DeleteObjects: 0.045100 ms)
+Total: 1.846300 ms (FindLiveObjects: 0.158700 ms CreateObjectMapping: 0.056300 ms MarkObjects: 1.581800 ms  DeleteObjects: 0.048700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -84,29 +84,36 @@ AssetImportParameters requested are different than current active one (requested
 Received Import Request.
   path: Assets/New Terrain.asset
   artifactKey: Guid(d71cab278c97aed4abff141604123ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/New Terrain.asset using Guid(d71cab278c97aed4abff141604123ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf17397d61ed1add8e814d8f7f23a67a') in 0.029272 seconds 
-  Import took 0.031524 seconds .
+Start importing Assets/New Terrain.asset using Guid(d71cab278c97aed4abff141604123ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf17397d61ed1add8e814d8f7f23a67a') in 0.030224 seconds 
+  Import took 0.032354 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002641 seconds.
+Registered in 0.002856 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.785 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 82.1 MB.
-System memory in use after: 81.7 MB.
+System.Net.Sockets.SocketException (0x80004005): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2296.
-Total: 1.967700 ms (FindLiveObjects: 0.121200 ms CreateObjectMapping: 0.052300 ms MarkObjects: 1.508400 ms  DeleteObjects: 0.285300 ms)
+Mono: successfully reloaded assembly
+- Completed reload, in  0.776 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1878 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 83.2 MB.
+System memory in use after: 82.8 MB.
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 2318.
+Total: 1.837300 ms (FindLiveObjects: 0.132500 ms CreateObjectMapping: 0.051700 ms MarkObjects: 1.374000 ms  DeleteObjects: 0.278600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -119,15 +126,126 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 2.21 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 45.2 MB.
-System memory in use after: 45.3 MB.
+Received Import Request.
+  Time since last request: 166.065462 seconds.
+  path: Assets/JeremyB
+  artifactKey: Guid(265626401da1259409583fdae4c318f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JeremyB using Guid(265626401da1259409583fdae4c318f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23a13bebee9bf3198ad6e842f5bd4d7f') in 0.007408 seconds 
+  Import took 0.009740 seconds .
 
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 2296.
-Total: 1.603000 ms (FindLiveObjects: 0.124400 ms CreateObjectMapping: 0.055100 ms MarkObjects: 1.399400 ms  DeleteObjects: 0.023400 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 0.002419 seconds.
+  path: Assets/JeremyB
+  artifactKey: Guid(265626401da1259409583fdae4c318f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JeremyB using Guid(265626401da1259409583fdae4c318f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23a13bebee9bf3198ad6e842f5bd4d7f') in 0.001995 seconds 
+  Import took 0.004389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.148580 seconds.
+  path: Assets/JeremyB/button.png
+  artifactKey: Guid(c720b41786f76cb41bd57e0a4fd62f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JeremyB/button.png using Guid(c720b41786f76cb41bd57e0a4fd62f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8986886049c593fff6050574aa10e66') in 0.036432 seconds 
+  Import took 0.038801 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002819 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Net.Sockets.SocketException (0x80004005): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.764 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1879 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 82.8 MB.
+System memory in use after: 82.9 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 2323.
+Total: 1.720900 ms (FindLiveObjects: 0.129200 ms CreateObjectMapping: 0.051700 ms MarkObjects: 1.526200 ms  DeleteObjects: 0.012600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 8.862179 seconds.
+  path: Assets/JeremyB/J_Sandbox.unity
+  artifactKey: Guid(3aafdd6135ff5c94eaa06f9ea6aa227f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JeremyB/J_Sandbox.unity using Guid(3aafdd6135ff5c94eaa06f9ea6aa227f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc3c3d7e673996c29b93d3c106747e89') in 0.012719 seconds 
+  Import took 0.015203 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000823 seconds.
+  path: Assets/JeremyB/J_Sandbox.unity
+  artifactKey: Guid(3aafdd6135ff5c94eaa06f9ea6aa227f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JeremyB/J_Sandbox.unity using Guid(3aafdd6135ff5c94eaa06f9ea6aa227f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc3c3d7e673996c29b93d3c106747e89') in 0.001827 seconds 
+  Import took 0.003924 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.987058 seconds.
+  path: Assets/JeremyB/controller-template 1.html
+  artifactKey: Guid(5ec3f019d6ecdcc4fa687ec36d732af4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JeremyB/controller-template 1.html using Guid(5ec3f019d6ecdcc4fa687ec36d732af4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85ff6be631fc3475b1c62e1b713c1daf') in 0.008146 seconds 
+  Import took 0.010718 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014827 seconds.
+  path: Assets/JeremyB/controller-template 1.html
+  artifactKey: Guid(5ec3f019d6ecdcc4fa687ec36d732af4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JeremyB/controller-template 1.html using Guid(5ec3f019d6ecdcc4fa687ec36d732af4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85ff6be631fc3475b1c62e1b713c1daf') in 0.002161 seconds 
+  Import took 0.004703 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003018 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Net.Sockets.SocketException (0x80004005): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.752 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1879 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 82.8 MB.
+System memory in use after: 82.9 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 2325.
+Total: 1.646300 ms (FindLiveObjects: 0.139900 ms CreateObjectMapping: 0.052300 ms MarkObjects: 1.440300 ms  DeleteObjects: 0.013000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -142,23 +260,30 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002566 seconds.
+Registered in 0.003030 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.748 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1850 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 81.6 MB.
-System memory in use after: 81.8 MB.
+System.Net.Sockets.SocketException (0x80004005): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
-Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2298.
-Total: 1.679000 ms (FindLiveObjects: 0.125600 ms CreateObjectMapping: 0.052100 ms MarkObjects: 1.489400 ms  DeleteObjects: 0.011300 ms)
+Mono: successfully reloaded assembly
+- Completed reload, in  0.775 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1879 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 82.8 MB.
+System memory in use after: 82.9 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 2327.
+Total: 1.703500 ms (FindLiveObjects: 0.129400 ms CreateObjectMapping: 0.052500 ms MarkObjects: 1.508300 ms  DeleteObjects: 0.012600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -170,3 +295,4 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

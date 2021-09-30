@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 184291703}
   - component: {fileID: 184291702}
   - component: {fileID: 184291706}
-  - component: {fileID: 184291707}
   - component: {fileID: 184291708}
   m_Layer: 0
   m_Name: Personnage
@@ -223,6 +222,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1013156889}
   - {fileID: 2023984191}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -243,22 +243,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &184291707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184291701}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdf9914ff39f97e41a11b39b1dcb6d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpSpeed: 8
-  gravity: 20
-  sensitivity: 1
 --- !u!114 &184291708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 5000
+  gravityController: {fileID: 2023984190}
 --- !u!1 &506252771
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +385,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGravityZone: 0
   gravityZone: {fileID: 0}
+  inThrowZone: 0
+  throwZone: {fileID: 0}
+  throwingStrength: 12
 --- !u!1 &631771761
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +543,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pullRadius: 2
   pullForce: 1
+--- !u!1 &1013156888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013156889}
+  - component: {fileID: 1013156890}
+  m_Layer: 0
+  m_Name: ThrowZone
+  m_TagString: throwZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013156889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013156888}
+  m_LocalRotation: {x: -0.007221488, y: 0.70601195, z: -0.70812607, w: 0.0072431136}
+  m_LocalPosition: {x: 0.619, y: 0.012, z: 0}
+  m_LocalScale: {x: 0.9264246, y: 0.97088915, z: 0.7560552}
+  m_Children: []
+  m_Father: {fileID: 184291705}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1013156890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013156888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1080948494
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,8 +748,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2023984191}
-  - component: {fileID: 2023984192}
   - component: {fileID: 2023984193}
+  - component: {fileID: 2023984194}
   m_Layer: 0
   m_Name: GravityController
   m_TagString: gravityZone
@@ -732,26 +764,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023984190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.007221488, y: 0.70601195, z: -0.70812607, w: 0.0072431136}
+  m_LocalPosition: {x: 1.467, y: 0.03, z: 0}
+  m_LocalScale: {x: 1.4405559, y: 0.4931035, z: 1.0414622}
   m_Children: []
   m_Father: {fileID: 184291705}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2023984192
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023984190}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.01, y: 1, z: 1}
-  m_Center: {x: 1.66, y: 0, z: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 88.816, y: 81.684, z: -98.315}
 --- !u!114 &2023984193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +787,20 @@ MonoBehaviour:
   direction: {x: 5, y: 0, z: 0}
   isPushing: 0
   isAttracting: 0
+--- !u!64 &2023984194
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023984190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 223d09096cb662f4ba4687d89fadfb13, type: 3}
 --- !u!1 &2036541602
 GameObject:
   m_ObjectHideFlags: 0

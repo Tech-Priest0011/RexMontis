@@ -38,8 +38,6 @@ public class Gravity : MonoBehaviour
             Quaternion target = Quaternion.Euler(0, 270, 0);
 
             transform.rotation =  Quaternion.Slerp(transform.rotation, target, Time.fixedDeltaTime * 1f);
-
-             /* transform.rotation = new Vector3 (0, 270, 0); */
         }
     }
 

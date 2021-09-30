@@ -6,6 +6,7 @@ public class Rotation : MonoBehaviour
 {
     public float speed;
     public float rotationSpeed;
+    public GameObject gravityController;
 
     void Update()
     {
@@ -17,9 +18,13 @@ public class Rotation : MonoBehaviour
 
         Vector3 movementRotation = new Vector3(verticalInput * -1, 0, horizontalInput);
         movementRotation.Normalize();
-
-        transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
         
+        if (gravityController.gameObject.GetComponent<Gravity>().isAttracting == false) {
+
+            transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
+        
+        }
+
         if (movementDirection != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(movementRotation, Vector3.up);

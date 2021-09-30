@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private float hauteurTemplate = 60f;
     private List<tableScores> listeDesScores;
     private List<Transform> listeDesTransformDesScores;
+    public GameObject tableauDesScores;
 
     //Variables non-classées
     public GameObject character;
@@ -202,6 +203,15 @@ public class GameManager : MonoBehaviour
             else if(score >= 0)
             {
                 champsScore.text = "Score : 000" + score;
+            }
+
+            if (Input.GetKeyDown(KeyCode.F1) && tableauDesScores.activeSelf == true)
+            {
+                tableauDesScores.SetActive(false);
+            }
+            else if(Input.GetKeyDown(KeyCode.F1) && tableauDesScores.activeSelf == false)
+            {
+                tableauDesScores.SetActive(true);
             }
 
         } 

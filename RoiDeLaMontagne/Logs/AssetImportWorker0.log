@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.13f1 (71691879b7f5) revision 7432472'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19043.1237; Version 2009; 64bit' Language: 'fr' Physical Memory: 16295 MB
+OS: 'Windows 10 Education; OS build 19042.1237; Version 2009; 64bit' Language: 'fr' Physical Memory: 16229 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -11,46 +11,46 @@ C:\Program Files\Unity\Hub\Editor\2020.3.13f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/Gabriel/Documents/Scolaire/Chaos Média/RexMontis/RoiDeLaMontagne
+C:/Users/1932937/Desktop/RexMontis/RoiDeLaMontagne
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54701
-Successfully changed project path to: C:/Users/Gabriel/Documents/Scolaire/Chaos Média/RexMontis/RoiDeLaMontagne
-C:/Users/Gabriel/Documents/Scolaire/Chaos Média/RexMontis/RoiDeLaMontagne
+54713
+Successfully changed project path to: C:/Users/1932937/Desktop/RexMontis/RoiDeLaMontagne
+C:/Users/1932937/Desktop/RexMontis/RoiDeLaMontagne
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 43.92 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 34.33 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.13f1 (71691879b7f5)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Gabriel/Documents/Scolaire/Chaos Média/RexMontis/RoiDeLaMontagne/Assets
+[Subsystems] Discovering subsystems at path C:/Users/1932937/Desktop/RexMontis/RoiDeLaMontagne/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f82)
+    Renderer: NVIDIA GeForce GTX 1070 (ID=0x1b81)
     Vendor:   
-    VRAM:     3962 MB
-    Driver:   30.0.14.7196
+    VRAM:     8088 MB
+    Driver:   27.21.14.6259
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56852
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56752
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002202 seconds.
+Registered in 0.001726 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 36.24 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 30.61 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.090 seconds
+- Completed reload, in  0.974 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005648 seconds.
+Registered in 0.004292 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 36.20 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 30.44 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 System.Net.Sockets.SocketException (0x80004005): Une seule utilisation de chaque adresse de socket (protocole/adresse réseau/port) est habituellement autorisée.
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -60,19 +60,19 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.118 seconds
+- Completed reload, in  0.964 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.75 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1890 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 83.3 MB.
-System memory in use after: 83.4 MB.
+System memory in use before: 82.5 MB.
+System memory in use after: 82.6 MB.
 
 Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 2319.
-Total: 2.036100 ms (FindLiveObjects: 0.175100 ms CreateObjectMapping: 0.068000 ms MarkObjects: 1.735700 ms  DeleteObjects: 0.056100 ms)
+Total: 3.081200 ms (FindLiveObjects: 0.146800 ms CreateObjectMapping: 0.053700 ms MarkObjects: 2.823000 ms  DeleteObjects: 0.056700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -88,144 +88,47 @@ AssetImportParameters requested are different than current active one (requested
 Received Import Request.
   path: Assets/New Terrain.asset
   artifactKey: Guid(d71cab278c97aed4abff141604123ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/New Terrain.asset using Guid(d71cab278c97aed4abff141604123ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf17397d61ed1add8e814d8f7f23a67a') in 0.045699 seconds 
-  Import took 0.048421 seconds .
+Start importing Assets/New Terrain.asset using Guid(d71cab278c97aed4abff141604123ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf17397d61ed1add8e814d8f7f23a67a') in 0.042889 seconds 
+  Import took 0.045434 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.612816 seconds.
-  path: Assets/Gabriel_Sandbox
-  artifactKey: Guid(3f3fdb5de5beb0244b15dbd47dddb996) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gabriel_Sandbox using Guid(3f3fdb5de5beb0244b15dbd47dddb996) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bccae95f0ffcb886b583feed86e0ba3a') in 0.002643 seconds 
-  Import took 0.005266 seconds .
+  Time since last request: 7.499227 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.006046 seconds 
+  Import took 0.009085 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.008009 seconds.
-  path: Assets/Gabriel_Sandbox
-  artifactKey: Guid(3f3fdb5de5beb0244b15dbd47dddb996) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gabriel_Sandbox using Guid(3f3fdb5de5beb0244b15dbd47dddb996) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bccae95f0ffcb886b583feed86e0ba3a') in 0.003000 seconds 
-  Import took 0.005906 seconds .
+  Time since last request: 0.012550 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.001836 seconds 
+  Import took 0.004874 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.266347 seconds.
-  path: Assets/Gabriel_Sandbox/Scenes
-  artifactKey: Guid(9cf83e08af5a88b4db9e0b39635fdd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gabriel_Sandbox/Scenes using Guid(9cf83e08af5a88b4db9e0b39635fdd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e67d9ed6ae8602bb17ca9807f1d1f31d') in 0.003579 seconds 
-  Import took 0.006323 seconds .
+  Time since last request: 9.120734 seconds.
+  path: Assets/3D
+  artifactKey: Guid(527f3c580758b8046b0dd42a6428c3bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3D using Guid(527f3c580758b8046b0dd42a6428c3bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17a106b08037bc8fdeef58f11fd4c997') in 0.006108 seconds 
+  Import took 0.009435 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.908499 seconds.
-  path: Assets/Gabriel_Sandbox/Scenes/Scene1.unity
-  artifactKey: Guid(e0ecb9808d5d2544097843ff81f4081f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gabriel_Sandbox/Scenes/Scene1.unity using Guid(e0ecb9808d5d2544097843ff81f4081f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bb89c89eb996db7661c51780ff40c66') in 0.004431 seconds 
-  Import took 0.007206 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005540 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-System.Net.Sockets.SocketException (0x80004005): Une seule utilisation de chaque adresse de socket (protocole/adresse réseau/port) est habituellement autorisée.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.008 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1880 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 84.0 MB.
-System memory in use after: 83.6 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2320.
-Total: 2.260100 ms (FindLiveObjects: 0.143400 ms CreateObjectMapping: 0.057800 ms MarkObjects: 1.722900 ms  DeleteObjects: 0.335000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005486 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-System.Net.Sockets.SocketException (0x80004005): Une seule utilisation de chaque adresse de socket (protocole/adresse réseau/port) est habituellement autorisée.
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.015 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1882 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 83.5 MB.
-System memory in use after: 83.7 MB.
-
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 2324.
-Total: 2.077200 ms (FindLiveObjects: 0.152300 ms CreateObjectMapping: 0.058800 ms MarkObjects: 1.849600 ms  DeleteObjects: 0.015800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 28.389079 seconds.
-  path: Assets/Gabriel_Sandbox
-  artifactKey: Guid(3f3fdb5de5beb0244b15dbd47dddb996) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gabriel_Sandbox using Guid(3f3fdb5de5beb0244b15dbd47dddb996) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fef393e78a89eea8bacf9284beaebce5') in 0.005122 seconds 
-  Import took 0.007798 seconds .
+  Time since last request: 0.001090 seconds.
+  path: Assets/3D
+  artifactKey: Guid(527f3c580758b8046b0dd42a6428c3bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3D using Guid(527f3c580758b8046b0dd42a6428c3bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17a106b08037bc8fdeef58f11fd4c997') in 0.001827 seconds 
+  Import took 0.004664 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.004807 seconds.
-  path: Assets/Gabriel_Sandbox
-  artifactKey: Guid(3f3fdb5de5beb0244b15dbd47dddb996) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gabriel_Sandbox using Guid(3f3fdb5de5beb0244b15dbd47dddb996) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fef393e78a89eea8bacf9284beaebce5') in 0.002885 seconds 
-  Import took 0.005770 seconds .
+  Time since last request: 48.808357 seconds.
+  path: Assets/3D/3D_Sandbox.unity
+  artifactKey: Guid(cfa5b77da5b8de344b50d01e07f12e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3D/3D_Sandbox.unity using Guid(cfa5b77da5b8de344b50d01e07f12e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bb1125debcf41530235b6235e7dceb3') in 0.005866 seconds 
+  Import took 0.008670 seconds .
 
-========================================================================
-Received Import Request.
-  Time since last request: 2.003268 seconds.
-  path: Assets/Gabriel_Sandbox/Scenes
-  artifactKey: Guid(9cf83e08af5a88b4db9e0b39635fdd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gabriel_Sandbox/Scenes using Guid(9cf83e08af5a88b4db9e0b39635fdd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '777e9edcaf75dd7dd19d5e7c07280c2a') in 0.004140 seconds 
-  Import took 0.007133 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.746976 seconds.
-  path: Assets/Gabriel_Sandbox/Scenes/Scene1.unity
-  artifactKey: Guid(e0ecb9808d5d2544097843ff81f4081f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gabriel_Sandbox/Scenes/Scene1.unity using Guid(e0ecb9808d5d2544097843ff81f4081f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0678240dbc89fb172ec4ccb36be4adf4') in 0.010793 seconds 
-  Import took 0.013478 seconds .
-
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

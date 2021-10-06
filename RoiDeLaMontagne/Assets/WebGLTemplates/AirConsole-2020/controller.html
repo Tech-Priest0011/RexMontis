@@ -5,15 +5,24 @@
   <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
   <style type=text/css>
   /* the style sheet dictates what our elements (buttons, backgrounds etc.) will look like. */
-    #interact-button{
-      background-image: url("button.png");
-      position: absolute;
-      top: 20%;
-      left: 10%;
-      width: 80%;
-      height: 60%;
+  section{
+    display: flex;
+    flex-direction: column;
+  }  
+  
+  div{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+      background-color: red;
+      font-size: 2rem;
+      width: 100%;
+      height: 100%;
+      margin: 25px;
+      padding: 25px;
       background-size: contain;
       background-repeat: no-repeat;
+      border: 2px solid grey;
     }
   </style>
   
@@ -63,7 +72,13 @@
 </head>
 <body onload="window.app = new App()">
   <!-- Add your HTML elements here -->
-  <div id="interact button" ontouchstart="window.app.sendMessageToScreen( 'interact' )"></div>
+  <section>
+    <div id="interact button" ontouchstart="window.app.sendMessageToScreen( 'interact1' )">Front</div>
+    <div id="interact2 button" ontouchstart="window.app.sendMessageToScreen( 'interact2' )">Back</div>
+    <div id="interact3 button" ontouchstart="window.app.sendMessageToScreen( 'interact3' )">Left</div>
+    <div id="interact4 button" ontouchstart="window.app.sendMessageToScreen( 'interact4' )">Right</div>
+  </section>
+  
 
 </body>
 </html>

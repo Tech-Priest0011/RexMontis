@@ -19,11 +19,11 @@ public class Rotation : MonoBehaviour
         Vector3 movementRotation = new Vector3(verticalInput * -1, 0, horizontalInput);
         movementRotation.Normalize();
         
-        if (gravityController.gameObject.GetComponent<Gravity>().isAttracting == false) {
+/*         if (gravityController.gameObject.GetComponent<Gravity>().isAttracting == false) {
 
             transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
         
-        }
+        } */
 
         if (movementDirection != Vector3.zero)
         {

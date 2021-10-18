@@ -5,17 +5,17 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     public Collider colliderPerso;
-    private float speed;
+    
 
     void Start()
     {
-        speed = gameObject.GetComponent<Test_Input_System>().speed;
+        //speed = gameObject.GetComponent<Test_Input_System>().speed;
 
     }
 
     void Update()
     {
-        Debug.Log(speed);
+       
 
     }
 
@@ -23,9 +23,13 @@ public class Player_Controller : MonoBehaviour
     {
         if(collision.transform.tag == "Water")
         {
-            Debug.Log("collision");
             
+            gameObject.GetComponent<Test_Input_System>().speed = 13f;
         }
+    }
+
+    private void OnTriggerExit(Collider collision){
+        gameObject.GetComponent<Test_Input_System>().speed = 100f;
     }
 
 }

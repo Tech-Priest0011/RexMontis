@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
-    public float strength;
+    // ===================================================================== **
+    // Ce script est à mettre sur le gameObject GravityController.
+    // Il est enfant du joueur. 
+    // Il détecte les inputs/actions du joueur.
+    // ===================================================================== **
+
+    public float strength; // Il faut déterminer la valeur avec Unity. Elle réutilisée dans le script GravityController.
     public Vector3 direction;
 
     public bool isPushing = false;
     public bool isAttracting = false;
 
 
+    // ===================================================================== **
     // Update is called once per frame
+    // Détermine l'action du joueur en fonction de ses Inputs.
+    // ===================================================================== **
+
     void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.V)) {
@@ -28,41 +38,30 @@ public class Gravity : MonoBehaviour
             isAttracting = false;
         }
 
-        //Rotation();
         ChangeGravityDirection();
     }
 
-    //Test pour orienter la force. La direction ne change pas avec la rotation.
-    void Rotation() {
-        if (Input.GetKey(KeyCode.W)) {
-            Quaternion target = Quaternion.Euler(0, 270, 0);
+    // ===================================================================== **
+    // Change la direction de la force appliquée par le joueur
+    // (lorsqu'il souffle) en fonction de ses mouvements.
+    // ===================================================================== **
 
-            transform.rotation =  Quaternion.Slerp(transform.rotation, target, Time.fixedDeltaTime * 1f);
-        }
-    }
-
-    //Test pour changer la direction de la gravite en fonction des touches directionnelles.
-    //**Fonctionne**
     private void ChangeGravityDirection() {
         int gravityValue = 6;
 
         if (Input.GetKey(KeyCode.W)) {
-            //direction
             direction = new Vector3 (0, 0, gravityValue);
         }
 
         if (Input.GetKey(KeyCode.D)) {
-            //direction
             direction = new Vector3 (gravityValue, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.S)) {
-            //direction
             direction = new Vector3 (0, 0, -gravityValue);
         }
 
         if (Input.GetKey(KeyCode.A)) {
-            //direction
             direction = new Vector3 (-gravityValue, 0, 0);
         }
     }

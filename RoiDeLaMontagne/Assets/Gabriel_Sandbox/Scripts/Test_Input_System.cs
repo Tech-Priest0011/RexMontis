@@ -10,7 +10,7 @@ public class Test_Input_System : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
-    public float speed = 1f;
+    public float speed = 5f;
     private void Awake()
     {
         sphereRigidbody = GetComponent<Rigidbody>();

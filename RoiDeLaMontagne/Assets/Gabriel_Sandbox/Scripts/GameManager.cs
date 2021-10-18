@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //Variables pour le temps
-    private float tempsDejeu = 100f;
+    private float tempsDejeu = 60f;
     private float tempsDeDepart;
     static private float tempsFinal = 0f;
     private float interval = 2;

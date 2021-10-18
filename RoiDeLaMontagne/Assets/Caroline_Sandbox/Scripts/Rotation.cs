@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
+//https://docs.unity3d.com/ScriptReference/ForceMode.html?_ga=2.100837448.898169591.1634567076-594168372.1634567076
+
 /*     public float speed;
     public float rotationSpeed;
     public GameObject gravityController; */
 
     private Rigidbody rb;
-    Vector3 rotateDirection;
+
+    //With Quaternion
+    //Vector3 rotateDirection;
+
+    //With Torque
+    public float torque;
 
 
     void Start() {
         rb = GetComponent<Rigidbody>();
 
-        rotateDirection = new Vector3(0, 100, 0);
+        //With Quaternion
+        /* rotateDirection = new Vector3(0, 100, 0); */
     }
 
 /*     void Update()
@@ -43,7 +51,14 @@ public class Rotation : MonoBehaviour
     } */
 
     void FixedUpdate() {
-        Quaternion rotate = Quaternion.Euler(rotateDirection * Time.fixedDeltaTime);
-        rb.MoveRotation(rb.rotation * rotate);
+        //With Quaternion
+        /* Quaternion rotate = Quaternion.Euler(rotateDirection * Time.fixedDeltaTime);
+        rb.MoveRotation(rb.rotation * rotate); */
+
+        float turnZ = Input.GetAxis("Vertical");
+/*         float turnY = Input.GetAxis("Vertical"); */
+        rb.AddTorque(turnZ, 0,0);
+
+
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - gravityHole
   - gravityZone
   - throwZone
+  - Water
   layers:
   - Default
   - TransparentFX

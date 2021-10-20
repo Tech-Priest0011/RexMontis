@@ -10,17 +10,17 @@ public class Rotation : MonoBehaviour
     public float rotationSpeed;
     public GameObject gravityController; */
 
-    private Rigidbody rb;
+    /* private Rigidbody rb; */
 
     //With Quaternion
-    //Vector3 rotateDirection;
+    /* Vector3 rotateDirection; */
 
     //With Torque
-    public float torque;
+    /* public float torque; */
 
 
     void Start() {
-        rb = GetComponent<Rigidbody>();
+        /* rb = GetComponent<Rigidbody>(); */
 
         //With Quaternion
         /* rotateDirection = new Vector3(0, 100, 0); */
@@ -52,12 +52,15 @@ public class Rotation : MonoBehaviour
 
     void FixedUpdate() {
         //With Quaternion
-        /* Quaternion rotate = Quaternion.Euler(rotateDirection * Time.fixedDeltaTime);
+
+/*         rotateDirection = new Vector3(0, Input.GetAxis("Vertical") * 100, 0);
+
+        Quaternion rotate = Quaternion.Euler(rotateDirection * Time.fixedDeltaTime);
         rb.MoveRotation(rb.rotation * rotate); */
 
-        float turnZ = Input.GetAxis("Vertical");
+        /* float turnZ = Input.GetAxis("Vertical"); */
 /*         float turnY = Input.GetAxis("Vertical"); */
-        rb.AddTorque(turnZ, 0,0);
+        /* rb.AddTorque(turnZ, 0,0); */
 
 
     }

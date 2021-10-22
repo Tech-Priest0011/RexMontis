@@ -16,6 +16,7 @@ public class Gravity : MonoBehaviour
     public bool isPushing = false;
     public bool isAttracting = false;
 
+    public bool isTouchingPlayer = false;
 
     // ===================================================================== **
     // Update is called once per frame
@@ -63,6 +64,26 @@ public class Gravity : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A)) {
             direction = new Vector3 (-gravityValue, 0, 0);
+        }
+    }
+
+    // ===================================================================== **
+    // Détecte l'entrée en collision avec un autre joueur.
+    // ===================================================================== **
+    void OnTriggerEnter(Collider col) {
+        if (col.gameObject.tag == "Player") {
+            isTouchingPlayer = true;
+            Debug.Log(isTouchingPlayer);
+        }
+    }
+
+    // ===================================================================== **
+    // Détecte la sortie d'un joueur dans la zone de collision.
+    // ===================================================================== **
+    void OnTriggerExit(Collider col) {
+        if (col.gameObject.tag == "Player") {
+            isTouchingPlayer = false;
+            Debug.Log(isTouchingPlayer);
         }
     }
 }

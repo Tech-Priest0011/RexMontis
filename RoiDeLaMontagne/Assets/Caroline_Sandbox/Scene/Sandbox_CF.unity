@@ -417,6 +417,7 @@ MonoBehaviour:
   hips: {fileID: 506252776}
   isGrounded: 0
   hipJoint: {fileID: 506252778}
+  gravityController: {fileID: 1155528633}
 --- !u!114 &506252780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,7 +578,7 @@ GameObject:
   - component: {fileID: 1518620421}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -670,7 +671,7 @@ GameObject:
   - component: {fileID: 1892006244}
   m_Layer: 0
   m_Name: Ennemy (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

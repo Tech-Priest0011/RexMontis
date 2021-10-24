@@ -1,0 +1,186 @@
+fileFormatVersion: 2
+guid: ea46fa577a4fb264d84969a788bc0b33
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -3557988033877529133
+    second: Fuyu
+  - first:
+      74: -6818131921938613649
+    second: Armature.006|Fuyu
+  - first:
+      74: 3730858872414155514
+    second: Armature.006|Fuyu.001
+  - first:
+      74: -2853394418612505690
+    second: Armature.006|Fuyu.003
+  - first:
+      74: 6217312519355740335
+    second: Armature.006|Fuyu.009
+  - first:
+      74: 1182555292002468758
+    second: Armature.006|Fuyu.010
+  - first:
+      74: -982002334912674070
+    second: Armature.006|Fuyu.011
+  - first:
+      74: -8476853126444614656
+    second: Armature.006|Fuyu.012
+  - first:
+      74: 2543452539755403318
+    second: Armature.006|Fuyu.015
+  - first:
+      74: -5661719102039397066
+    second: Armature.006|Fuyu.016
+  - first:
+      74: 3611508060172409309
+    second: Armature.005|Fuyu
+  - first:
+      74: -5437730578534387817
+    second: Armature.005|Fuyu.001
+  - first:
+      74: 2222115536154777873
+    second: Armature.005|Fuyu.003
+  - first:
+      74: 4556943810407841665
+    second: Armature.005|Fuyu.009
+  - first:
+      74: 5812805534752593655
+    second: Armature.005|Fuyu.010
+  - first:
+      74: -7439163363617568058
+    second: Armature.005|Fuyu.011
+  - first:
+      74: -493404452566684545
+    second: Armature.005|Fuyu.012
+  - first:
+      74: 6857672615545227517
+    second: Armature.005|Fuyu.015
+  - first:
+      74: 1144665048409169946
+    second: Armature.005|Fuyu.016
+  - first:
+      74: 73944727561757060
+    second: Armature.004|Fuyu
+  - first:
+      74: -6267102082730356132
+    second: Armature.004|Fuyu.001
+  - first:
+      74: -2416650768810319526
+    second: Armature.004|Fuyu.003
+  - first:
+      74: -1543809075368646877
+    second: Armature.004|Fuyu.009
+  - first:
+      74: -310397664925007139
+    second: Armature.004|Fuyu.010
+  - first:
+      74: 1034118299710546633
+    second: Armature.004|Fuyu.011
+  - first:
+      74: 1343580815772021516
+    second: Armature.004|Fuyu.012
+  - first:
+      74: -5083435971838215335
+    second: Armature.004|Fuyu.015
+  - first:
+      74: -2300904334316189508
+    second: Armature.004|Fuyu.016
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -24,12 +24,13 @@ public class Player_Controller : MonoBehaviour
         if(collision.transform.tag == "Water")
         {
             
-            gameObject.GetComponent<Test_Input_System>().speed = 13f;
+            gameObject.GetComponent<Test_Input_System>().speed = 5f;
+
         }
     }
 
     private void OnTriggerExit(Collider collision){
-        gameObject.GetComponent<Test_Input_System>().speed = 100f;
+        gameObject.GetComponent<Test_Input_System>().speed = 10f;
     }
 
 }

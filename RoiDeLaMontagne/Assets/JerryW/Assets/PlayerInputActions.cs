@@ -33,6 +33,22 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""Invert"",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MovementFleches"",
+                    ""type"": ""Button"",
+                    ""id"": ""88c6a1e1-6f34-4af4-8a89-8d23cda7972b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""Invert"",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""JumpRightCtrl"",
+                    ""type"": ""Button"",
+                    ""id"": ""9bfbbb04-d01f-4cb1-b9b7-404fb735d9e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""Invert"",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -112,6 +128,72 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""a0568be5-31e6-458c-91d6-a415987a2421"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementFleches"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9f7b05c3-64fc-47e4-b727-6cc4ca973451"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementFleches"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a7facfb0-3a51-4917-a834-21a9191c3db9"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementFleches"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""71e9ad6d-6213-40f6-9ee3-9cf5c73a17c3"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementFleches"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6f752bb5-c342-4d55-97b8-50ae9ac76312"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementFleches"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3116f8e0-c276-42ba-8bbd-fda2cf8894eb"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpRightCtrl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -145,6 +227,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_MovementFleches = m_Player.FindAction("MovementFleches", throwIfNotFound: true);
+        m_Player_JumpRightCtrl = m_Player.FindAction("JumpRightCtrl", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,12 +280,16 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_MovementFleches;
+    private readonly InputAction m_Player_JumpRightCtrl;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @MovementFleches => m_Wrapper.m_Player_MovementFleches;
+        public InputAction @JumpRightCtrl => m_Wrapper.m_Player_JumpRightCtrl;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -217,6 +305,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @MovementFleches.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementFleches;
+                @MovementFleches.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementFleches;
+                @MovementFleches.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementFleches;
+                @JumpRightCtrl.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpRightCtrl;
+                @JumpRightCtrl.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpRightCtrl;
+                @JumpRightCtrl.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpRightCtrl;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -227,6 +321,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @MovementFleches.started += instance.OnMovementFleches;
+                @MovementFleches.performed += instance.OnMovementFleches;
+                @MovementFleches.canceled += instance.OnMovementFleches;
+                @JumpRightCtrl.started += instance.OnJumpRightCtrl;
+                @JumpRightCtrl.performed += instance.OnJumpRightCtrl;
+                @JumpRightCtrl.canceled += instance.OnJumpRightCtrl;
             }
         }
     }
@@ -253,5 +353,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnMovementFleches(InputAction.CallbackContext context);
+        void OnJumpRightCtrl(InputAction.CallbackContext context);
     }
 }

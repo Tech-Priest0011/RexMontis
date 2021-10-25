@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Gabriel_Sandbox/Scenes/Intro.unity
     guid: 1362d23f73c8334438c821c310ee397b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Gabriel_Sandbox/Scenes/Scene1.unity
     guid: e0ecb9808d5d2544097843ff81f4081f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Gabriel_Sandbox/Scenes/Fin.unity
     guid: f1e92b3953e4bf4449a52d21dfb75453
+  - enabled: 1
+    path: Assets/Alpha/Scenes/Cimeterium.unity
+    guid: 6f92c58c3d1f930438a1dd3e3cd34431
   m_configObjects: {}

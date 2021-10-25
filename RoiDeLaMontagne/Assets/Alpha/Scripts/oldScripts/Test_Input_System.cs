@@ -31,10 +31,10 @@ public class Test_Input_System : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
+     
         if (context.performed)
         {
-            Debug.Log("Jump" + context.phase);
+           
             sphereRigidbody.AddForce(Vector3.up * 5f, ForceMode.Impulse);
         }
        

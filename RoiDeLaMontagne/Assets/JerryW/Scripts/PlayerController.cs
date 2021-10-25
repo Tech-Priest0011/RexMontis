@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody hips; // gameObject Joueur/Character
     public bool isGrounded;
+    private int jumpAllowed = 0;
 
     public ConfigurableJoint hipJoint; //La composante ConfigurableJoint du gameObject Joueur/Character.
     public GameObject gravityController; // GameObject GravityController
@@ -34,15 +35,17 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     private void FixedUpdate()
     {
+
+        /* Debug.Log(isGrounded); */
+
         // Saute
-        if(Input.GetAxis("Jump") > 0)
+        if(Input.GetAxis("Jump") > 0 && isGrounded)
         {
-            if(isGrounded)
-            {
-                hips.AddForce(new Vector3(0, jumpForce, 0));
-                isGrounded = false;
+            Debug.Log("saute");
+            hips.AddForce(new Vector3(0, jumpForce, 0));
+/*              hips.AddForce(new Vector3(0, jumpForce, 0));
+                isGrounded = false; */
             
-            }
         }
 
         MoveCharacter();
@@ -53,7 +56,7 @@ public class PlayerController : MonoBehaviour
     // Déplacement du joueur.
     // ===================================================================== **
     private void MoveCharacter() {
-/*         float horizontal = Input.GetAxisRaw("Horizontal");
+/*      float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical"); */
 
         float horizontal = 0f;
@@ -123,22 +126,22 @@ public class PlayerController : MonoBehaviour
             // Détermine l'orientation 
             if (Input.GetKey(KeyCode.W))
             {
-                rotationVector = new Vector3 (0, 270, 0);
+                rotationVector = new Vector3 (0, 0, 0);
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                rotationVector = new Vector3 (0, 180, 0);
+                rotationVector = new Vector3 (0, 270, 0);
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                rotationVector = new Vector3 (0, 0, 0);
+                rotationVector = new Vector3 (0, 90, 0);
             }
 
             if (Input.GetKey(KeyCode.S))
             {
-                rotationVector = new Vector3 (0, 90, 0);
+                rotationVector = new Vector3 (0, 180, 0);
             }
 
             // La rotation est refusée si le joueur n'est pas en contact avec un autre joueur lorsqu'il utilise l'aspirateur.

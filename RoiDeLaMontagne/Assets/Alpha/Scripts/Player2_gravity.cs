@@ -25,14 +25,14 @@ public class Player2_gravity : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.RightShift)) {
+        if (Input.GetKey(KeyCode.O)) {
             isPushing = true;
 
         } else {
             isPushing = false;
         }
 
-        if (Input.GetKey(KeyCode.RightControl)) {
+        if (Input.GetKey(KeyCode.P)) {
             isAttracting = true;
 
         } else {

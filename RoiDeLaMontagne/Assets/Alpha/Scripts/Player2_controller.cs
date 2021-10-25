@@ -142,7 +142,7 @@ public class Player2_controller : MonoBehaviour
             }
 
             // La rotation est refusée si le joueur n'est pas en contact avec un autre joueur lorsqu'il utilise l'aspirateur.
-            if (!gravityController.GetComponent<Gravity>().isTouchingPlayer && gravityController.GetComponent<Gravity>().isAttracting) {
+            if (!gravityController.GetComponent<Player2_gravity>().isTouchingPlayer && gravityController.GetComponent<Player2_gravity>().isAttracting) {
                 hipJoint.transform.rotation = Quaternion.Lerp(startRotation, Quaternion.Euler(rotationVector), 0);
             } else {
                 hipJoint.transform.rotation = Quaternion.Lerp(startRotation, Quaternion.Euler(rotationVector), 10 * Time.fixedDeltaTime);

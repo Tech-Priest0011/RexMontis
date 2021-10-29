@@ -9,12 +9,13 @@ public class TestInputSystem : MonoBehaviour
     private Rigidbody sphereRigidbody;
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
+    AudioSource jumpsound;
 
     private void Awake()
     {
         sphereRigidbody = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
-
+        jumpsound = GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Jump.performed += Jump; 
@@ -30,6 +31,7 @@ public class TestInputSystem : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        jumpsound.Play();
         Debug.Log(context);
         if (context.performed)
         {

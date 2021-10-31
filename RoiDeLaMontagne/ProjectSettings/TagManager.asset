@@ -9,6 +9,7 @@ TagManager:
   - gravityZone
   - throwZone
   - Water
+  - sol
   layers:
   - Default
   - TransparentFX

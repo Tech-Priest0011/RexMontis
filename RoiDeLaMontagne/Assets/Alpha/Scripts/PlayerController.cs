@@ -39,12 +39,14 @@ public class PlayerController : MonoBehaviour
         /* Debug.Log(isGrounded); */
 
         // Saute
-        if(Input.GetAxis("Jump") > 0 && isGrounded)
+        if(Input.GetAxis("Jump") > 0)
         {
-            Debug.Log("saute");
+            if (isGrounded)
+            {
             hips.AddForce(new Vector3(0, jumpForce, 0));
-/*              hips.AddForce(new Vector3(0, jumpForce, 0));
-                isGrounded = false; */
+            isGrounded = false;
+            }
+           
             
         }
 

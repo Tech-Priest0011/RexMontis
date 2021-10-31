@@ -13,6 +13,10 @@ public class LimbCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        playerController.isGrounded = true;
+        if(collision.transform.tag == "sol")
+        {
+            playerController.isGrounded = true;
+        }
+        
     }
 }

@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public ConfigurableJoint hipJoint; //La composante ConfigurableJoint du gameObject Joueur/Character.
     public GameObject gravityController; // GameObject GravityController
 
+    private int view = 1;
+
     // ===================================================================== **
     // Start is called at the start of the game
     // Initialise les variables.
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
         MoveCharacter();
         RotateCharacter();
+        GetCurrentView();
     }
 
     // ===================================================================== **
@@ -64,20 +67,80 @@ public class PlayerController : MonoBehaviour
         float horizontal = 0f;
         float vertical = 0f;
 
-        if (Input.GetKey(KeyCode.W)) {
-            vertical = 1f;
-        }
+        switch (view)
+        {
+            case 1:
+                if (Input.GetKey(KeyCode.W)) {
+                    vertical = 1f;
+                }
 
-        if (Input.GetKey(KeyCode.S)) {
-            vertical = -1f;
-        }
+                if (Input.GetKey(KeyCode.S)) {
+                    vertical = -1f;
+                }
 
-        if (Input.GetKey(KeyCode.D)) {
-            horizontal = 1f;
-        }
+                if (Input.GetKey(KeyCode.D)) {
+                    horizontal = 1f;
+                }
 
-        if (Input.GetKey(KeyCode.A)) {
-            horizontal = -1f;
+                if (Input.GetKey(KeyCode.A)) {
+                    horizontal = -1f;
+                }
+                break;
+
+            case 2:
+                if (Input.GetKey(KeyCode.W)) {
+                    horizontal = -1f;
+                }
+
+                if (Input.GetKey(KeyCode.S)) {
+                    horizontal = 1f;
+                }
+
+                if (Input.GetKey(KeyCode.D)) {
+                    vertical = 1f;
+                }
+
+                if (Input.GetKey(KeyCode.A)) {
+                    vertical = -1f;
+                }
+                break;
+
+            case 3:
+                if (Input.GetKey(KeyCode.W)) {
+                    vertical = -1f;
+                }
+
+                if (Input.GetKey(KeyCode.S)) {
+                    vertical = 1f;
+                }
+
+                if (Input.GetKey(KeyCode.D)) {
+                    horizontal = -1f;
+                }
+
+                if (Input.GetKey(KeyCode.A)) {
+                    horizontal = 1f;
+                }
+                break;
+
+            case 4:
+                if (Input.GetKey(KeyCode.W)) {
+                    horizontal = 1f;
+                }
+
+                if (Input.GetKey(KeyCode.S)) {
+                    horizontal = -1f;
+                }
+
+                if (Input.GetKey(KeyCode.D)) {
+                    vertical = -1f;
+                }
+
+                if (Input.GetKey(KeyCode.A)) {
+                    vertical = 1f;
+                }
+                break;
+            
         }
 
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
@@ -126,24 +189,96 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude >= 0.1f) {     
 
             // Détermine l'orientation 
-            if (Input.GetKey(KeyCode.W))
+            switch (view)
             {
-                rotationVector = new Vector3 (0, 0, 0);
-            }
+                case 1:
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        rotationVector = new Vector3 (0, 0, 0);
+                    }
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                rotationVector = new Vector3 (0, 270, 0);
-            }
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        rotationVector = new Vector3 (0, 270, 0);
+                    }
 
-            if (Input.GetKey(KeyCode.D))
-            {
-                rotationVector = new Vector3 (0, 90, 0);
-            }
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        rotationVector = new Vector3 (0, 90, 0);
+                    }
 
-            if (Input.GetKey(KeyCode.S))
-            {
-                rotationVector = new Vector3 (0, 180, 0);
+                    if (Input.GetKey(KeyCode.S))
+                    {
+                        rotationVector = new Vector3 (0, 180, 0);
+                    }
+                    break;
+
+                case 2:
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        rotationVector = new Vector3 (0, 270, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        rotationVector = new Vector3 (0, 180, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        rotationVector = new Vector3 (0, 0, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.S))
+                    {
+                        rotationVector = new Vector3 (0, 90, 0);
+                    }
+                    break;
+
+                case 3:
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        rotationVector = new Vector3 (0, 180, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        rotationVector = new Vector3 (0, 90, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        rotationVector = new Vector3 (0, 270, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.S))
+                    {
+                        rotationVector = new Vector3 (0, 0, 0);
+                    }
+                    break;
+
+                case 4:
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        rotationVector = new Vector3 (0, 90, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        rotationVector = new Vector3 (0, 0, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        rotationVector = new Vector3 (0, 180, 0);
+                    }
+
+                    if (Input.GetKey(KeyCode.S))
+                    {
+                        rotationVector = new Vector3 (0, 270, 0);
+                    }
+                    break;
+                
             }
 
             // La rotation est refusée si le joueur n'est pas en contact avec un autre joueur lorsqu'il utilise l'aspirateur.
@@ -154,6 +289,26 @@ public class PlayerController : MonoBehaviour
             }
 
             
+        }
+    }
+
+    private void GetCurrentView() {
+        Debug.Log(view);
+
+        if (Input.GetKey(KeyCode.Keypad1)) {
+            view = 1;
+        }
+
+        if (Input.GetKey(KeyCode.Keypad2)) {
+            view = 2;
+        }
+
+        if (Input.GetKey(KeyCode.Keypad3)) {
+            view = 3;
+        }
+
+        if (Input.GetKey(KeyCode.Keypad4)) {
+            view = 4;
         }
     }
 

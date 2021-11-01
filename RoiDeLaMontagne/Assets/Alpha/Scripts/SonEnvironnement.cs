@@ -34,8 +34,8 @@ public class SonEnvironnement : MonoBehaviour
        void JouerSon()
     {
             source.clip = sounds[Random.Range(0, sounds.Length)];
-            source.volume = Random.Range(0.21f - volumeChangeMultiplier, 0.21f);
-            source.pitch = Random.Range(0.21f - pitchChangeMultiplier, 0.21f + pitchChangeMultiplier);
+            source.volume = Random.Range(0.3f - volumeChangeMultiplier, 0.3f);
+            source.pitch = Random.Range(0.3f - pitchChangeMultiplier, 0.3f + pitchChangeMultiplier);
             source.PlayOneShot(source.clip);
     }
 

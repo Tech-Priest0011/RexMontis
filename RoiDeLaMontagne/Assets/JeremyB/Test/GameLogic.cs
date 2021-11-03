@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NDream.AirConsole;
+//using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 
 public class GameLogic : MonoBehaviour
@@ -12,7 +12,7 @@ public class GameLogic : MonoBehaviour
     public float speed = 100f;
 
     void Awake() {
-        AirConsole.instance.onMessage += OnMessage;    
+        //AirConsole.instance.onMessage += OnMessage;    
     }
 
     // Update is called once per frame
@@ -52,9 +52,11 @@ public class GameLogic : MonoBehaviour
         }
     }
 
-    void OnDestroy() {
+    /*
+       void OnDestroy() {
         if(AirConsole.instance != null){
             AirConsole.instance.onMessage -= OnMessage;
         }    
     }
+    */
 }

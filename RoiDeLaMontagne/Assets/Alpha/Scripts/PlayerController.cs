@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private int view = 1;
 
+    PhotonView viewPhoton;
+
     // ===================================================================== **
     // Start is called at the start of the game
     // Initialise les variables.
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         hips = GetComponent<Rigidbody>();
+        viewPhoton = GetComponent<PhotonView>();
 
     }
 
@@ -40,8 +44,10 @@ public class PlayerController : MonoBehaviour
 
         /* Debug.Log(isGrounded); */
 
-        // Saute
-        if(Input.GetAxis("Jump") > 0)
+        if (viewPhoton.IsMine)
+        {
+// Saute
+        if (Input.GetAxis("Jump") > 0)
         {
             if (isGrounded)
             {
@@ -51,18 +57,21 @@ public class PlayerController : MonoBehaviour
            
             
         }
+        }
+        
 
+        GetCurrentView();
         MoveCharacter();
         RotateCharacter();
-        GetCurrentView();
+        
     }
 
     // ===================================================================== **
     // Déplacement du joueur.
     // ===================================================================== **
     private void MoveCharacter() {
-/*      float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical"); */
+        /*      float horizontal = Input.GetAxisRaw("Horizontal");
+                float vertical = Input.GetAxisRaw("Vertical"); */
 
         float horizontal = 0f;
         float vertical = 0f;

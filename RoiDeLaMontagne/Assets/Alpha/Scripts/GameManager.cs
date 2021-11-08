@@ -151,17 +151,17 @@ public class GameManager : MonoBehaviour
     {   
         if(scene != "Intro" && scene != "Fin")
         {
-            if (tempsDejeu <= 99f && tempsDejeu > 9f)
-            {
-                champsTemps.text = "00:" + Mathf.Ceil(tempsDejeu);
+            // if (tempsDejeu <= 99f && tempsDejeu > 9f)
+            // {
+            //     champsTemps.text = "00:" + Mathf.Ceil(tempsDejeu);
 
-            }else if(tempsDejeu <= 9f)
-            {
-                champsTemps.text = "00:0" + Mathf.Ceil(tempsDejeu);
-            }
+            // }else if(tempsDejeu <= 9f)
+            // {
+            //     champsTemps.text = "00:0" + Mathf.Ceil(tempsDejeu);
+            // }
 
 
-            tempsDejeu -= 1 * Time.deltaTime;
+            // tempsDejeu -= 1 * Time.deltaTime;
 
             if (tempsDejeu <= 0)
             {

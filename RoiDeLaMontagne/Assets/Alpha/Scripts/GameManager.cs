@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         scoreTransform.gameObject.SetActive(true);
 
         int rang = listeDeTransform.Count + 1;
-        Debug.Log(rang);
+        //Debug.Log(rang);
         string rangString;
 
         switch (rang)

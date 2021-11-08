@@ -20,6 +20,22 @@
                     "expectedControlType": "Button",
                     "processors": "Invert",
                     "interactions": ""
+                },
+                {
+                    "name": "Suck",
+                    "type": "Value",
+                    "id": "27b4eca7-fe91-4229-9e70-1836161938a8",
+                    "expectedControlType": "",
+                    "processors": "Invert",
+                    "interactions": ""
+                },
+                {
+                    "name": "Push",
+                    "type": "Value",
+                    "id": "7319d413-6e59-47ac-929e-6d2697dc993c",
+                    "expectedControlType": "Button",
+                    "processors": "Invert",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -108,6 +124,50 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "adcd0106-5dd2-4c4e-9c1b-6ec65560519e",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Suck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89052205-941b-4f43-bad7-3c1ffa369d1a",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Suck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e76b792-2fb3-44a9-8a47-c502c9ad4a21",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Push",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42298318-4daf-4113-b73b-9a80ac5a40ad",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Push",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     PhotonView viewPhoton;
 
+    //New variables in testing phase
+    private Vector2 movementInput = Vector2.zero;
+
     // ===================================================================== **
     // Start is called at the start of the game
     // Initialise les variables.
@@ -34,6 +38,13 @@ public class PlayerController : MonoBehaviour
         viewPhoton = GetComponent<PhotonView>();
 
     }
+
+    //In test phase
+    public void OnMove(InputAction.CallbackContext context) {
+        movementInput = context.ReadValue<Vector2>();
+    }
+    //
+
 
     // ===================================================================== **
     // FixedUpdate is called once per frame
@@ -58,6 +69,11 @@ public class PlayerController : MonoBehaviour
             
         }
         }
+
+        //
+/*         Debug.Log(movementInput.y);
+        Debug.Log(movementInput.x); */
+        //
         
 
         GetCurrentView();
@@ -70,8 +86,6 @@ public class PlayerController : MonoBehaviour
     // Déplacement du joueur.
     // ===================================================================== **
     private void MoveCharacter() {
-        /*      float horizontal = Input.GetAxisRaw("Horizontal");
-                float vertical = Input.GetAxisRaw("Vertical"); */
 
         float horizontal = 0f;
         float vertical = 0f;
@@ -79,20 +93,24 @@ public class PlayerController : MonoBehaviour
         switch (view)
         {
             case 1:
-                if (Input.GetKey(KeyCode.W)) {
+                if (movementInput.y > 0) {
                     vertical = 1f;
+                    Debug.Log("to top");
                 }
 
-                if (Input.GetKey(KeyCode.S)) {
+                if (movementInput.y < 0) {
                     vertical = -1f;
+                    Debug.Log("to bottom");
                 }
 
-                if (Input.GetKey(KeyCode.D)) {
+                if (movementInput.x > 0) {
                     horizontal = 1f;
+                    Debug.Log("to right");
                 }
 
-                if (Input.GetKey(KeyCode.A)) {
+                if (movementInput.x < 0) {
                     horizontal = -1f;
+                    Debug.Log("to left");
                 }
                 break;
 

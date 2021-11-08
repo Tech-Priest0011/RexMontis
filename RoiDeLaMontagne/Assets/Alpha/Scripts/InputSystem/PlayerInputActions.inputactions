@@ -23,19 +23,19 @@
                 },
                 {
                     "name": "Suck",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "27b4eca7-fe91-4229-9e70-1836161938a8",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "Invert",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Push",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "7319d413-6e59-47ac-929e-6d2697dc993c",
                     "expectedControlType": "Button",
                     "processors": "Invert",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -130,7 +130,7 @@
                 {
                     "name": "",
                     "id": "adcd0106-5dd2-4c4e-9c1b-6ec65560519e",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",

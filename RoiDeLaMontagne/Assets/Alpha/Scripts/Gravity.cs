@@ -18,6 +18,20 @@ public class Gravity : MonoBehaviour
 
     public bool isTouchingPlayer = false;
 
+    //Testing Phase
+    [SerializeField]
+    private GestionPlayerInput gestionPlayerInput;
+
+    void Start()
+    {
+
+        //
+        //gestionPlayerInput.isPushing.AddListener(Jump);
+        Debug.Log(gestionPlayerInput.isPushing);
+        //
+
+    }
+
     // ===================================================================== **
     // Update is called once per frame
     // Détermine l'action du joueur en fonction de ses Inputs.
@@ -25,19 +39,11 @@ public class Gravity : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.V)) {
-            isPushing = true;
+        isPushing = gestionPlayerInput.isPushing;
 
-        } else {
-            isPushing = false;
-        }
+        isAttracting = gestionPlayerInput.isAttracting;
 
-        if (Input.GetKey(KeyCode.LeftShift)) {
-            isAttracting = true;
-
-        } else {
-            isAttracting = false;
-        }
+        Debug.Log(isAttracting);
 
         ChangeGravityDirection();
     }
@@ -50,19 +56,22 @@ public class Gravity : MonoBehaviour
     private void ChangeGravityDirection() {
         int gravityValue = 6;
 
-        if (Input.GetKey(KeyCode.W)) {
+        float x = gestionPlayerInput.moveHorizontal;
+        float y = gestionPlayerInput.moveVertical;
+
+        if (y > 0) {
             direction = new Vector3 (0, 0, gravityValue);
         }
 
-        if (Input.GetKey(KeyCode.D)) {
+        if (x > 0) {
             direction = new Vector3 (gravityValue, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.S)) {
+        if (y < 0) {
             direction = new Vector3 (0, 0, -gravityValue);
         }
 
-        if (Input.GetKey(KeyCode.A)) {
+        if (x < 0) {
             direction = new Vector3 (-gravityValue, 0, 0);
         }
     }
@@ -73,7 +82,6 @@ public class Gravity : MonoBehaviour
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.tag == "Player") {
             isTouchingPlayer = true;
-            Debug.Log(isTouchingPlayer);
         }
     }
 
@@ -83,7 +91,6 @@ public class Gravity : MonoBehaviour
     void OnTriggerExit(Collider col) {
         if (col.gameObject.tag == "Player") {
             isTouchingPlayer = false;
-            Debug.Log(isTouchingPlayer);
         }
     }
 }

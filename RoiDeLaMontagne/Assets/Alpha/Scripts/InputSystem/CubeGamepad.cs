@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class CubeGamepad : MonoBehaviour
 {
-     private CharacterController controller;
+    private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
 
@@ -18,13 +18,15 @@ public class CubeGamepad : MonoBehaviour
     private Vector2 movementInput = Vector2.zero;
     private bool jumped = false;
 
-private static Color color1;
-     private static Color color2;
-     private static bool hasColorsAssigned = false;
-     private static string lastColor;
+    //Attribution d'une couleur aléatoire - début
+    private static Color color1;
+    private static Color color2;
+    private static bool hasColorsAssigned = false;
+    private static string lastColor;
 
     private void Start()
     {
+        
         
          if (hasColorsAssigned == false)
          {
@@ -46,16 +48,28 @@ private static Color color1;
         controller = gameObject.GetComponent<CharacterController>();
     }
 
+    //Attribution d'une couleur aléatoire - Fin
+
+    //Gestion des Inputs
     public void OnMove(InputAction.CallbackContext context) {
-movementInput = context.ReadValue<Vector2>();
+        movementInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context){
         jumped = true;
-jumped = context.ReadValue<bool>();
-jumped = context.action.triggered;
+        jumped = context.ReadValue<bool>();
+        jumped = context.action.triggered;
     }
 
+    public void OnSuck(InputAction.CallbackContext context){
+        Debug.Log("Zuck");
+    }
+
+    public void OnPush(InputAction.CallbackContext context){
+        Debug.Log("Push");
+    }
+
+    //Mouvements de base
     void Update()
     {
         groundedPlayer = controller.isGrounded;

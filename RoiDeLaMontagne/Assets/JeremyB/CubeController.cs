@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class CubeController : MonoBehaviour
 {
-     private CharacterController controller;
+    private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
 
@@ -18,10 +18,10 @@ public class CubeController : MonoBehaviour
     private Vector2 movementInput = Vector2.zero;
     private bool jumped = false;
 
-private static Color color1;
-     private static Color color2;
-     private static bool hasColorsAssigned = false;
-     private static string lastColor;
+    private static Color color1;
+    private static Color color2;
+    private static bool hasColorsAssigned = false;
+    private static string lastColor;
 
     private void Start()
     {
@@ -46,14 +46,14 @@ private static Color color1;
         controller = gameObject.GetComponent<CharacterController>();
     }
 
-    public void OnMove(InputAction.CallbackContext context) {
-movementInput = context.ReadValue<Vector2>();
+    public void OnMove(Vector2 value) {
+        movementInput = value * playerSpeed * Time.deltaTime;
     }
 
     public void OnJump(InputAction.CallbackContext context){
         jumped = true;
-jumped = context.ReadValue<bool>();
-jumped = context.action.triggered;
+        jumped = context.ReadValue<bool>();
+        jumped = context.action.triggered;
     }
 
     void Update()

@@ -185,24 +185,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-/*     private void GetCurrentView() {
-        Debug.Log(view);
+    /*     private void GetCurrentView() {
+            Debug.Log(view);
 
-        if (Input.GetKey(KeyCode.Keypad1)) {
-            view = 1;
+            if (Input.GetKey(KeyCode.Keypad1)) {
+                view = 1;
+            }
+
+            if (Input.GetKey(KeyCode.Keypad2)) {
+                view = 2;
+            }
+
+            if (Input.GetKey(KeyCode.Keypad3)) {
+                view = 3;
+            }
+
+            if (Input.GetKey(KeyCode.Keypad4)) {
+                view = 4;
+            }
+        } */
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "vide")
+        {
+            Debug.Log("Mort");
+            gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
         }
-
-        if (Input.GetKey(KeyCode.Keypad2)) {
-            view = 2;
-        }
-
-        if (Input.GetKey(KeyCode.Keypad3)) {
-            view = 3;
-        }
-
-        if (Input.GetKey(KeyCode.Keypad4)) {
-            view = 4;
-        }
-    } */
-
+            
+    }
 }

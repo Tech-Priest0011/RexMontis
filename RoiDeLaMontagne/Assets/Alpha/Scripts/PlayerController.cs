@@ -22,13 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private int view = 1;
 
-
-
-    //New variables in testing phase
-/*     private Vector2 movementInput = Vector2.zero; */
-
     [SerializeField]
-    private GestionPlayerInput gestionPlayerInput;
+    private GestionPlayerInput gestionPlayerInput; //Script GestionPlayerInput
 
     // ===================================================================== **
     // Start is called at the start of the game
@@ -38,19 +33,10 @@ public class PlayerController : MonoBehaviour
     {
         hips = GetComponent<Rigidbody>();
 
-
-        //
         gestionPlayerInput.jump.AddListener(Jump);
-        //
+
 
     }
-
-    //In test phase
-/*     public void OnMove(InputAction.CallbackContext context) {
-        movementInput = context.ReadValue<Vector2>();
-    } */
-    //
-
 
     // ===================================================================== **
     // FixedUpdate is called once per frame
@@ -58,31 +44,6 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     private void FixedUpdate()
     {
-
-        /* Debug.Log(isGrounded); */
-
-/*         if (viewPhoton.IsMine)
-        { */
-        // Saute
-/*         if (Input.GetAxis("Jump") > 0)
-        {
-            if (isGrounded)
-            {
-            hips.AddForce(new Vector3(0, jumpForce, 0));
-            isGrounded = false;
-            }
-           
-            
-        } */
-/*         } */
-
-        //
-/*         Debug.Log(movementInput.y);
-        Debug.Log(movementInput.x); */
-        //
-        
-
-        //GetCurrentView();
         MoveCharacter();
         RotateCharacter();
         
@@ -96,12 +57,7 @@ public class PlayerController : MonoBehaviour
         float x = gestionPlayerInput.moveHorizontal;
         float y = gestionPlayerInput.moveVertical;
 
-
-
-        //Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
         Vector3 direction = new Vector3(x, 0, y).normalized;
-
-        //Debug.Log(direction);
 
         // Autorise le déplacement lorsque le joueur n'utilise pas l'aspirateur OU utilise l'aspirateur, mais n'est pas en contact avec un autre joueur.
         if (!gravityController.GetComponent<Gravity>().isAttracting || (!gravityController.GetComponent<Gravity>().isTouchingPlayer && gravityController.GetComponent<Gravity>().isAttracting)) {
@@ -121,22 +77,6 @@ public class PlayerController : MonoBehaviour
         float x = gestionPlayerInput.moveHorizontal;
         float y = gestionPlayerInput.moveVertical;
 
-/*         if (y > 0) {
-            vertical = 1f;
-        }
-
-        if (y < 0) {
-            vertical = -1f;
-        }
-
-        if (x > 0) {
-            horizontal = 1f;
-        }
-
-        if (x < 0) {
-            horizontal = -1f;
-        } */
-
         Vector3 direction = new Vector3(x, 0, y).normalized;
 
         Vector3 rotationVector = new Vector3(0, 0, 0);
@@ -145,25 +85,25 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude >= 0.1f) {     
 
             // Détermine l'orientation 
-                    if (x > 0)
-                    {
-                        rotationVector = new Vector3 (0, 0, 0);
-                    }
+            if (x > 0)
+            {
+                rotationVector = new Vector3 (0, 0, 0);
+            }
 
-                    if (y > 0)
-                    {
-                        rotationVector = new Vector3 (0, 270, 0);
-                    }
+            if (y > 0)
+            {
+                rotationVector = new Vector3 (0, 270, 0);
+            }
 
-                    if (y < 0)
-                    {
-                        rotationVector = new Vector3 (0, 90, 0);
-                    }
+            if (y < 0)
+            {
+                rotationVector = new Vector3 (0, 90, 0);
+            }
 
-                    if (x < 0)
-                    {
-                        rotationVector = new Vector3 (0, 180, 0);
-                    }
+            if (x < 0)
+            {
+                rotationVector = new Vector3 (0, 180, 0);
+            }
 
             // La rotation est refusée si le joueur n'est pas en contact avec un autre joueur lorsqu'il utilise l'aspirateur.
             if (!gravityController.GetComponent<Gravity>().isTouchingPlayer && gravityController.GetComponent<Gravity>().isAttracting) {
@@ -176,6 +116,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // ===================================================================== **
+    // Gère le saut du joueur.
+    // ===================================================================== **
     private void Jump()
     {
         if (isGrounded)
@@ -205,7 +148,9 @@ public class PlayerController : MonoBehaviour
             }
         } */
 
-    private void OnCollisionEnter(Collision collision)
+    
+}
+private void OnCollisionEnter(Collision collision)
     {
         if(collision.transform.tag == "vide")
         {
@@ -214,4 +159,3 @@ public class PlayerController : MonoBehaviour
         }
             
     }
-}

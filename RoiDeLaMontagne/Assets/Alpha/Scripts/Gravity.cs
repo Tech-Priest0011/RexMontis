@@ -18,19 +18,8 @@ public class Gravity : MonoBehaviour
 
     public bool isTouchingPlayer = false;
 
-    //Testing Phase
     [SerializeField]
-    private GestionPlayerInput gestionPlayerInput;
-
-    void Start()
-    {
-
-        //
-        //gestionPlayerInput.isPushing.AddListener(Jump);
-/*         Debug.Log(gestionPlayerInput.isPushing); */
-        //
-
-    }
+    private GestionPlayerInput gestionPlayerInput; //Script gestionPlayerInput
 
     // ===================================================================== **
     // Update is called once per frame
@@ -39,18 +28,14 @@ public class Gravity : MonoBehaviour
 
     void FixedUpdate()
     {
-/*         isPushing = gestionPlayerInput.isPushing;
-
-        isAttracting = gestionPlayerInput.isAttracting; */
-
+        //Détecte si le joueur pousse
         if (gestionPlayerInput.isPushing) {
             isPushing = true;
         } else {
             isPushing = false;
         }
 
-        Debug.Log(isPushing);
-
+        //Détecte si le joueur attire
         if (gestionPlayerInput.isAttracting) {
             isAttracting = true;
         } else {

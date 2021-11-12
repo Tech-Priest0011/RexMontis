@@ -148,10 +148,8 @@ public class PlayerController : MonoBehaviour
             }
         } */
 
-    
-}
-private void OnCollisionEnter(Collision collision)
-    {
+
+private void OnCollisionEnter(Collision collision) {
         if(collision.transform.tag == "vide")
         {
             Debug.Log("Mort");
@@ -159,3 +157,6 @@ private void OnCollisionEnter(Collision collision)
         }
             
     }
+    
+}
+

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private int view = 1;
 
-    PhotonView viewPhoton;
+
 
     //New variables in testing phase
 /*     private Vector2 movementInput = Vector2.zero; */
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         hips = GetComponent<Rigidbody>();
-        viewPhoton = GetComponent<PhotonView>();
+
 
         //
         gestionPlayerInput.jump.AddListener(Jump);

@@ -27,7 +27,7 @@ public class Gravity : MonoBehaviour
 
         //
         //gestionPlayerInput.isPushing.AddListener(Jump);
-        Debug.Log(gestionPlayerInput.isPushing);
+/*         Debug.Log(gestionPlayerInput.isPushing); */
         //
 
     }
@@ -39,14 +39,27 @@ public class Gravity : MonoBehaviour
 
     void FixedUpdate()
     {
-        isPushing = gestionPlayerInput.isPushing;
+/*         isPushing = gestionPlayerInput.isPushing;
 
-        isAttracting = gestionPlayerInput.isAttracting;
+        isAttracting = gestionPlayerInput.isAttracting; */
 
-        Debug.Log(isAttracting);
+        if (gestionPlayerInput.isPushing) {
+            isPushing = true;
+        } else {
+            isPushing = false;
+        }
+
+        Debug.Log(isPushing);
+
+        if (gestionPlayerInput.isAttracting) {
+            isAttracting = true;
+        } else {
+            isAttracting = false;
+        }
 
         ChangeGravityDirection();
     }
+
 
     // ===================================================================== **
     // Change la direction de la force appliquée par le joueur

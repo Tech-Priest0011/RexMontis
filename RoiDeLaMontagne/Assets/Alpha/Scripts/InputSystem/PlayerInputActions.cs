@@ -39,7 +39,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""27b4eca7-fe91-4229-9e70-1836161938a8"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": ""Invert"",
+                    ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
                 },
                 {
@@ -47,7 +47,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""7319d413-6e59-47ac-929e-6d2697dc993c"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": ""Invert"",
+                    ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
                 }
             ],
@@ -132,7 +132,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b7a94935-e677-4016-94e3-c2b6f372e4fa"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""path"": ""<Gamepad>/dpad"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",

@@ -4938,7 +4938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7194346718455366199, guid: 1767522a2d12e0c4baa139f689883b53, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7194346718964234888, guid: 1767522a2d12e0c4baa139f689883b53, type: 3}
       propertyPath: m_Mesh
@@ -21898,7 +21898,7 @@ GameObject:
   - component: {fileID: 1743928656429434964}
   m_Layer: 0
   m_Name: citrouille2.009
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

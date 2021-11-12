@@ -45,7 +45,7 @@ public class GravityController : MonoBehaviour
         }
 
         // Se fait lancer/tirer par l'ennemi
-        if (inThrowZone && Input.GetKey(KeyCode.V)) {
+        if (inThrowZone && gravityZone.GetComponent<Gravity>().isPushing) {
             rb.AddForce(gravityZone.GetComponent<Gravity>().direction * gravityZone.GetComponent<Gravity>().strength * throwingStrength);
         }
 

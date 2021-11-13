@@ -22,11 +22,14 @@ public class PlayerController : MonoBehaviour
     public ConfigurableJoint hipJoint; //La composante ConfigurableJoint du gameObject Joueur/Character.
     public GameObject gravityController; // GameObject GravityController
 
-    //private int jumpAllowed = 0;
-    //private int view = 1;
-
     [SerializeField]
     private GestionPlayerInput gestionPlayerInput; //Script GestionPlayerInput
+
+    //Attribution d'une couleur aléatoire - début
+    private static Color color1;
+    private static Color color2;
+    private static bool hasColorsAssigned = false;
+    private static string lastColor;
 
     // ===================================================================== **
     // Start is called at the start of the game
@@ -37,6 +40,24 @@ public class PlayerController : MonoBehaviour
         hips = GetComponent<Rigidbody>();
 
         gestionPlayerInput.jump.AddListener(Jump);
+
+        //Gérer les instances
+        if (hasColorsAssigned == false)
+         {
+             color1 = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+             color2 = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+             hasColorsAssigned = true;
+         }
+         if (lastColor == "color1")
+         {
+             GetComponent<Renderer>().material.color = color2;
+             lastColor = "color2";
+         }
+         else
+         {
+             GetComponent<Renderer>().material.color = color1;
+             lastColor = "color1";
+         }
 
 
     }

@@ -35,6 +35,14 @@ public class GameManager : MonoBehaviour
     public Transform scoreContainer;
     public Transform scoreTemplate;
 
+     //Test pour l'accueil
+     public bool gameIsStarted = false;
+
+/*      public List<playersList> playersList; */
+ /*    private GameObject[] arrayPlayers; */
+
+    public List<GameObject> Players {get; set;}
+
 
 
     private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
@@ -138,13 +146,37 @@ public class GameManager : MonoBehaviour
             champsScore.text = pointageFinal;
             
         }
+
+        //Test pour l'accueil
+/*         playersList = new List<playersList>(); */
+
+        Players = new List<GameObject>();
+
     }
 
     
     void Update()
     {
-        Decompte();
-        Score();
+        //Test pour l'accueil
+/*         GameObject[] players;
+
+        player = GameObject.FindGameObjectsWithTag("Player");
+
+        Debug.Log(players); */
+
+/*         arrayPlayers.Add(GameObject.FindGameObjectsWithTag("Player") as GameObject);
+
+        Debug.Log(arrayPlayers.length); */
+
+        Players.Add(character);
+
+        Debug.Log(Players.Count);
+
+
+        if (gameIsStarted) {
+            Decompte();
+            Score();
+        }
     }
 
     public void Decompte()

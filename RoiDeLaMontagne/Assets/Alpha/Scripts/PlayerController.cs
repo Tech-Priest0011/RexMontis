@@ -9,18 +9,21 @@ public class PlayerController : MonoBehaviour
     // Ce script est à mettre sur le gameObject Joueur/Character.
     // Il permet au joueur de se déplacer.
     // ===================================================================== **
+
+
     public float speed;
     public float strafeSpeed;
     public float jumpForce;
 
     public Rigidbody hips; // gameObject Joueur/Character
     public bool isGrounded;
-    private int jumpAllowed = 0;
+    
 
     public ConfigurableJoint hipJoint; //La composante ConfigurableJoint du gameObject Joueur/Character.
     public GameObject gravityController; // GameObject GravityController
 
-    private int view = 1;
+    //private int jumpAllowed = 0;
+    //private int view = 1;
 
     [SerializeField]
     private GestionPlayerInput gestionPlayerInput; //Script GestionPlayerInput
@@ -149,14 +152,53 @@ public class PlayerController : MonoBehaviour
         } */
 
 
-private void OnCollisionEnter(Collision collision) {
+    // ===================================================================== **
+    // Mort du joueur.
+    // ===================================================================== **
+
+    private void OnCollisionEnter(Collision collision) {
         if(collision.transform.tag == "vide")
         {
-            Debug.Log("Mort");
-            gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
+
+            Invoke("RespawnPlayer", 5);
+           
         }
             
     }
+
+    // ===================================================================== **
+    // Réaparition du joueur.
+    // ===================================================================== **
+
+    private void RespawnPlayer()
+    {
+        gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 }
 

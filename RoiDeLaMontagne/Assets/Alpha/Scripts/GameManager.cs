@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private List<tableScores> listeDesScores;
     private List<Transform> listeDesTransformDesScores;
     public GameObject tableauDesScores;
+    public float pointIncreasedPerSecond;
 
     //Variables non-class�es
     public GameObject character;
@@ -41,6 +42,17 @@ public class GameManager : MonoBehaviour
 /*      public List<playersList> playersList; */
  /*    private GameObject[] arrayPlayers; */
 
+    // Score Points --------------------------------------------------------------------------------------------
+    public float scoreJoueur1;
+     public float scoreJoueur2;
+      public float scoreJoueur3;
+       public float scoreJoueur4;
+        public float scoreJoueur5;
+         public float scoreJoueur6;
+    public float scoreJoueur7;
+    public float scoreJoueur8;
+
+     private GameObject scoreSupprimable;
     public List<GameObject> Players {get; set;}
 
 
@@ -55,7 +67,6 @@ public class GameManager : MonoBehaviour
         int rang = listeDeTransform.Count + 1;
         //Debug.Log(rang);
         string rangString;
-
         switch (rang)
         {
             default: rangString = rang + "e"; break;
@@ -64,17 +75,12 @@ public class GameManager : MonoBehaviour
         }
         scoreTransform.Find("positionText").GetComponent<Text>().text = rangString;
 
-        int scoreText = tableDesScores.scoreUnique;
+        float scoreText = tableDesScores.scoreUnique;
         scoreTransform.Find("nomsText").GetComponent<Text>().text = scoreText.ToString();
 
         string nomsText = tableDesScores.nomUnique;
         scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
-        
-        
-        //  if(listeDeTransform.Count >= 4)
-        //  {
-        //        listeDeTransform[1].GetChild(1).GetComponent<RectTransform>().active = false;
-        //  }
+    
 
         listeDeTransform.Add(scoreTransform);
     }
@@ -82,48 +88,15 @@ public class GameManager : MonoBehaviour
     //Repr�sente un seul score et un seul nom
     private class tableScores   
     {
-        public int scoreUnique;
+        public float scoreUnique;
         public string nomUnique;
 
     }
 
     void Start()
     {
-        scoreTemplate.gameObject.SetActive(false);
-
-        listeDesScores = new List<tableScores>()
-        {
-            new tableScores { scoreUnique = 5899, nomUnique = "Max" },
-            new tableScores { scoreUnique = 8000, nomUnique = "Caro" },
-            new tableScores { scoreUnique = 9899, nomUnique = "Gab" },
-            new tableScores { scoreUnique = 7899, nomUnique = "Jerry" },
-            new tableScores { scoreUnique = 6899, nomUnique = "J�" },
-            new tableScores { scoreUnique = 2899, nomUnique = "Sam" },
-            new tableScores { scoreUnique = 4899, nomUnique = "Mik" },
-            new tableScores { scoreUnique = 3899, nomUnique = "Rudy" },
-            
-        };
-
-        //Met les scores dans le bon ordre
-        for (int i = 0; i < listeDesScores.Count; i++)
-        {
-            for (int j = i + 1; j < listeDesScores.Count; j++)
-            {
-                if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
-                {
-                    //Interchange les positions
-                    tableScores temporaire = listeDesScores[i];
-                    listeDesScores[i] = listeDesScores[j];
-                    listeDesScores[j] = temporaire;
-                }
-            }
-        }
-        listeDesTransformDesScores = new List<Transform>();
-        foreach(tableScores tableDesScores in listeDesScores)
-        {
-            AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
-        }
-       
+        
+    
        /////////////////////////////////////////////////////////////////////////////////////Awake en haut
         scene = SceneManager.GetActiveScene().name;
 
@@ -167,10 +140,47 @@ public class GameManager : MonoBehaviour
 /*         arrayPlayers.Add(GameObject.FindGameObjectsWithTag("Player") as GameObject);
 
         Debug.Log(arrayPlayers.length); */
+        scoreTemplate.gameObject.SetActive(false);
 
+        listeDesScores = new List<tableScores>()
+        {
+            
+            new tableScores { scoreUnique = scoreJoueur1, nomUnique = "Max" },
+            new tableScores { scoreUnique = scoreJoueur2, nomUnique = "Caro" },
+            new tableScores { scoreUnique = scoreJoueur3, nomUnique = "Gab" },
+            new tableScores { scoreUnique = scoreJoueur4, nomUnique = "Jerry" },
+            new tableScores { scoreUnique = scoreJoueur5, nomUnique = "J�" },
+            new tableScores { scoreUnique = scoreJoueur6, nomUnique = "Sam" },
+            new tableScores { scoreUnique = scoreJoueur7, nomUnique = "Mik" },
+            new tableScores { scoreUnique = scoreJoueur8, nomUnique = "Rudy" },
+            
+        };
+
+        //Met les scores dans le bon ordre
+        for (int i = 0; i < listeDesScores.Count; i++)
+        {
+            for (int j = i + 1; j < listeDesScores.Count; j++)
+            {
+                if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
+                {
+                    //Interchange les positions
+                    tableScores temporaire = listeDesScores[i];
+                    listeDesScores[i] = listeDesScores[j];
+                    listeDesScores[j] = temporaire;
+                }
+            }
+        }
+        listeDesTransformDesScores = new List<Transform>();
+
+            foreach(tableScores tableDesScores in listeDesScores)
+            {
+                AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
+                // scoreSupprimable = gameObject.Find("Test(Clone)");
+                // Destroy(scoreSupprimable);
+            }
+                 
         Players.Add(character);
 
-        Debug.Log(Players.Count);
 
 
         if (gameIsStarted) {
@@ -209,15 +219,33 @@ public class GameManager : MonoBehaviour
         if(scene != "Intro" && scene != "Fin")
         {
             //score = character.GetComponent<Character>().scorePerso;
-
             interval -= 1 * Time.deltaTime;
+           
+            // Debug.Log(scoreJoueur2);
+            
             if(interval <= 0){
+       
                 interval += 2;
 
                 if(tempsDejeu >= 10){
-                    score += 10;
+                    scoreJoueur1 += 10f;
+                      scoreJoueur2 += 10f;
+                        scoreJoueur3 += 10f;
+                          scoreJoueur4 += 10f;
+                            scoreJoueur5 += 10f;
+                              scoreJoueur6 += 10f;
+                                scoreJoueur7 += 10f;
+                                  scoreJoueur8 += 10f;
+                                
                 }else{
-                    score += 30;
+                      scoreJoueur1 += 30f;
+                        scoreJoueur2 += 30f;
+                          scoreJoueur3 += 30f;
+                            scoreJoueur4 += 30f;
+                              scoreJoueur5 += 30f;
+                                scoreJoueur6 += 30f;
+                                  scoreJoueur7 += 30f;
+                                    scoreJoueur8 += 30f;
                 }
                 
             }

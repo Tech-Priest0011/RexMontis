@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem; //
+using UnityEngine.Events; //
 
 
 public class PlayerController : MonoBehaviour
@@ -22,14 +24,55 @@ public class PlayerController : MonoBehaviour
     public ConfigurableJoint hipJoint; //La composante ConfigurableJoint du gameObject Joueur/Character.
     public GameObject gravityController; // GameObject GravityController
 
-    [SerializeField]
-    private GestionPlayerInput gestionPlayerInput; //Script GestionPlayerInput
+/*     [SerializeField]
+    private GestionPlayerInput gestionPlayerInput; //Script GestionPlayerInput */
 
     //Attribution d'une couleur aléatoire - début
     private static Color color1;
     private static Color color2;
     private static bool hasColorsAssigned = false;
     private static string lastColor;
+
+    //Variables TEST
+        //Le Input Controller
+/*     private PlayerInputActions playerInputActions; */
+
+    //Pour se déplacer
+    private Vector2 move;
+
+    private float moveHorizontal;
+    private float moveVertical;
+
+/*     //Pour les pouvoirs
+    private bool isPushing;
+    private bool isAttracting; */
+
+    //Pour le saut
+    private bool jumped = false;
+
+    // ===================================================================== **
+    // Initialise/Détecte les Inputs.
+    // ===================================================================== **
+/*     private void Awake() 
+    {
+        playerInputActions = new PlayerInputActions();
+
+        //Pour se déplacer
+        playerInputActions.Player.Movement.performed += SeeMove;
+        playerInputActions.Player.Movement.canceled += SeeMove;
+
+        //Pour le saut
+        playerInputActions.Player.Jump.started += SeeJump;
+
+        //Pour repousser
+        playerInputActions.Player.Push.started += SeePush;
+        playerInputActions.Player.Push.canceled += SeePush;
+
+        //Pour attirer
+        playerInputActions.Player.Suck.started += SeeSuck;
+        playerInputActions.Player.Suck.canceled += SeeSuck;
+
+    } */
 
     // ===================================================================== **
     // Start is called at the start of the game
@@ -39,7 +82,7 @@ public class PlayerController : MonoBehaviour
     {
         hips = GetComponent<Rigidbody>();
 
-        gestionPlayerInput.jump.AddListener(Jump);
+        //gestionPlayerInput.jump.AddListener(Jump);//
 
         //Gérer les instances
         if (hasColorsAssigned == false)
@@ -62,12 +105,63 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    // TEST Gestion des Inputs
+
+        // ===================================================================== **
+    // Active les actions du joueur.
+    // ===================================================================== **
+/*     private void OnEnable()
+    {
+        playerInputActions.Player.Enable();
+    } */
+
+    // ===================================================================== **
+    // Désactive les actions du joueur.
+    // ===================================================================== **
+/*     private void OnDisable()
+    {
+        playerInputActions.Player.Disable();
+    } */
+
+    // ===================================================================== **
+    // Fait sauter le joueur dans le script CharacterController.
+    // ===================================================================== **
+    public void SeeJump(InputAction.CallbackContext context)
+    {
+        Debug.Log("touche jump");
+        jumped = true;
+        jumped = context.ReadValueAsButton();
+    }
+
+    // ===================================================================== **
+    // Fait bouger le joueur dans le script CharacterController.
+    // ===================================================================== **
+    public void SeeMove(InputAction.CallbackContext context)
+    {
+        move = context.ReadValue<Vector2>();
+
+        moveHorizontal = move.x;
+        moveVertical = move.y;
+
+        Debug.Log("move");
+    }
+
+
+
     // ===================================================================== **
     // FixedUpdate is called once per frame
     // Détermine le déplacement du joueur en fonction de ses Inputs.
     // ===================================================================== **
-    private void FixedUpdate()
+    void FixedUpdate()
     {
+        if (isGrounded && jumped)
+        {
+            hips.AddForce(new Vector3(0, jumpForce, 0));
+            isGrounded = false;
+            jumped = false;
+        }
+
         MoveCharacter();
         RotateCharacter();
         
@@ -78,8 +172,11 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     private void MoveCharacter() {
 
-        float x = gestionPlayerInput.moveHorizontal;
-        float y = gestionPlayerInput.moveVertical;
+/*         float x = gestionPlayerInput.moveHorizontal;//
+        float y = gestionPlayerInput.moveVertical;// */
+
+        float x = moveHorizontal;//
+        float y = moveVertical;//
 
         Vector3 direction = new Vector3(x, 0, y).normalized;
 
@@ -98,8 +195,11 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     private void RotateCharacter() {
 
-        float x = gestionPlayerInput.moveHorizontal;
-        float y = gestionPlayerInput.moveVertical;
+/*         float x = gestionPlayerInput.moveHorizontal;//
+        float y = gestionPlayerInput.moveVertical;// */
+
+        float x = moveHorizontal;//
+        float y = moveVertical;//
 
         Vector3 direction = new Vector3(x, 0, y).normalized;
 
@@ -143,35 +243,14 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     // Gère le saut du joueur.
     // ===================================================================== **
-    private void Jump()
+/*     private void Jump()
     {
         if (isGrounded)
         {
             hips.AddForce(new Vector3(0, jumpForce, 0));
             isGrounded = false;
         }
-    }
-
-    /*     private void GetCurrentView() {
-            Debug.Log(view);
-
-            if (Input.GetKey(KeyCode.Keypad1)) {
-                view = 1;
-            }
-
-            if (Input.GetKey(KeyCode.Keypad2)) {
-                view = 2;
-            }
-
-            if (Input.GetKey(KeyCode.Keypad3)) {
-                view = 3;
-            }
-
-            if (Input.GetKey(KeyCode.Keypad4)) {
-                view = 4;
-            }
-        } */
-
+    } */
 
     // ===================================================================== **
     // Mort du joueur.

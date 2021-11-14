@@ -31,7 +31,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""521dcdb0-3a7d-49cd-b193-be428827462b"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": ""Invert"",
+                    ""processors"": """",
                     ""interactions"": """"
                 },
                 {

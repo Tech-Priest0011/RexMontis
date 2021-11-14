@@ -22,7 +22,7 @@ public class GestionPlayerInput : MonoBehaviour
     public bool isAttracting;
 
     //Pour le saut
-    public UnityEvent jump;
+    public UnityEvent jump; //
 
     // ===================================================================== **
     // Initialise/Détecte les Inputs.
@@ -67,7 +67,7 @@ public class GestionPlayerInput : MonoBehaviour
     // ===================================================================== **
     // Fait sauter le joueur dans le script CharacterController.
     // ===================================================================== **
-    private void SeeJump(InputAction.CallbackContext context)
+    public void SeeJump(InputAction.CallbackContext context)
     {
         jump.Invoke();
     }
@@ -75,7 +75,7 @@ public class GestionPlayerInput : MonoBehaviour
     // ===================================================================== **
     // Fait bouger le joueur dans le script CharacterController.
     // ===================================================================== **
-    private void SeeMove(InputAction.CallbackContext context)
+    public void SeeMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
 
@@ -86,7 +86,7 @@ public class GestionPlayerInput : MonoBehaviour
     // ===================================================================== **
     // Détecte si le joueur pousse dans le script Gravity.
     // ===================================================================== **
-    private void SeePush(InputAction.CallbackContext context)
+    public void SeePush(InputAction.CallbackContext context)
     {
         isPushing = context.ReadValueAsButton();
     }
@@ -94,7 +94,7 @@ public class GestionPlayerInput : MonoBehaviour
     // ===================================================================== **
     // Détecte si le joueur attire dans le script Gravity.
     // ===================================================================== **
-    private void SeeSuck(InputAction.CallbackContext context)
+    public void SeeSuck(InputAction.CallbackContext context)
     {
         isAttracting = context.ReadValueAsButton();
     }

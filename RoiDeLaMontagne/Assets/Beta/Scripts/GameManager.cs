@@ -187,6 +187,8 @@ public class GameManager : MonoBehaviour
              AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
         }
 
+
+        //
         Players.Add(character);
 
 

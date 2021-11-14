@@ -2639,7 +2639,7 @@ MonoBehaviour:
         m_Flags: 0
     m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 1704172413403271895, guid: 41c253f2d9f961446812bb170bb6a0bf, type: 3}
-  m_SplitScreen: 0
+  m_SplitScreen: 1
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
   m_SplitScreenRect:

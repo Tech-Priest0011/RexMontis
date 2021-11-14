@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
     private static bool hasColorsAssigned = false;
     private static string lastColor;
 
-<<<<<<< Updated upstream
     //Variables TEST
         //Le Input Controller
 /*     private PlayerInputActions playerInputActions; */
@@ -75,12 +74,6 @@ public class PlayerController : MonoBehaviour
 
     } */
 
-=======
-     // ===================================================================== **
-    // variable systeme de particule
-    // ===================================================================== **
-    public GameObject systemeDeParticules ;
->>>>>>> Stashed changes
     // ===================================================================== **
     // Start is called at the start of the game
     // Initialise les variables.
@@ -262,24 +255,17 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     // Mort du joueur.
     // ===================================================================== **
-    
+
     private void OnCollisionEnter(Collision collision) {
         if(collision.transform.tag == "vide")
         {
-            Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,gameObject.transform.position.z), Quaternion.identity);
-            Invoke("DestroyParticules",5);
+
             Invoke("RespawnPlayer", 5);
            
         }
-
-          if(collision.transform.tag == "trappe"){
-              Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x,gameObject.transform.position.y,gameObject.transform.position.z), Quaternion.identity);
-          }  
+            
     }
 
-    private void DestroyParticules(){
-        Destroy(GameObject.Find("confetti(Clone)"));
-    }
     // ===================================================================== **
     // Réaparition du joueur.
     // ===================================================================== **
@@ -288,10 +274,6 @@ public class PlayerController : MonoBehaviour
     {
         gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
     }
-
-
-
- 
 
 
 

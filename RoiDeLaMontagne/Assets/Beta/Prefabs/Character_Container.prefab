@@ -252,6 +252,7 @@ MonoBehaviour:
   isGrounded: 0
   hipJoint: {fileID: 1704172412385660985}
   gravityController: {fileID: 1704172413634718314}
+  systemeDeParticules: {fileID: 5856242391850329912, guid: 769986774dac8a54ca015ce38e551560, type: 3}
 --- !u!114 &8390518360691189539
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -53,31 +53,37 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     // Initialise/Détecte les Inputs.
     // ===================================================================== **
-/*     private void Awake() 
-    {
-        playerInputActions = new PlayerInputActions();
+    /*     private void Awake() 
+        {
+            playerInputActions = new PlayerInputActions();
 
-        //Pour se déplacer
-        playerInputActions.Player.Movement.performed += SeeMove;
-        playerInputActions.Player.Movement.canceled += SeeMove;
+            //Pour se déplacer
+            playerInputActions.Player.Movement.performed += SeeMove;
+            playerInputActions.Player.Movement.canceled += SeeMove;
 
-        //Pour le saut
-        playerInputActions.Player.Jump.started += SeeJump;
+            //Pour le saut
+            playerInputActions.Player.Jump.started += SeeJump;
 
-        //Pour repousser
-        playerInputActions.Player.Push.started += SeePush;
-        playerInputActions.Player.Push.canceled += SeePush;
+            //Pour repousser
+            playerInputActions.Player.Push.started += SeePush;
+            playerInputActions.Player.Push.canceled += SeePush;
 
-        //Pour attirer
-        playerInputActions.Player.Suck.started += SeeSuck;
-        playerInputActions.Player.Suck.canceled += SeeSuck;
+            //Pour attirer
+            playerInputActions.Player.Suck.started += SeeSuck;
+            playerInputActions.Player.Suck.canceled += SeeSuck;
 
-    } */
+        } */
+
+
+    public GameObject systemeDeParticules;
+
+
 
     // ===================================================================== **
     // Start is called at the start of the game
     // Initialise les variables.
     // ===================================================================== **
+
     void Start()
     {
         hips = GetComponent<Rigidbody>();
@@ -243,27 +249,37 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     // Gère le saut du joueur.
     // ===================================================================== **
-/*     private void Jump()
-    {
-        if (isGrounded)
+    /*     private void Jump()
         {
-            hips.AddForce(new Vector3(0, jumpForce, 0));
-            isGrounded = false;
-        }
-    } */
+            if (isGrounded)
+            {
+                hips.AddForce(new Vector3(0, jumpForce, 0));
+                isGrounded = false;
+            }
+        } */
 
     // ===================================================================== **
     // Mort du joueur.
     // ===================================================================== **
 
-    private void OnCollisionEnter(Collision collision) {
-        if(collision.transform.tag == "vide")
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "vide")
         {
-
+            Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            Invoke("DestroyParticules", 5);
             Invoke("RespawnPlayer", 5);
-           
+
         }
-            
+
+        if (collision.transform.tag == "trappe")
+        {
+            Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+        }
+    }
+    private void DestroyParticules()
+    {
+        Destroy(GameObject.Find("confetti(Clone)"));
     }
 
     // ===================================================================== **

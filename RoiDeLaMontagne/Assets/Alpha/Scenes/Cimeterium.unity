@@ -4953,6 +4953,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4931802108047790843}
     - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: gameIsStarted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
       propertyPath: scoreTemplate
       value: 
       objectReference: {fileID: 805177580}
@@ -6017,7 +6021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1784380265
 RectTransform:
   m_ObjectHideFlags: 0

@@ -44,14 +44,15 @@ public class GameManager : MonoBehaviour
 
     // Score Points --------------------------------------------------------------------------------------------
     public float scoreJoueur1;
-     public float scoreJoueur2;
-      public float scoreJoueur3;
-       public float scoreJoueur4;
-        public float scoreJoueur5;
-         public float scoreJoueur6;
+    public float scoreJoueur2;
+    public float scoreJoueur3;
+    public float scoreJoueur4;
+    public float scoreJoueur5;
+    public float scoreJoueur6;
     public float scoreJoueur7;
     public float scoreJoueur8;
 
+     private GameObject parentScoreSupprimable;
      private GameObject scoreSupprimable;
     public List<GameObject> Players {get; set;}
 
@@ -59,20 +60,22 @@ public class GameManager : MonoBehaviour
 
     private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
     {
-        Transform scoreTransform = Instantiate(scoreTemplate, container);
-        RectTransform scoreRectTransform = scoreTransform.GetComponent<RectTransform>();
-        scoreRectTransform.anchoredPosition = new Vector2(hauteurTemplate * listeDeTransform.Count, 0 );
-        scoreTransform.gameObject.SetActive(true);
+        Transform scoreTransform = Instantiate(scoreTemplate, container); // Crée un clone dans un container
+        RectTransform scoreRectTransform = scoreTransform.GetComponent<RectTransform>(); // Va chercher la position du clone 
+        scoreRectTransform.anchoredPosition = new Vector2(hauteurTemplate * listeDeTransform.Count, 0 );  //Descend le score cloné d'une certaine hauteur
+        scoreTransform.gameObject.SetActive(true); // Active le clone 
 
+
+        // --- Crée les positions --- //
         int rang = listeDeTransform.Count + 1;
-        //Debug.Log(rang);
         string rangString;
         switch (rang)
         {
             default: rangString = rang + "e"; break;
             case 1: rangString = "1er"; break;
-
         }
+
+
         scoreTransform.Find("positionText").GetComponent<Text>().text = rangString;
 
         float scoreText = tableDesScores.scoreUnique;
@@ -83,6 +86,8 @@ public class GameManager : MonoBehaviour
     
 
         listeDeTransform.Add(scoreTransform);
+        
+        
     }
 
     //Repr�sente un seul score et un seul nom
@@ -95,9 +100,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        parentScoreSupprimable = GameObject.Find("joueur_1");
+       
         
-    
-       /////////////////////////////////////////////////////////////////////////////////////Awake en haut
         scene = SceneManager.GetActiveScene().name;
 
         if (scene == "Scene1"){
@@ -131,15 +136,20 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //Test pour l'accueil
-/*         GameObject[] players;
+        /*         GameObject[] players;
 
-        player = GameObject.FindGameObjectsWithTag("Player");
+                player = GameObject.FindGameObjectsWithTag("Player");
 
-        Debug.Log(players); */
+                Debug.Log(players); */
 
-/*         arrayPlayers.Add(GameObject.FindGameObjectsWithTag("Player") as GameObject);
+        /*         arrayPlayers.Add(GameObject.FindGameObjectsWithTag("Player") as GameObject);
 
-        Debug.Log(arrayPlayers.length); */
+                Debug.Log(arrayPlayers.length); */
+
+        scoreSupprimable = parentScoreSupprimable.transform.GetChild(0).gameObject;
+        Invoke("DestroyScore", 1);
+        Debug.Log(scoreJoueur1);
+
         scoreTemplate.gameObject.SetActive(false);
 
         listeDesScores = new List<tableScores>()
@@ -174,11 +184,9 @@ public class GameManager : MonoBehaviour
 
             foreach(tableScores tableDesScores in listeDesScores)
             {
-                AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
-                // scoreSupprimable = gameObject.Find("Test(Clone)");
-                // Destroy(scoreSupprimable);
-            }
-                 
+             AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
+        }
+
         Players.Add(character);
 
 
@@ -187,6 +195,11 @@ public class GameManager : MonoBehaviour
             Decompte();
             Score();
         }
+    }
+
+    void DestroyScore()
+    {
+        Destroy(scoreSupprimable);
     }
 
     public void Decompte()
@@ -225,27 +238,27 @@ public class GameManager : MonoBehaviour
             
             if(interval <= 0){
        
-                interval += 2;
+                interval += 2f;
 
                 if(tempsDejeu >= 10){
-                    scoreJoueur1 += 10f;
-                      scoreJoueur2 += 10f;
-                        scoreJoueur3 += 10f;
-                          scoreJoueur4 += 10f;
-                            scoreJoueur5 += 10f;
-                              scoreJoueur6 += 10f;
-                                scoreJoueur7 += 10f;
-                                  scoreJoueur8 += 10f;
+                scoreJoueur1 += 10f;
+                scoreJoueur2 += 10f;
+                scoreJoueur3 += 10f;
+                scoreJoueur4 += 10f;
+                scoreJoueur5 += 10f;
+                scoreJoueur6 += 10f;
+                scoreJoueur7 += 10f;
+                scoreJoueur8 += 10f;
                                 
                 }else{
-                      scoreJoueur1 += 30f;
-                        scoreJoueur2 += 30f;
-                          scoreJoueur3 += 30f;
-                            scoreJoueur4 += 30f;
-                              scoreJoueur5 += 30f;
-                                scoreJoueur6 += 30f;
-                                  scoreJoueur7 += 30f;
-                                    scoreJoueur8 += 30f;
+                scoreJoueur1 += 30f;
+                scoreJoueur2 += 30f;
+                scoreJoueur3 += 30f;
+                scoreJoueur4 += 30f;
+                scoreJoueur5 += 30f;
+                scoreJoueur6 += 30f;
+                scoreJoueur7 += 30f;
+                scoreJoueur8 += 30f;
                 }
                 
             }

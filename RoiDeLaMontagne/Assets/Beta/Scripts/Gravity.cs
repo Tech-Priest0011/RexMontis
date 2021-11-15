@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class Gravity : MonoBehaviour
 {
@@ -18,8 +20,43 @@ public class Gravity : MonoBehaviour
 
     public bool isTouchingPlayer = false;
 
-    [SerializeField]
-    private GestionPlayerInput gestionPlayerInput; //Script gestionPlayerInput
+    //INPUT_ACTIONS
+
+    //Pour se déplacer
+    private Vector2 move;
+
+    private float moveHorizontal;
+    private float moveVertical;
+
+    private bool isButtonPush;
+    private bool isButtonSuck;
+
+    // ===================================================================== **
+    // Détecte si le joueur pousse.
+    // ===================================================================== **
+    public void SeePush(InputAction.CallbackContext context)
+    {
+        isButtonPush = context.ReadValueAsButton();
+    }
+
+    // ===================================================================== **
+    // Détecte si le joueur attire un autre joueur/objet.
+    // ===================================================================== **
+    public void SeeSuck(InputAction.CallbackContext context)
+    {
+        isButtonSuck = context.ReadValueAsButton();
+    }
+
+    // ===================================================================== **
+    // Détecte l'orientation du joueur.
+    // ===================================================================== **
+    public void SeeMove(InputAction.CallbackContext context)
+    {
+        move = context.ReadValue<Vector2>();
+
+        moveHorizontal = move.x;
+        moveVertical = move.y;
+    }
 
     // ===================================================================== **
     // Update is called once per frame
@@ -29,14 +66,14 @@ public class Gravity : MonoBehaviour
     void FixedUpdate()
     {
         //Détecte si le joueur pousse
-        if (gestionPlayerInput.isPushing) {
+        if (isButtonPush) {
             isPushing = true;
         } else {
             isPushing = false;
         }
 
         //Détecte si le joueur attire
-        if (gestionPlayerInput.isAttracting) {
+        if (isButtonSuck) {
             isAttracting = true;
         } else {
             isAttracting = false;
@@ -54,8 +91,8 @@ public class Gravity : MonoBehaviour
     private void ChangeGravityDirection() {
         int gravityValue = 6;
 
-        float x = gestionPlayerInput.moveHorizontal;
-        float y = gestionPlayerInput.moveVertical;
+        float x = moveHorizontal;
+        float y = moveVertical;
 
         if (y > 0) {
             direction = new Vector3 (0, 0, gravityValue);

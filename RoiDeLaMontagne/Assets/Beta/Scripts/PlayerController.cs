@@ -19,13 +19,9 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody hips; // gameObject Joueur/Character
     public bool isGrounded;
-    
 
     public ConfigurableJoint hipJoint; //La composante ConfigurableJoint du gameObject Joueur/Character.
     public GameObject gravityController; // GameObject GravityController
-
-/*     [SerializeField]
-    private GestionPlayerInput gestionPlayerInput; //Script GestionPlayerInput */
 
     //Attribution d'une couleur aléatoire - début
     private static Color color1;
@@ -33,9 +29,7 @@ public class PlayerController : MonoBehaviour
     private static bool hasColorsAssigned = false;
     private static string lastColor;
 
-    //Variables TEST
-        //Le Input Controller
-/*     private PlayerInputActions playerInputActions; */
+    //INPUT_ACTIONS
 
     //Pour se déplacer
     private Vector2 move;
@@ -43,46 +37,21 @@ public class PlayerController : MonoBehaviour
     private float moveHorizontal;
     private float moveVertical;
 
-/*     //Pour les pouvoirs
-    private bool isPushing;
-    private bool isAttracting; */
-
     //Pour le saut
     private bool jumped = false;
 
-    // ===================================================================== **
-    // Initialise/Détecte les Inputs.
-    // ===================================================================== **
-/*     private void Awake() 
-    {
-        playerInputActions = new PlayerInputActions();
+    public GameObject systemeDeParticules;
 
-        //Pour se déplacer
-        playerInputActions.Player.Movement.performed += SeeMove;
-        playerInputActions.Player.Movement.canceled += SeeMove;
 
-        //Pour le saut
-        playerInputActions.Player.Jump.started += SeeJump;
-
-        //Pour repousser
-        playerInputActions.Player.Push.started += SeePush;
-        playerInputActions.Player.Push.canceled += SeePush;
-
-        //Pour attirer
-        playerInputActions.Player.Suck.started += SeeSuck;
-        playerInputActions.Player.Suck.canceled += SeeSuck;
-
-    } */
 
     // ===================================================================== **
     // Start is called at the start of the game
     // Initialise les variables.
     // ===================================================================== **
+
     void Start()
     {
         hips = GetComponent<Rigidbody>();
-
-        //gestionPlayerInput.jump.AddListener(Jump);//
 
         //Gérer les instances
         if (hasColorsAssigned == false)
@@ -105,37 +74,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-    // TEST Gestion des Inputs
-
-        // ===================================================================== **
-    // Active les actions du joueur.
-    // ===================================================================== **
-/*     private void OnEnable()
-    {
-        playerInputActions.Player.Enable();
-    } */
-
-    // ===================================================================== **
-    // Désactive les actions du joueur.
-    // ===================================================================== **
-/*     private void OnDisable()
-    {
-        playerInputActions.Player.Disable();
-    } */
-
     // ===================================================================== **
     // Fait sauter le joueur dans le script CharacterController.
     // ===================================================================== **
     public void SeeJump(InputAction.CallbackContext context)
     {
-        Debug.Log("touche jump");
-        jumped = true;
-        jumped = context.ReadValueAsButton();
+            if (isGrounded)
+            {
+                hips.AddForce(new Vector3(0, jumpForce, 0));
+                isGrounded = false;
+            }
     }
 
     // ===================================================================== **
-    // Fait bouger le joueur dans le script CharacterController.
+    // Détecte l'orientation du joueur.
     // ===================================================================== **
     public void SeeMove(InputAction.CallbackContext context)
     {
@@ -143,8 +95,6 @@ public class PlayerController : MonoBehaviour
 
         moveHorizontal = move.x;
         moveVertical = move.y;
-
-        Debug.Log("move");
     }
 
 
@@ -172,11 +122,8 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     private void MoveCharacter() {
 
-/*         float x = gestionPlayerInput.moveHorizontal;//
-        float y = gestionPlayerInput.moveVertical;// */
-
-        float x = moveHorizontal;//
-        float y = moveVertical;//
+        float x = moveHorizontal;
+        float y = moveVertical;
 
         Vector3 direction = new Vector3(x, 0, y).normalized;
 
@@ -195,11 +142,8 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     private void RotateCharacter() {
 
-/*         float x = gestionPlayerInput.moveHorizontal;//
-        float y = gestionPlayerInput.moveVertical;// */
-
-        float x = moveHorizontal;//
-        float y = moveVertical;//
+        float x = moveHorizontal;
+        float y = moveVertical;
 
         Vector3 direction = new Vector3(x, 0, y).normalized;
 
@@ -241,29 +185,27 @@ public class PlayerController : MonoBehaviour
     }
 
     // ===================================================================== **
-    // Gère le saut du joueur.
-    // ===================================================================== **
-/*     private void Jump()
-    {
-        if (isGrounded)
-        {
-            hips.AddForce(new Vector3(0, jumpForce, 0));
-            isGrounded = false;
-        }
-    } */
-
-    // ===================================================================== **
     // Mort du joueur.
     // ===================================================================== **
 
-    private void OnCollisionEnter(Collision collision) {
-        if(collision.transform.tag == "vide")
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "vide")
         {
-
+            Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            Invoke("DestroyParticules", 5);
             Invoke("RespawnPlayer", 5);
-           
+
         }
-            
+
+        if (collision.transform.tag == "trappe")
+        {
+            Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+        }
+    }
+    private void DestroyParticules()
+    {
+        Destroy(GameObject.Find("confetti(Clone)"));
     }
 
     // ===================================================================== **

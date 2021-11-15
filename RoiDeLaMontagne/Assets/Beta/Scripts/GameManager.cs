@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem; //
+using UnityEngine.Events; //
 
 
 public class GameManager : MonoBehaviour
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
     private string scene;
     static private string nomDuJoueur;
 
+    private string quelleScene;
+
     [Header("UI Elements")]
 
     public Text champsTemps;
@@ -39,7 +43,7 @@ public class GameManager : MonoBehaviour
     //Variables pour la connexion des joueurs
     public GameObject joueurConnecte;
     public GameObject parentJoueurConnecte;
-    private int nombreJoueur = 0;
+    private int nombreJoueur = -1;
 
     //Test pour l'accueil
     public bool gameIsStarted = false;
@@ -188,11 +192,16 @@ public class GameManager : MonoBehaviour
 
         Players = new List<GameObject>();
 
+      
+
     }
 
     
     void Update()
     {
+        quelleScene = SceneManager.GetActiveScene().name;
+        Debug.Log(quelleScene);
+
 
         scoreTemplate.gameObject.SetActive(false);
         CounterObjects[0].Score.scoreUnique = scoreJoueur1;
@@ -223,6 +232,8 @@ public class GameManager : MonoBehaviour
             Decompte();
             Score();
         }
+
+        
     }
 
   
@@ -322,26 +333,21 @@ public class GameManager : MonoBehaviour
 
     public void connexionJoueur()
     {
+        GameObject joueurDetruit = parentJoueurConnecte.transform.GetChild(0).gameObject;
+        Destroy(joueurDetruit);
         nombreJoueur++;
         joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
         
         Instantiate(joueurConnecte, parentJoueurConnecte.transform); 
-        
-        
-        
-
 
     }
 
-    public void Jouer(){
+    public void Jouer(InputAction.CallbackContext context){
         //SceneManager.LoadScene("Scene1");
         //nomDuJoueur = champsNomEntre.text;
-
-        if (nombreJoueur >= 2)
-        {
-            GameObject.Find("Instructions").SetActive(false);
-        }
-        
+        Debug.Log("start");
+       
+        GameObject.Find("Instructions").SetActive(false);
 
     }
 
@@ -350,6 +356,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Fin");
         tempsFinal = tempsDeDepart - tempsDejeu;
         pointageFinal = champsScore.text;
+        
+    }
+
+    public void Restart(InputAction.CallbackContext context){
+        Debug.Log("Restart");
+        if(quelleScene == "Fin"){
+          SceneManager.LoadScene("Cimeterium");  
+        }
         
     }
 

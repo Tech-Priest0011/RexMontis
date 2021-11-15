@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964128, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1981,6 +1981,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073170865}
   m_CullTransparentMesh: 1
+--- !u!1001 &1074578072
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5317775696323348549, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: champsNom
+      value: 
+      objectReference: {fileID: 1960262001}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1960261999}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: champsScore
+      value: 
+      objectReference: {fileID: 1071081320}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: champsTemps
+      value: 
+      objectReference: {fileID: 1042559936}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: scoreTemplate
+      value: 
+      objectReference: {fileID: 2126047200}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: champsNomEntre
+      value: 
+      objectReference: {fileID: 678905654}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: joueurConnecte
+      value: 
+      objectReference: {fileID: 678905652}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: scoreContainer
+      value: 
+      objectReference: {fileID: 2047062602}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: tableauDesScores
+      value: 
+      objectReference: {fileID: 2672145322673116526}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: parentJoueurConnecte
+      value: 
+      objectReference: {fileID: 2047062601}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 563.28613
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 309.2012
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -32.92242
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
 --- !u!1 &1089603290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,6 +2161,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089603290}
   m_CullTransparentMesh: 1
+--- !u!1 &1117465476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5317775696323348549, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+  m_PrefabInstance: {fileID: 1074578072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1117465477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117465476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde57ba7d806c394fa7ce254dd2e94da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1117465478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117465476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 96d9eb2d6845d974793843abb3c0d642, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c71e8c7c-c883-4a70-92be-5f689cfe1671
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/dpad,/XInputControllerWindows/dpad]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 521dcdb0-3a7d-49cd-b193-be428827462b
+    m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 27b4eca7-fe91-4229-9e70-1836161938a8
+    m_ActionName: Player/Suck[/Keyboard/b,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7319d413-6e59-47ac-929e-6d2697dc993c
+    m_ActionName: Player/Push[/Keyboard/v,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aba27bc7-4ed4-4954-bcc5-4f88fd231ce2
+    m_ActionName: StartGame/Start[/Keyboard/f1,/XInputControllerWindows/buttonNorth,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1117465477}
+        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4a8052fd-7b90-45b6-800b-fc54809b0844
+    m_ActionName: StartGame/Restart[/XInputControllerWindows/buttonNorth,/XInputControllerWindows/buttonNorth,/Keyboard/f1]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Gamepad
+  m_DefaultActionMap: d650624c-ce84-41c7-848d-3b8b25a67519
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1124104041
 GameObject:
   m_ObjectHideFlags: 0

@@ -197,6 +197,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""4a8052fd-7b90-45b6-800b-fc54809b0844"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -214,11 +222,33 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a8295f05-b6db-4bb0-9d6e-de8b092af7cd"",
-                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13b5db0a-71ac-457b-9b66-bd99e7d76adb"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f65642f-d231-495a-9ef1-2eeaa622f752"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -259,6 +289,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         // StartGame
         m_StartGame = asset.FindActionMap("StartGame", throwIfNotFound: true);
         m_StartGame_Start = m_StartGame.FindAction("Start", throwIfNotFound: true);
+        m_StartGame_Restart = m_StartGame.FindAction("Restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -366,11 +397,13 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_StartGame;
     private IStartGameActions m_StartGameActionsCallbackInterface;
     private readonly InputAction m_StartGame_Start;
+    private readonly InputAction m_StartGame_Restart;
     public struct StartGameActions
     {
         private @PlayerInputActions m_Wrapper;
         public StartGameActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Start => m_Wrapper.m_StartGame_Start;
+        public InputAction @Restart => m_Wrapper.m_StartGame_Restart;
         public InputActionMap Get() { return m_Wrapper.m_StartGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -383,6 +416,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Start.started -= m_Wrapper.m_StartGameActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_StartGameActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_StartGameActionsCallbackInterface.OnStart;
+                @Restart.started -= m_Wrapper.m_StartGameActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_StartGameActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_StartGameActionsCallbackInterface.OnRestart;
             }
             m_Wrapper.m_StartGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -390,6 +426,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
             }
         }
     }
@@ -422,5 +461,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     public interface IStartGameActions
     {
         void OnStart(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }

@@ -65,14 +65,14 @@ public class GameManager : MonoBehaviour
         public Transform scoreTransform;
         public tableScores Score;
     }
-    public float scoreBonus1 = 10f;
-        public float scoreBonus2 = 10f;
-            public float scoreBonus3 = 10f;
-                public float scoreBonus4 = 10f;
-                    public float scoreBonus5 = 10f;
-                        public float scoreBonus6 = 10f;
-                            public float scoreBonus7 = 10f;
-                                public float scoreBonus8 = 10f;
+    public float scoreBonus1 = 11f;
+    public float scoreBonus2 = 11f;
+    public float scoreBonus3 = 12f;
+    public float scoreBonus4 = 13f;
+    public float scoreBonus5 = 14f;
+    public float scoreBonus6 = 15f;
+    public float scoreBonus7 = 16f;
+    public float scoreBonus8 = 17f;
 
     private GameObject parentScoreSupprimable;
     private GameObject scoreSupprimable;
@@ -142,20 +142,7 @@ public class GameManager : MonoBehaviour
         };
  
 
-        //Met les scores dans le bon ordre
-        for (int i = 0; i < listeDesScores.Count; i++)
-        {
-            for (int j = i + 1; j < listeDesScores.Count; j++)
-            {
-                if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
-                {
-                    //Interchange les positions
-                    tableScores temporaire = listeDesScores[i];
-                    listeDesScores[i] = listeDesScores[j];
-                    listeDesScores[j] = temporaire;
-                }
-            }
-        }
+        
         listeDesTransformDesScores = new List<Transform>();
 
             foreach(tableScores tableDesScores in listeDesScores)
@@ -223,6 +210,21 @@ public class GameManager : MonoBehaviour
         data.scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
        }
 
+       //Met les scores dans le bon ordre
+        for (int i = 0; i < listeDesScores.Count; i++)
+        {
+            for (int j = i + 1; j < listeDesScores.Count; j++)
+            {
+                if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
+                {
+                    //Interchange les positions
+                    tableScores temporaire = listeDesScores[i];
+                    listeDesScores[i] = listeDesScores[j];
+                    listeDesScores[j] = temporaire;
+                }
+            }
+        }
+
 
         
 
@@ -288,7 +290,7 @@ public class GameManager : MonoBehaviour
                 scoreJoueur8 += scoreBonus8;
                                 
                 }else{
-                scoreJoueur1 += scoreBonus1 + 30f;
+                scoreJoueur1 += scoreBonus1 + 11f;
                 scoreJoueur2 += scoreBonus2 + 30f;
                 scoreJoueur3 += scoreBonus3 + 30f;
                 scoreJoueur4 += scoreBonus4 + 30f;

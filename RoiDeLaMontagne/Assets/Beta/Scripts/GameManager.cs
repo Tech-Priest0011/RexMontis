@@ -278,7 +278,7 @@ public class GameManager : MonoBehaviour
        
                 interval += 2f;
 
-                if(tempsDejeu >= 10){
+                if(tempsDejeu >= 30){
                 scoreJoueur1 += scoreBonus1;
                 scoreJoueur2 += scoreBonus2;
                 scoreJoueur3 += scoreBonus3;
@@ -289,14 +289,14 @@ public class GameManager : MonoBehaviour
                 scoreJoueur8 += scoreBonus8;
                                 
                 }else{
-                scoreJoueur1 += 30f;
-                scoreJoueur2 += 30f;
-                scoreJoueur3 += 30f;
-                scoreJoueur4 += 30f;
-                scoreJoueur5 += 30f;
-                scoreJoueur6 += 30f;
-                scoreJoueur7 += 30f;
-                scoreJoueur8 += 30f;
+                scoreJoueur1 += scoreBonus1 + 30f;
+                scoreJoueur2 += scoreBonus2 + 30f;
+                scoreJoueur3 += scoreBonus3 + 30f;
+                scoreJoueur4 += scoreBonus4 + 30f;
+                scoreJoueur5 += scoreBonus5 + 30f;
+                scoreJoueur6 += scoreBonus6 + 30f;
+                scoreJoueur7 += scoreBonus7 + 30f;
+                scoreJoueur8 += scoreBonus8 + 30f;
                 }
                 
             }

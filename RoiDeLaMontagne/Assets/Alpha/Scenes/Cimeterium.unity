@@ -53116,7 +53116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 4931802108047790843}
-  Durer: 300
+  Durer: 180
 --- !u!224 &4931802108047790842
 RectTransform:
   m_ObjectHideFlags: 0

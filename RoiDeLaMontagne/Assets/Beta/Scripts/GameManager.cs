@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     //Variables pour la connexion des joueurs
     public GameObject joueurConnecte;
     public GameObject parentJoueurConnecte;
-    private int nombreJoueur = -1;
+    private int nombreJoueur = 0;
 
     //Test pour l'accueil
     public bool gameIsStarted = false;

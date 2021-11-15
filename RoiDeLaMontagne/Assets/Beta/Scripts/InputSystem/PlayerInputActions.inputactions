@@ -151,6 +151,17 @@
                 },
                 {
                     "name": "",
+                    "id": "60d8c2df-bbf7-4e9a-960b-f51b6b963471",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Suck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2e76b792-2fb3-44a9-8a47-c502c9ad4a21",
                     "path": "<Keyboard>/v",
                     "interactions": "",
@@ -164,6 +175,17 @@
                     "name": "",
                     "id": "42298318-4daf-4113-b73b-9a80ac5a40ad",
                     "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Push",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6a71f548-9ef2-4e67-a65f-b1d019a56623",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

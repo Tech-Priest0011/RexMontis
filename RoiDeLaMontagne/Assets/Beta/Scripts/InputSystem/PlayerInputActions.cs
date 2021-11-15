@@ -185,6 +185,44 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""StartGame"",
+            ""id"": ""d650624c-ce84-41c7-848d-3b8b25a67519"",
+            ""actions"": [
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""aba27bc7-4ed4-4954-bcc5-4f88fd231ce2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7bb09e15-246b-44b5-87d1-c49fcf3bf734"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8295f05-b6db-4bb0-9d6e-de8b092af7cd"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -218,6 +256,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Suck = m_Player.FindAction("Suck", throwIfNotFound: true);
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
+        // StartGame
+        m_StartGame = asset.FindActionMap("StartGame", throwIfNotFound: true);
+        m_StartGame_Start = m_StartGame.FindAction("Start", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -320,6 +361,39 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // StartGame
+    private readonly InputActionMap m_StartGame;
+    private IStartGameActions m_StartGameActionsCallbackInterface;
+    private readonly InputAction m_StartGame_Start;
+    public struct StartGameActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public StartGameActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Start => m_Wrapper.m_StartGame_Start;
+        public InputActionMap Get() { return m_Wrapper.m_StartGame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StartGameActions set) { return set.Get(); }
+        public void SetCallbacks(IStartGameActions instance)
+        {
+            if (m_Wrapper.m_StartGameActionsCallbackInterface != null)
+            {
+                @Start.started -= m_Wrapper.m_StartGameActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_StartGameActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_StartGameActionsCallbackInterface.OnStart;
+            }
+            m_Wrapper.m_StartGameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
+            }
+        }
+    }
+    public StartGameActions @StartGame => new StartGameActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -344,5 +418,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnSuck(InputAction.CallbackContext context);
         void OnPush(InputAction.CallbackContext context);
+    }
+    public interface IStartGameActions
+    {
+        void OnStart(InputAction.CallbackContext context);
     }
 }

@@ -5,14 +5,17 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Alpha/Scenes/Acceuil.unity
-    guid: e374f5088be98e1428a57659262344c9
-  - enabled: 1
-    path: Assets/Alpha/Scenes/Login.unity
-    guid: 701c6baa0cf87bf418942b7908b6e163
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Beta/Scenes/Cimeterium.unity
     guid: 6f92c58c3d1f930438a1dd3e3cd34431
+  - enabled: 1
+    path: Assets/Beta/Scenes/Fin.unity
+    guid: 4792dc4dbae5f1d4b908f5dd7307115f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 51c22b390f6145f49a9f23d98ee90308, type: 2}

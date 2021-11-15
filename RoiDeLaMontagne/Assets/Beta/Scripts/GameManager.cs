@@ -36,8 +36,13 @@ public class GameManager : MonoBehaviour
     public Transform scoreContainer;
     public Transform scoreTemplate;
 
-     //Test pour l'accueil
-     public bool gameIsStarted = false;
+    //Variables pour la connexion des joueurs
+    public GameObject joueurConnecte;
+    public GameObject parentJoueurConnecte;
+    private int nombreJoueur = 0;
+
+    //Test pour l'accueil
+    public bool gameIsStarted = false;
 
 /*      public List<playersList> playersList; */
  /*    private GameObject[] arrayPlayers; */
@@ -188,19 +193,6 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        //Test pour l'accueil
-        /*         GameObject[] players;
-
-                player = GameObject.FindGameObjectsWithTag("Player");
-
-                Debug.Log(players); */
-
-        /*         arrayPlayers.Add(GameObject.FindGameObjectsWithTag("Player") as GameObject);
-
-                Debug.Log(arrayPlayers.length); */
-
-        // scoreSupprimable = parentScoreSupprimable.transform.GetChild(0).gameObject;
-        Debug.Log(scoreJoueur1);
 
         scoreTemplate.gameObject.SetActive(false);
         CounterObjects[0].Score.scoreUnique = scoreJoueur1;
@@ -223,8 +215,7 @@ public class GameManager : MonoBehaviour
        }
 
 
-        //
-        Players.Add(character);
+        
 
 
 
@@ -234,10 +225,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // void DestroyScore()
-    // {
-    //     Destroy(scoreSupprimable);
-    // }
+  
 
     public void Decompte()
     {   
@@ -332,9 +320,28 @@ public class GameManager : MonoBehaviour
         } 
     }
 
+    public void connexionJoueur()
+    {
+        nombreJoueur++;
+        joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
+        
+        Instantiate(joueurConnecte, parentJoueurConnecte.transform); 
+        
+        
+        
+
+
+    }
+
     public void Jouer(){
-        SceneManager.LoadScene("Scene1");
-        nomDuJoueur = champsNomEntre.text;
+        //SceneManager.LoadScene("Scene1");
+        //nomDuJoueur = champsNomEntre.text;
+
+        if (nombreJoueur >= 2)
+        {
+            GameObject.Find("Instructions").SetActive(false);
+        }
+        
 
     }
 

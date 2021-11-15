@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CountDown : MonoBehaviour 
 {
@@ -46,5 +47,6 @@ public class CountDown : MonoBehaviour
     {
         //End Time , if want Do something
         print("End");
+        SceneManager.LoadScene("Fin");
     }
 }

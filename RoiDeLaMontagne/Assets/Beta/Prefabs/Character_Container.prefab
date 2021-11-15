@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 1704172412385660983}
   - component: {fileID: 1704172412385660987}
   - component: {fileID: 1704172412385660985}
-  - component: {fileID: 8390518360691189551}
   - component: {fileID: 8390518360691189538}
   - component: {fileID: 8390518360691189539}
-  - component: {fileID: 8390518360691189540}
   - component: {fileID: 8390518360691189560}
+  - component: {fileID: 3343862426718469573}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -216,23 +215,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &8390518360691189551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704172412385660976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79bf58b0274d1684199aa1b9af7980c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inGravityZone: 0
-  gravityZone: {fileID: 0}
-  inThrowZone: 0
-  throwZone: {fileID: 0}
-  throwingStrength: 10
 --- !u!114 &8390518360691189538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,26 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
---- !u!114 &8390518360691189540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704172412385660976}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3005ddf27a8eb3c4a89e71c9954f7983, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: {x: 0, y: 0}
-  moveHorizontal: 0
-  moveVertical: 0
-  isPushing: 0
-  isAttracting: 0
-  jump:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8390518360691189560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,9 +287,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8390518360691189538}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: SeeJump
+      - m_Target: {fileID: 8390518362404559941}
+        m_TargetAssemblyTypeName: Gravity, Assembly-CSharp
+        m_MethodName: SeeMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -340,15 +302,51 @@ MonoBehaviour:
     m_ActionId: c71e8c7c-c883-4a70-92be-5f689cfe1671
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8390518360691189538}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SeeJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 521dcdb0-3a7d-49cd-b193-be428827462b
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8390518362404559941}
+        m_TargetAssemblyTypeName: Gravity, Assembly-CSharp
+        m_MethodName: SeeSuck
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 27b4eca7-fe91-4229-9e70-1836161938a8
     m_ActionName: Player/Suck[/Keyboard/shift]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8390518362404559941}
+        m_TargetAssemblyTypeName: Gravity, Assembly-CSharp
+        m_MethodName: SeePush
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7319d413-6e59-47ac-929e-6d2697dc993c
     m_ActionName: Player/Push[/Keyboard/v]
   m_NeverAutoSwitchControlSchemes: 1
@@ -356,6 +354,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3343862426718469573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704172412385660976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3228233759bbaeb4eab2d24d478daa8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGravityZone: 0
+  gravityZone: {fileID: 0}
+  inThrowZone: 0
+  throwZone: {fileID: 0}
+  throwingStrength: 20
 --- !u!1 &1704172412745687978
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,9 +504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c05c91c2d81a5c41b3f65d77678d348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 25
+  strength: 8
   direction: {x: 0, y: 0, z: 0}
   isPushing: 0
   isAttracting: 0
   isTouchingPlayer: 0
-  gestionPlayerInput: {fileID: 8390518360691189540}

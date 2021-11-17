@@ -46,8 +46,8 @@ public class CubeController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
     }
 
-    public void OnMove(Vector2 value) {
-        movementInput = value * playerSpeed * Time.deltaTime;
+    public void OnMove(InputAction.CallbackContext context) {
+        movementInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context){

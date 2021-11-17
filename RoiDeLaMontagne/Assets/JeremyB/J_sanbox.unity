@@ -770,6 +770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726668063}
   - component: {fileID: 1726668062}
+  - component: {fileID: 1726668064}
   m_Layer: 0
   m_Name: PlayerManagment
   m_TagString: Untagged
@@ -789,15 +790,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_MaxPlayerCount: 8
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharacterSwitcher, Assembly-CSharp
+      - m_Target: {fileID: 1726668064}
+        m_TargetAssemblyTypeName: CacSwitch, Assembly-CSharp
         m_MethodName: SwitchNextSpawnCharacter
         m_Mode: 0
         m_Arguments:
@@ -854,6 +855,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726668064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726668061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9487fa770d0aef54088a98016bdc144b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighters:
+  - {fileID: 3576492943149259513, guid: efd1ab4419eb8284d97c3d74c74406f4, type: 3}
+  - {fileID: 3576492943149259513, guid: 1959eee46122052478a6ff3be98f23d5, type: 3}
+  - {fileID: 3576492943149259513, guid: cec0f126e9bbfeb40935eaef82307eee, type: 3}
+  - {fileID: 3576492943149259513, guid: 7eea38513abeb3e4bbb10d0924140e01, type: 3}
 --- !u!1 &1754280497
 GameObject:
   m_ObjectHideFlags: 0

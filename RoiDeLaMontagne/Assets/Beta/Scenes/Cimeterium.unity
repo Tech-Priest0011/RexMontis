@@ -2728,7 +2728,7 @@ MonoBehaviour:
   m_NotificationBehavior: 2
   m_MaxPlayerCount: 8
   m_AllowJoining: 1
-  m_JoinBehavior: 1
+  m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3381,9 +3381,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4931802108532964014}
     - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: fighters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
       propertyPath: parentJoueurConnecte
       value: 
       objectReference: {fileID: 1301151652916209254}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: fighters.Array.data[0]
+      value: 
+      objectReference: {fileID: 1704172413403271895, guid: 86d79b9db1bc39c4d9594b414c914225, type: 3}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: fighters.Array.data[1]
+      value: 
+      objectReference: {fileID: 1704172413403271895, guid: 5de1081ea1034ed44a4e0150f192caca, type: 3}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: fighters.Array.data[2]
+      value: 
+      objectReference: {fileID: 1704172413403271895, guid: 8bdc300e4e7c467488dd058d8f9ed2bd, type: 3}
+    - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+      propertyPath: fighters.Array.data[3]
+      value: 
+      objectReference: {fileID: 1704172413403271895, guid: 41c253f2d9f961446812bb170bb6a0bf, type: 3}
     - target: {fileID: 5317775696323348555, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
       propertyPath: m_RootOrder
       value: 14

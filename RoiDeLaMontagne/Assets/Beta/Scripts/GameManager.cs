@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem; //
-using UnityEngine.Events; //
-
+using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -78,8 +77,6 @@ public class GameManager : MonoBehaviour
     private GameObject scoreSupprimable;
     public List<GameObject> Players {get; set;}
 
-
-
     private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
     {
         Transform scoreTransform = Instantiate(scoreTemplate, container); // Crée un clone dans un container
@@ -91,8 +88,6 @@ public class GameManager : MonoBehaviour
         data.Score = tableDesScores;
         CounterObjects.Add(data);
         
-
-
         // --- Crée les positions --- //
         int rang = listeDeTransform.Count + 1;
         string rangString;
@@ -102,7 +97,6 @@ public class GameManager : MonoBehaviour
             case 1: rangString = "1er"; break;
         }
 
-
         scoreTransform.Find("positionText").GetComponent<Text>().text = rangString;
 
         float scoreText = tableDesScores.scoreUnique;
@@ -111,9 +105,7 @@ public class GameManager : MonoBehaviour
         string nomsText = tableDesScores.nomUnique;
         scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
     
-
         listeDeTransform.Add(scoreTransform);
-        
         
     }
 
@@ -150,8 +142,6 @@ public class GameManager : MonoBehaviour
              AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
             }
   
-       
-        
         scene = SceneManager.GetActiveScene().name;
 
         if (scene == "Scene1"){
@@ -175,11 +165,9 @@ public class GameManager : MonoBehaviour
         }
 
         //Test pour l'accueil
-/*         playersList = new List<playersList>(); */
+        //playersList = new List<playersList>();
 
         Players = new List<GameObject>();
-
-      
 
     }
 
@@ -188,7 +176,6 @@ public class GameManager : MonoBehaviour
     {
         quelleScene = SceneManager.GetActiveScene().name;
         Debug.Log(quelleScene);
-
 
         scoreTemplate.gameObject.SetActive(false);
         CounterObjects[0].Score.scoreUnique = scoreJoueur1;
@@ -224,21 +211,12 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
-
-        
-
-
-
         if (gameIsStarted) {
             Decompte();
             Score();
         }
-
         
     }
-
-  
 
     public void Decompte()
     {   
@@ -265,7 +243,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-  
     public void Score()
     {
         if(scene != "Intro" && scene != "Fin")
@@ -302,8 +279,6 @@ public class GameManager : MonoBehaviour
                 
             }
 
-           
-
             if(score >= 1000)
             {
                 champsScore.text = "Score : " + score;
@@ -335,8 +310,8 @@ public class GameManager : MonoBehaviour
 
     public void connexionJoueur()
     {
-        GameObject joueurDetruit = parentJoueurConnecte.transform.GetChild(0).gameObject;
-        Destroy(joueurDetruit);
+        //GameObject joueurDetruit = parentJoueurConnecte.transform.GetChild(0).gameObject;
+        //Destroy(joueurDetruit);
         nombreJoueur++;
         joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
         
@@ -364,54 +339,9 @@ public class GameManager : MonoBehaviour
     public void Restart(InputAction.CallbackContext context){
         Debug.Log("Restart");
         if(quelleScene == "Fin"){
-          SceneManager.LoadScene("Cimeterium");  
+          SceneManager.LoadScene("Cimeterium");
         }
         
     }
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

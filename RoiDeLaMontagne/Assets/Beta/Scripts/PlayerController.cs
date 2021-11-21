@@ -207,6 +207,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        id = GameManager.playerList[transform.root.gameObject];
+        
+          if (collision.gameObject.tag == "Niveau5")
+           {         
+            scoreManager.setBonusScore(100,id);
+           }
+           if (collision.gameObject.tag == "Niveau4")
+           {
+            scoreManager.setBonusScore(70,id);
+           }
+        ////
         if (collision.transform.tag == "vide")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
@@ -251,19 +262,7 @@ public class PlayerController : MonoBehaviour
         isDead = false;
     }
 
-    void OnTriggerEnter (Collider collider){
-         id = GameManager.playerList[transform.root.gameObject];
-        
-          if (collider.gameObject.tag == "Niveau5")
-           {         
-            scoreManager.setBonusScore(100,id);
-           }
-           if (collider.gameObject.tag == "Niveau4")
-           {
-            scoreManager.setBonusScore(70,id);
-           }
-        }
-        
+
     void OnTriggerExit(Collider collider){
         id = GameManager.playerList[transform.root.gameObject];
          if (collider.gameObject.tag == "Niveau5")

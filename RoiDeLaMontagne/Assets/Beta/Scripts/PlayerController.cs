@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
     // Mort du joueur.
     // ===================================================================== **
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.tag == "vide")
         {
@@ -203,6 +203,8 @@ public class PlayerController : MonoBehaviour
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
         }
     }
+
+   
     private void DestroyParticules()
     {
         Destroy(GameObject.Find("confetti(Clone)"));

@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour
     public float scoreJoueur8 = 0; 
     public List<tableData> CounterObjects = new List<tableData>();
     public struct tableData{
-        public Transform scoreTransform;
-        public tableScores Score;
+    public Transform scoreTransform;
+    public tableScores Score;
     }
     public float scoreBonus1 = 11f;
     public float scoreBonus2 = 11f;
@@ -328,7 +328,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void Jouer(InputAction.CallbackContext context){
-        Debug.Log("start fucking game");
 
         if (nombreJoueur >= 2) {
             gameIsStarted = true;

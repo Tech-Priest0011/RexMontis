@@ -76,6 +76,19 @@ public class GameManager : MonoBehaviour
     private GameObject parentScoreSupprimable;
     private GameObject scoreSupprimable;
     public List<GameObject> Players {get; set;}
+    public static int playerID = 0;
+    public static Dictionary<GameObject,int> playerList = new Dictionary<GameObject,int>();
+
+    public void setBonusScore(float score, int index){
+        listeDesScores[index].bonusScore = score;
+        Debug.Log(listeDesScores[index].bonusScore);
+    }
+
+    public static void addPlayerID(GameObject obj)
+    {
+        playerList.Add(obj,playerID);
+        playerID++;
+    }
 
     private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
     {
@@ -114,6 +127,8 @@ public class GameManager : MonoBehaviour
     {
         public float scoreUnique;
         public string nomUnique;
+        public float bonusScore = 10;
+        
 
     }
 
@@ -125,7 +140,7 @@ public class GameManager : MonoBehaviour
 
             listeDesScores = new List<tableScores>()
         {
-            
+             
             new tableScores { scoreUnique = scoreJoueur1, nomUnique = "Max" },
             new tableScores { scoreUnique = scoreJoueur2, nomUnique = "Caro" },
             new tableScores { scoreUnique = scoreJoueur3, nomUnique = "Gab" },
@@ -265,24 +280,24 @@ public class GameManager : MonoBehaviour
                 interval += 2f;
 
                 if(tempsDejeu >= 30){
-                scoreJoueur1 += scoreBonus1;
-                scoreJoueur2 += scoreBonus2;
-                scoreJoueur3 += scoreBonus3;
-                scoreJoueur4 += scoreBonus4;
-                scoreJoueur5 += scoreBonus5;
-                scoreJoueur6 += scoreBonus6;
-                scoreJoueur7 += scoreBonus7;
-                scoreJoueur8 += scoreBonus8;
+                scoreJoueur1 += listeDesScores[0].bonusScore;
+                scoreJoueur2 += listeDesScores[1].bonusScore;
+                scoreJoueur3 += listeDesScores[2].bonusScore;
+                scoreJoueur4 += listeDesScores[3].bonusScore;
+                scoreJoueur5 += listeDesScores[4].bonusScore;
+                scoreJoueur6 += listeDesScores[5].bonusScore;
+                scoreJoueur7 += listeDesScores[6].bonusScore;
+                scoreJoueur8 += listeDesScores[7].bonusScore;
                                 
                 }else{
-                scoreJoueur1 += scoreBonus1 + 11f;
-                scoreJoueur2 += scoreBonus2 + 30f;
-                scoreJoueur3 += scoreBonus3 + 30f;
-                scoreJoueur4 += scoreBonus4 + 30f;
-                scoreJoueur5 += scoreBonus5 + 30f;
-                scoreJoueur6 += scoreBonus6 + 30f;
-                scoreJoueur7 += scoreBonus7 + 30f;
-                scoreJoueur8 += scoreBonus8 + 30f;
+                scoreJoueur1 += listeDesScores[0].bonusScore + 11f;
+                scoreJoueur2 += listeDesScores[1].bonusScore + 30f;
+                scoreJoueur3 += listeDesScores[2].bonusScore + 30f;
+                scoreJoueur4 += listeDesScores[3].bonusScore + 30f;
+                scoreJoueur5 += listeDesScores[4].bonusScore + 30f;
+                scoreJoueur6 += listeDesScores[5].bonusScore + 30f;
+                scoreJoueur7 += listeDesScores[6].bonusScore + 30f;
+                scoreJoueur8 += listeDesScores[7].bonusScore + 30f;
                 }
                 
             }

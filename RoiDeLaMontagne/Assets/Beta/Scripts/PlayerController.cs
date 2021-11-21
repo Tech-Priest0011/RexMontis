@@ -42,6 +42,12 @@ public class PlayerController : MonoBehaviour
 
     public GameObject systemeDeParticules;
 
+    //Pour le score
+    private GameManager scoreManager;
+    private float areaPoints = 10;
+    private float defaultPoints = 10;
+    private int id;
+
 
 
     // ===================================================================== **
@@ -71,7 +77,7 @@ public class PlayerController : MonoBehaviour
              lastColor = "color1";
          }
 
-
+         scoreManager = FindObjectOfType <GameManager>();
     }
 
     // ===================================================================== **
@@ -217,7 +223,34 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
     }
 
-
+    void OnTriggerEnter (Collider collider){
+         id = GameManager.playerList[transform.root.gameObject];
+        
+          if (collider.gameObject.tag == "Niveau5")
+           {         
+            scoreManager.setBonusScore(100,id);
+           }
+           if (collider.gameObject.tag == "Niveau4")
+           {
+            scoreManager.setBonusScore(70,id);
+           }
+        }
+        
+    void OnTriggerExit(Collider collider){
+        id = GameManager.playerList[transform.root.gameObject];
+         if (collider.gameObject.tag == "Niveau5")
+            {
+                  scoreManager.setBonusScore(defaultPoints,id);
+                // scoreManager.scoreBonus1 = defaultPoints;
+                // scoreManager.scoreBonus2 = defaultPoints;
+                // scoreManager.scoreBonus3 = defaultPoints;
+                // scoreManager.scoreBonus4 = defaultPoints;
+                // scoreManager.scoreBonus5 = defaultPoints;
+                // scoreManager.scoreBonus6 = defaultPoints;
+                // scoreManager.scoreBonus7 = defaultPoints;
+                // scoreManager.scoreBonus8 = defaultPoints;
+            }
+        }
 
 
 

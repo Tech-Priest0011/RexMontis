@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     private int nombreJoueur = 0;
 
     //Test pour l'accueil
-    public bool gameIsStarted = false;
+    public bool gameIsStarted;
 
 /*      public List<playersList> playersList; */
  /*    private GameObject[] arrayPlayers; */
@@ -119,6 +119,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //
+        gameIsStarted = false;
+
+
             listeDesScores = new List<tableScores>()
         {
             
@@ -174,8 +178,9 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(nombreJoueur);
+
         quelleScene = SceneManager.GetActiveScene().name;
-        Debug.Log(quelleScene);
 
         scoreTemplate.gameObject.SetActive(false);
         CounterObjects[0].Score.scoreUnique = scoreJoueur1;
@@ -211,6 +216,8 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        //Test début du jeu
         if (gameIsStarted) {
             Decompte();
             Score();
@@ -220,7 +227,9 @@ public class GameManager : MonoBehaviour
 
     public void Decompte()
     {   
-        if(scene != "Intro" && scene != "Fin")
+        Debug.Log("decompte is active");
+
+        if(scene != "Fin")
         {
             // if (tempsDejeu <= 99f && tempsDejeu > 9f)
             // {
@@ -245,12 +254,11 @@ public class GameManager : MonoBehaviour
 
     public void Score()
     {
-        if(scene != "Intro" && scene != "Fin")
+        Debug.Log("score is active");
+
+        if(scene != "Fin")
         {
-            //score = character.GetComponent<Character>().scorePerso;
             interval -= 1 * Time.deltaTime;
-           
-            // Debug.Log(scoreJoueur2);
             
             if(interval <= 0){
        
@@ -320,11 +328,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void Jouer(InputAction.CallbackContext context){
-        //SceneManager.LoadScene("Scene1");
-        //nomDuJoueur = champsNomEntre.text;
-        Debug.Log("start");
-       
-        GameObject.Find("Instructions").SetActive(false);
+        Debug.Log("start fucking game");
+
+        if (nombreJoueur >= 2) {
+            gameIsStarted = true;
+            GameObject.Find("Instructions").SetActive(false);
+        }
 
     }
 
@@ -333,13 +342,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Fin");
         tempsFinal = tempsDeDepart - tempsDejeu;
         pointageFinal = champsScore.text;
+        gameIsStarted = false;
         
     }
 
     public void Restart(InputAction.CallbackContext context){
-        Debug.Log("Restart");
+
         if(quelleScene == "Fin"){
-          SceneManager.LoadScene("Cimeterium");
+            SceneManager.LoadScene("Cimeterium");
         }
         
     }

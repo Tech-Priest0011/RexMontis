@@ -10,6 +10,9 @@ public class CountDown : MonoBehaviour
     
     [SerializeField] public Text uiText;
 
+    public GameObject gameManager;
+    private bool timerStarted;
+
     public int Durer;
 
     private int tempsRestant;
@@ -18,13 +21,25 @@ public class CountDown : MonoBehaviour
 
     private void Start()
     {
-        Being(Durer);
+        timerStarted = false;
+    }
+
+    private void Update() {
+        if (gameManager.GetComponent<GameManager>().gameIsStarted && !timerStarted) { 
+            Being(Durer);
+            timerStarted = true;
+        }
     }
 
     private void Being(int Second)
     {
-        tempsRestant = Second;
-        StartCoroutine(UpdateTemps());
+        Debug.Log(gameManager.GetComponent<GameManager>().gameIsStarted);
+        
+        
+            tempsRestant = Second;
+            StartCoroutine(UpdateTemps());  
+        
+
     }
 
     private IEnumerator UpdateTemps()

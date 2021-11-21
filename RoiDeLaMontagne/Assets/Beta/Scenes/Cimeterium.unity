@@ -19295,6 +19295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 4931802108047790843}
+  gameManager: {fileID: 804273699}
   Durer: 120
 --- !u!224 &4931802108047790842
 RectTransform:

@@ -4,18 +4,22 @@ using UnityEngine;
 using UnityEngine.InputSystem; //
 using UnityEngine.Events; //
 
+// ===================================================================== **
+    // Ce script est à mettre sur le gameObject Joueur/Character.
+    // Il permet au joueur de: 
+    //      - se déplacer
+    //      - rotationner
+    //      - mourir
+    //      - réaparaître
+    // ===================================================================== **
+
 
 public class PlayerController : MonoBehaviour
 {
-    // ===================================================================== **
-    // Ce script est à mettre sur le gameObject Joueur/Character.
-    // Il permet au joueur de se déplacer.
-    // ===================================================================== **
+    
 
 
-    public float speed;
-    public float strafeSpeed;
-    public float jumpForce;
+    
 
     public Rigidbody hips; // gameObject Joueur/Character
     public bool isGrounded;
@@ -29,18 +33,23 @@ public class PlayerController : MonoBehaviour
     private static bool hasColorsAssigned = false;
     private static string lastColor;
 
-    //INPUT_ACTIONS
-
     //Pour se déplacer
     private Vector2 move;
+    public float speed;
+    public float strafeSpeed;
+    
 
     private float moveHorizontal;
     private float moveVertical;
 
     //Pour le saut
     private bool jumped = false;
+    public float jumpForce;
 
+
+    //Pour la mort
     public GameObject systemeDeParticules;
+    private bool isDead = false;
 
     //Pour le score
     private GameManager scoreManager;
@@ -120,7 +129,9 @@ public class PlayerController : MonoBehaviour
 
         MoveCharacter();
         RotateCharacter();
-        
+        VerifieMort();
+
+
     }
 
     // ===================================================================== **
@@ -194,21 +205,37 @@ public class PlayerController : MonoBehaviour
     // Mort du joueur.
     // ===================================================================== **
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.tag == "vide")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             Invoke("DestroyParticules", 5);
             Invoke("RespawnPlayer", 5);
-
+            isDead = true;
         }
 
         if (collision.transform.tag == "trappe")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            isDead = true;
         }
     }
+
+    private void VerifieMort()
+    {
+        if(isDead == true)
+        {
+            gameObject.SetActive(false);
+            
+
+        }
+    }
+
+
+    // ===================================================================== **
+    // Destruction des particules 
+    // ===================================================================== **
     private void DestroyParticules()
     {
         Destroy(GameObject.Find("confetti(Clone)"));
@@ -221,6 +248,7 @@ public class PlayerController : MonoBehaviour
     private void RespawnPlayer()
     {
         gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
+        isDead = false;
     }
 
     void OnTriggerEnter (Collider collider){
@@ -251,6 +279,8 @@ public class PlayerController : MonoBehaviour
                 // scoreManager.scoreBonus8 = defaultPoints;
             }
         }
+
+
 
 
 

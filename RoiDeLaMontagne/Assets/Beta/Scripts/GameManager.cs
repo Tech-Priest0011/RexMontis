@@ -61,8 +61,8 @@ public class GameManager : MonoBehaviour
     public float scoreJoueur8 = 0; 
     public List<tableData> CounterObjects = new List<tableData>();
     public struct tableData{
-        public Transform scoreTransform;
-        public tableScores Score;
+    public Transform scoreTransform;
+    public tableScores Score;
     }
     public float scoreBonus1 = 11f;
     public float scoreBonus2 = 11f;
@@ -73,8 +73,6 @@ public class GameManager : MonoBehaviour
     public float scoreBonus7 = 16f;
     public float scoreBonus8 = 17f;
 
-    private GameObject parentScoreSupprimable;
-    private GameObject scoreSupprimable;
     public List<GameObject> Players {get; set;}
     public static int playerID = 0;
     public static Dictionary<GameObject,int> playerList = new Dictionary<GameObject,int>();
@@ -234,38 +232,13 @@ public class GameManager : MonoBehaviour
 
         //Test début du jeu
         if (gameIsStarted) {
-            Decompte();
+           
             Score();
         }
         
     }
 
-    public void Decompte()
-    {   
-        Debug.Log("decompte is active");
-
-        if(scene != "Fin")
-        {
-            // if (tempsDejeu <= 99f && tempsDejeu > 9f)
-            // {
-            //     champsTemps.text = "00:" + Mathf.Ceil(tempsDejeu);
-
-            // }else if(tempsDejeu <= 9f)
-            // {
-            //     champsTemps.text = "00:0" + Mathf.Ceil(tempsDejeu);
-            // }
-
-
-            // tempsDejeu -= 1 * Time.deltaTime;
-
-            if (tempsDejeu <= 0)
-            {
-                tempsDejeu = 0;
-                FinDeJeu();
-            }
-        }
-        
-    }
+    
 
     public void Score()
     {
@@ -343,7 +316,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void Jouer(InputAction.CallbackContext context){
-        Debug.Log("start fucking game");
 
         if (nombreJoueur >= 2) {
             gameIsStarted = true;

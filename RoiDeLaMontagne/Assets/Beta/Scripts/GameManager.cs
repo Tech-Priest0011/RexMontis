@@ -73,8 +73,6 @@ public class GameManager : MonoBehaviour
     public float scoreBonus7 = 16f;
     public float scoreBonus8 = 17f;
 
-    private GameObject parentScoreSupprimable;
-    private GameObject scoreSupprimable;
     public List<GameObject> Players {get; set;}
 
     private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
@@ -219,38 +217,13 @@ public class GameManager : MonoBehaviour
 
         //Test début du jeu
         if (gameIsStarted) {
-            Decompte();
+           
             Score();
         }
         
     }
 
-    public void Decompte()
-    {   
-        Debug.Log("decompte is active");
-
-        if(scene != "Fin")
-        {
-            // if (tempsDejeu <= 99f && tempsDejeu > 9f)
-            // {
-            //     champsTemps.text = "00:" + Mathf.Ceil(tempsDejeu);
-
-            // }else if(tempsDejeu <= 9f)
-            // {
-            //     champsTemps.text = "00:0" + Mathf.Ceil(tempsDejeu);
-            // }
-
-
-            // tempsDejeu -= 1 * Time.deltaTime;
-
-            if (tempsDejeu <= 0)
-            {
-                tempsDejeu = 0;
-                FinDeJeu();
-            }
-        }
-        
-    }
+    
 
     public void Score()
     {
@@ -275,7 +248,7 @@ public class GameManager : MonoBehaviour
                 scoreJoueur8 += scoreBonus8;
                                 
                 }else{
-                scoreJoueur1 += scoreBonus1 + 11f;
+                scoreJoueur1 += scoreBonus1 + 30f;
                 scoreJoueur2 += scoreBonus2 + 30f;
                 scoreJoueur3 += scoreBonus3 + 30f;
                 scoreJoueur4 += scoreBonus4 + 30f;

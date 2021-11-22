@@ -33,7 +33,7 @@ public class CountDown : MonoBehaviour
 
     private void Being(int Second)
     {
-        Debug.Log(gameManager.GetComponent<GameManager>().gameIsStarted);
+        //Debug.Log(gameManager.GetComponent<GameManager>().gameIsStarted);
         
         
             tempsRestant = Second;

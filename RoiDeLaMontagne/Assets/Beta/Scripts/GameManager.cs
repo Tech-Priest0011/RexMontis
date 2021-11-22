@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
 
     public void Score()
     {
-        Debug.Log("score is active");
+        //Debug.Log("score is active");
 
         if(scene != "Fin")
         {
@@ -291,14 +291,14 @@ public class GameManager : MonoBehaviour
                 champsScore.text = "Score : 000" + score;
             }
 
-            if (Input.GetKeyDown(KeyCode.F1) && tableauDesScores.activeSelf == true)
-            {
-                tableauDesScores.SetActive(false);
-            }
-            else if(Input.GetKeyDown(KeyCode.F1) && tableauDesScores.activeSelf == false)
-            {
-                tableauDesScores.SetActive(true);
-            }
+            //if (Input.GetKeyDown(KeyCode.F1) && tableauDesScores.activeSelf == true)
+            //{
+            //    tableauDesScores.SetActive(false);
+            //}
+            //else if(Input.GetKeyDown(KeyCode.F1) && tableauDesScores.activeSelf == false)
+            //{
+            //    tableauDesScores.SetActive(true);
+            //}
 
         } 
     }
@@ -308,6 +308,7 @@ public class GameManager : MonoBehaviour
         //GameObject joueurDetruit = parentJoueurConnecte.transform.GetChild(0).gameObject;
         //Destroy(joueurDetruit);
         nombreJoueur++;
+
         joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
         
         Instantiate(joueurConnecte, parentJoueurConnecte.transform); 

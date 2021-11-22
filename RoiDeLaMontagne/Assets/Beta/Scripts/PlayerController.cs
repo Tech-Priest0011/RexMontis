@@ -106,10 +106,14 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     public void SeeMove(InputAction.CallbackContext context)
     {
+
         move = context.ReadValue<Vector2>();
 
         moveHorizontal = move.x;
         moveVertical = move.y;
+
+        Debug.Log("test: " + move.x);
+
     }
 
 
@@ -206,16 +210,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        id = GameManager.playerList[transform.root.gameObject];
+        //id = GameManager.playerList[transform.root.gameObject];
+        //id = GameManager.playerList[this.gameObject];
         
-          if (collision.transform.tag == "Niveau5")
-           {         
-            scoreManager.setBonusScore(100,id);
-           }
-           if (collision.transform.tag == "Niveau4")
-           {
-            scoreManager.setBonusScore(70,id);
-           }
+        //  if (collision.transform.tag == "Niveau5")
+        //   {         
+        //    scoreManager.setBonusScore(100,id);
+        //   }
+        //   if (collision.transform.tag == "Niveau4")
+        //   {
+        //    scoreManager.setBonusScore(70,id);
+        //   }
         
         if (collision.transform.tag == "vide")
         {

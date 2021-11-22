@@ -215,14 +215,30 @@ public class PlayerController : MonoBehaviour
         
           if (collision.transform.tag == "Niveau5")
            {
-            Debug.Log("touche moi");
-            scoreManager.setBonusScore(100,id);
+            Debug.Log("Niveau5");
+            scoreManager.setBonusScore(150,id);
            }
            if (collision.transform.tag == "Niveau4")
            {
-            scoreManager.setBonusScore(70,id);
+            Debug.Log("Niveau4");
+            scoreManager.setBonusScore(100,id);
            }
-        
+            if (collision.transform.tag == "Niveau3")
+            {
+            Debug.Log("Niveau3");
+            scoreManager.setBonusScore(70, id);
+            }
+            if (collision.transform.tag == "Niveau2")
+            {
+            Debug.Log("Niveau2");
+            scoreManager.setBonusScore(50, id);
+            }
+            if (collision.transform.tag == "Niveau1")
+            {
+            Debug.Log("Niveau1");
+            scoreManager.setBonusScore(30, id);
+            }
+
         if (collision.transform.tag == "vide")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
@@ -243,12 +259,32 @@ public class PlayerController : MonoBehaviour
     void OnTriggerExit(Collider collision){
         id = GameManager.playerList[transform.root.gameObject];
          if (collision.gameObject.tag == "Niveau5")
-            {
-                  scoreManager.setBonusScore(defaultPoints, id);
-                  // scoreManager.scoreBonus1 = defaultPoints;
-                
-            }
+         {
+            Debug.Log("Exit Niveau5");
+            scoreManager.setBonusScore(defaultPoints, id);                        
+         }
+        if (collision.gameObject.tag == "Niveau4")
+        {
+            Debug.Log("Exit Niveau4");
+            scoreManager.setBonusScore(defaultPoints, id);
         }
+        if (collision.gameObject.tag == "Niveau3")
+        {
+            Debug.Log("Exit Niveau3");
+            scoreManager.setBonusScore(defaultPoints, id);
+        }
+        if (collision.gameObject.tag == "Niveau2")
+        {
+            Debug.Log("Exit Niveau2");
+            scoreManager.setBonusScore(defaultPoints, id);
+        }
+        if (collision.gameObject.tag == "Niveau1")
+        {
+            Debug.Log("Exit Niveau1");
+            scoreManager.setBonusScore(defaultPoints, id);
+        }
+
+    }
 
 
     // ===================================================================== **

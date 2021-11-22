@@ -12,6 +12,10 @@ TagManager:
   - sol
   - vide
   - Niveau5
+  - Niveau4
+  - Niveau3
+  - Niveau2
+  - Niveau1
   layers:
   - Default
   - TransparentFX

@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void setBonusScore(float score, int index){
         listeDesScores[index].bonusScore = score;
-        Debug.Log(listeDesScores[index].bonusScore);
+       
     }
 
     public static void addPlayerID(GameObject obj)

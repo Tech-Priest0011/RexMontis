@@ -131,7 +131,6 @@ public class PlayerController : MonoBehaviour
         RotateCharacter();
         VerifieMort();
 
-
     }
 
     // ===================================================================== **
@@ -224,6 +223,7 @@ public class PlayerController : MonoBehaviour
             Invoke("DestroyParticules", 5);
             Invoke("RespawnPlayer", 5);
             isDead = true;
+            
         }
 
         if (collision.transform.tag == "trappe")
@@ -238,24 +238,25 @@ public class PlayerController : MonoBehaviour
         id = GameManager.playerList[transform.root.gameObject];
          if (collider.gameObject.tag == "Niveau5")
             {
-                  scoreManager.setBonusScore(defaultPoints,id);
+                  scoreManager.setBonusScore(defaultPoints, id);
                   // scoreManager.scoreBonus1 = defaultPoints;
                 
             }
         }
 
 
-
+    // ===================================================================== **
+    // Vérifie si le personnage est mort 
+    // ===================================================================== **
     private void VerifieMort()
     {
         if(isDead == true)
         {
             gameObject.SetActive(false);
-            
+            scoreManager.setBonusScore(0, id);
 
         }
     }
-
 
     // ===================================================================== **
     // Destruction des particules 
@@ -271,6 +272,7 @@ public class PlayerController : MonoBehaviour
 
     private void RespawnPlayer()
     {
+        gameObject.SetActive(true);
         gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
         isDead = false;
     }

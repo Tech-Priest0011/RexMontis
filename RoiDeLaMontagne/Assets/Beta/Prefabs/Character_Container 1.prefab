@@ -227,13 +227,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38094d7e1f06a584fa95129c1deed97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  strafeSpeed: 20
-  jumpForce: 350
   hips: {fileID: 1704172412385660987}
   isGrounded: 0
   hipJoint: {fileID: 1704172412385660985}
   gravityController: {fileID: 1704172413634718314}
+  speed: 20
+  strafeSpeed: 20
+  jumpForce: 350
   systemeDeParticules: {fileID: 5856242391850329912, guid: 769986774dac8a54ca015ce38e551560, type: 3}
 --- !u!114 &8390518360691189539
 MonoBehaviour:
@@ -432,8 +432,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1704172413403271894}
+  - component: {fileID: 8933499752171218892}
   m_Layer: 0
-  m_Name: Character_Container
+  m_Name: Character_Container 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,6 +455,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8933499752171218892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704172413403271895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa92ae8492268b44ad663bcf218fda7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1704172413634718314
 GameObject:
   m_ObjectHideFlags: 0

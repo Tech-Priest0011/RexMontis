@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
              lastColor = "color1";
          }
 
-         scoreManager = FindObjectOfType <GameManager>();
+         scoreManager = FindObjectOfType<GameManager>();
     }
 
     // ===================================================================== **
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         moveHorizontal = move.x;
         moveVertical = move.y;
 
-        Debug.Log("test: " + move.x);
+    
 
     }
 
@@ -210,17 +210,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        //id = GameManager.playerList[transform.root.gameObject];
-        //id = GameManager.playerList[this.gameObject];
+        id = GameManager.playerList[transform.root.gameObject];
+    
         
-        //  if (collision.transform.tag == "Niveau5")
-        //   {         
-        //    scoreManager.setBonusScore(100,id);
-        //   }
-        //   if (collision.transform.tag == "Niveau4")
-        //   {
-        //    scoreManager.setBonusScore(70,id);
-        //   }
+          if (collision.transform.tag == "Niveau5")
+           {
+            Debug.Log("touche moi");
+            scoreManager.setBonusScore(100,id);
+           }
+           if (collision.transform.tag == "Niveau4")
+           {
+            scoreManager.setBonusScore(70,id);
+           }
         
         if (collision.transform.tag == "vide")
         {
@@ -239,9 +240,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void OnTriggerExit(Collider collider){
+    void OnTriggerExit(Collider collision){
         id = GameManager.playerList[transform.root.gameObject];
-         if (collider.gameObject.tag == "Niveau5")
+         if (collision.gameObject.tag == "Niveau5")
             {
                   scoreManager.setBonusScore(defaultPoints, id);
                   // scoreManager.scoreBonus1 = defaultPoints;

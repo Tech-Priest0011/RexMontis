@@ -291,15 +291,6 @@ public class GameManager : MonoBehaviour
                 champsScore.text = "Score : 000" + score;
             }
 
-            //if (Input.GetKeyDown(KeyCode.F1) && tableauDesScores.activeSelf == true)
-            //{
-            //    tableauDesScores.SetActive(false);
-            //}
-            //else if(Input.GetKeyDown(KeyCode.F1) && tableauDesScores.activeSelf == false)
-            //{
-            //    tableauDesScores.SetActive(true);
-            //}
-
         } 
     }
 

@@ -19,6 +19,8 @@ public class CountDown : MonoBehaviour
 
     private bool Pause;
 
+    public bool doublePoint = false;
+
     private void Start()
     {
         timerStarted = false;
@@ -44,6 +46,8 @@ public class CountDown : MonoBehaviour
 
     private IEnumerator UpdateTemps()
     {
+
+   
         while(tempsRestant >= 0)
         {
             if (!Pause)
@@ -55,7 +59,17 @@ public class CountDown : MonoBehaviour
             }
             yield return null;
         }
+
+        if(tempsRestant >= 30f)
+        {
+
+            doublePoint = true;
+
+        }
+
+
         TempsTerminer();
+
     }
 
     private void TempsTerminer()

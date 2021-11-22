@@ -54,8 +54,10 @@ public class PlayerController : MonoBehaviour
     //Pour le score
     private GameManager scoreManager;
     private float areaPoints = 10;
+    private int multiplicateur = 1;
     private float defaultPoints = 10;
     private int id;
+    public bool doubleScore;
 
 
 
@@ -89,32 +91,6 @@ public class PlayerController : MonoBehaviour
          scoreManager = FindObjectOfType<GameManager>();
     }
 
-    // ===================================================================== **
-    // Fait sauter le joueur dans le script CharacterController.
-    // ===================================================================== **
-    public void SeeJump(InputAction.CallbackContext context)
-    {
-            if (isGrounded)
-            {
-                hips.AddForce(new Vector3(0, jumpForce, 0));
-                isGrounded = false;
-            }
-    }
-
-    // ===================================================================== **
-    // Détecte l'orientation du joueur.
-    // ===================================================================== **
-    public void SeeMove(InputAction.CallbackContext context)
-    {
-
-        move = context.ReadValue<Vector2>();
-
-        moveHorizontal = move.x;
-        moveVertical = move.y;
-
-    
-
-    }
 
 
 
@@ -131,11 +107,45 @@ public class PlayerController : MonoBehaviour
             jumped = false;
         }
 
+        doubleScore = GameObject.Find("temps").GetComponent<CountDown>().doublePoint;
+
+        //Section de méthodes appelées sans arrêts
         MoveCharacter();
         RotateCharacter();
+        VerifieTemps();
         VerifieMort();
+    }
+
+
+    // ===================================================================== **
+    // Fait sauter le joueur dans le script CharacterController.
+    // ===================================================================== **
+    public void SeeJump(InputAction.CallbackContext context)
+    {
+            if (isGrounded)
+            {
+                hips.AddForce(new Vector3(0, jumpForce, 0));
+                isGrounded = false;
+            }
+    }
+
+
+
+    // ===================================================================== **
+    // Détecte l'orientation du joueur.
+    // ===================================================================== **
+    public void SeeMove(InputAction.CallbackContext context)
+    {
+
+        move = context.ReadValue<Vector2>();
+
+        moveHorizontal = move.x;
+        moveVertical = move.y;
+
+    
 
     }
+
 
     // ===================================================================== **
     // Déplacement du joueur.
@@ -205,9 +215,8 @@ public class PlayerController : MonoBehaviour
     }
 
     // ===================================================================== **
-    // Mort du joueur.
+    // Lorsque le joueur entre en coliision avec un objet
     // ===================================================================== **
-
     private void OnTriggerEnter(Collider collision)
     {
         id = GameManager.playerList[transform.root.gameObject];
@@ -216,27 +225,27 @@ public class PlayerController : MonoBehaviour
           if (collision.transform.tag == "Niveau5")
            {
             Debug.Log("Niveau5");
-            scoreManager.setBonusScore(150,id);
+            scoreManager.setBonusScore(150 * multiplicateur, id);
            }
            if (collision.transform.tag == "Niveau4")
            {
             Debug.Log("Niveau4");
-            scoreManager.setBonusScore(100,id);
+            scoreManager.setBonusScore(100 * multiplicateur, id);
            }
             if (collision.transform.tag == "Niveau3")
             {
             Debug.Log("Niveau3");
-            scoreManager.setBonusScore(70, id);
+            scoreManager.setBonusScore(70 * multiplicateur, id);
             }
             if (collision.transform.tag == "Niveau2")
             {
             Debug.Log("Niveau2");
-            scoreManager.setBonusScore(50, id);
+            scoreManager.setBonusScore(50 * multiplicateur, id);
             }
             if (collision.transform.tag == "Niveau1")
             {
             Debug.Log("Niveau1");
-            scoreManager.setBonusScore(30, id);
+            scoreManager.setBonusScore(30 * multiplicateur, id);
             }
 
         if (collision.transform.tag == "vide")
@@ -286,6 +295,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // ===================================================================== **
+    // Vérifie si le double points est actif
+    // ===================================================================== **
+    private void VerifieTemps()
+    {
+        if (doubleScore == true)
+        {
+
+            multiplicateur = 2;
+            defaultPoints = 10 * multiplicateur;
+        }
+    }
+
 
     // ===================================================================== **
     // Vérifie si le personnage est mort 
@@ -311,7 +333,6 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     // Réaparition du joueur.
     // ===================================================================== **
-
     private void RespawnPlayer()
     {
         gameObject.SetActive(true);

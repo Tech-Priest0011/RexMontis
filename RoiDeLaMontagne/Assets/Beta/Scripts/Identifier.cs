@@ -1,0 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Identifier : MonoBehaviour
+{
+    
+    void Awake (){
+        GameManager.addPlayerID(gameObject);
+    }
+}

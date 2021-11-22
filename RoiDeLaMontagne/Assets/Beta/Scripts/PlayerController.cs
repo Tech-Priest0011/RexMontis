@@ -4,18 +4,22 @@ using UnityEngine;
 using UnityEngine.InputSystem; //
 using UnityEngine.Events; //
 
+// ===================================================================== **
+    // Ce script est à mettre sur le gameObject Joueur/Character.
+    // Il permet au joueur de: 
+    //      - se déplacer
+    //      - rotationner
+    //      - mourir
+    //      - réaparaître
+    // ===================================================================== **
+
 
 public class PlayerController : MonoBehaviour
 {
-    // ===================================================================== **
-    // Ce script est à mettre sur le gameObject Joueur/Character.
-    // Il permet au joueur de se déplacer.
-    // ===================================================================== **
+    
 
 
-    public float speed;
-    public float strafeSpeed;
-    public float jumpForce;
+    
 
     public Rigidbody hips; // gameObject Joueur/Character
     public bool isGrounded;
@@ -29,18 +33,29 @@ public class PlayerController : MonoBehaviour
     private static bool hasColorsAssigned = false;
     private static string lastColor;
 
-    //INPUT_ACTIONS
-
     //Pour se déplacer
     private Vector2 move;
+    public float speed;
+    public float strafeSpeed;
+    
 
     private float moveHorizontal;
     private float moveVertical;
 
     //Pour le saut
     private bool jumped = false;
+    public float jumpForce;
 
+
+    //Pour la mort
     public GameObject systemeDeParticules;
+    private bool isDead = false;
+
+    //Pour le score
+    private GameManager scoreManager;
+    private float areaPoints = 10;
+    private float defaultPoints = 10;
+    private int id;
 
 
 
@@ -71,7 +86,7 @@ public class PlayerController : MonoBehaviour
              lastColor = "color1";
          }
 
-
+         scoreManager = FindObjectOfType <GameManager>();
     }
 
     // ===================================================================== **
@@ -114,7 +129,8 @@ public class PlayerController : MonoBehaviour
 
         MoveCharacter();
         RotateCharacter();
-        
+        VerifieMort();
+
     }
 
     // ===================================================================== **
@@ -188,21 +204,63 @@ public class PlayerController : MonoBehaviour
     // Mort du joueur.
     // ===================================================================== **
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+        id = GameManager.playerList[transform.root.gameObject];
+        
+          if (collision.transform.tag == "Niveau5")
+           {         
+            scoreManager.setBonusScore(100,id);
+           }
+           if (collision.transform.tag == "Niveau4")
+           {
+            scoreManager.setBonusScore(70,id);
+           }
+        
         if (collision.transform.tag == "vide")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             Invoke("DestroyParticules", 5);
             Invoke("RespawnPlayer", 5);
-
+            isDead = true;
+            
         }
 
         if (collision.transform.tag == "trappe")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            isDead = true;
         }
     }
+
+
+    void OnTriggerExit(Collider collider){
+        id = GameManager.playerList[transform.root.gameObject];
+         if (collider.gameObject.tag == "Niveau5")
+            {
+                  scoreManager.setBonusScore(defaultPoints, id);
+                  // scoreManager.scoreBonus1 = defaultPoints;
+                
+            }
+        }
+
+
+    // ===================================================================== **
+    // Vérifie si le personnage est mort 
+    // ===================================================================== **
+    private void VerifieMort()
+    {
+        if(isDead == true)
+        {
+            gameObject.SetActive(false);
+            scoreManager.setBonusScore(0, id);
+
+        }
+    }
+
+    // ===================================================================== **
+    // Destruction des particules 
+    // ===================================================================== **
     private void DestroyParticules()
     {
         Destroy(GameObject.Find("confetti(Clone)"));
@@ -214,8 +272,13 @@ public class PlayerController : MonoBehaviour
 
     private void RespawnPlayer()
     {
+        gameObject.SetActive(true);
         gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
+        isDead = false;
     }
+
+
+    
 
 
 

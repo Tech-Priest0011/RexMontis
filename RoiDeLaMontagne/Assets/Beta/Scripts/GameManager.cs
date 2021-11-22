@@ -191,7 +191,6 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(nombreJoueur);
 
         quelleScene = SceneManager.GetActiveScene().name;
 

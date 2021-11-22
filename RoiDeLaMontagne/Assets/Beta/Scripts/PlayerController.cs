@@ -209,15 +209,15 @@ public class PlayerController : MonoBehaviour
     {
         id = GameManager.playerList[transform.root.gameObject];
         
-          if (collision.gameObject.tag == "Niveau5")
+          if (collision.transform.tag == "Niveau5")
            {         
             scoreManager.setBonusScore(100,id);
            }
-           if (collision.gameObject.tag == "Niveau4")
+           if (collision.transform.tag == "Niveau4")
            {
             scoreManager.setBonusScore(70,id);
            }
-        ////
+        
         if (collision.transform.tag == "vide")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
@@ -232,6 +232,19 @@ public class PlayerController : MonoBehaviour
             isDead = true;
         }
     }
+
+
+    void OnTriggerExit(Collider collider){
+        id = GameManager.playerList[transform.root.gameObject];
+         if (collider.gameObject.tag == "Niveau5")
+            {
+                  scoreManager.setBonusScore(defaultPoints,id);
+                  // scoreManager.scoreBonus1 = defaultPoints;
+                
+            }
+        }
+
+
 
     private void VerifieMort()
     {
@@ -263,21 +276,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void OnTriggerExit(Collider collider){
-        id = GameManager.playerList[transform.root.gameObject];
-         if (collider.gameObject.tag == "Niveau5")
-            {
-                  scoreManager.setBonusScore(defaultPoints,id);
-                // scoreManager.scoreBonus1 = defaultPoints;
-                // scoreManager.scoreBonus2 = defaultPoints;
-                // scoreManager.scoreBonus3 = defaultPoints;
-                // scoreManager.scoreBonus4 = defaultPoints;
-                // scoreManager.scoreBonus5 = defaultPoints;
-                // scoreManager.scoreBonus6 = defaultPoints;
-                // scoreManager.scoreBonus7 = defaultPoints;
-                // scoreManager.scoreBonus8 = defaultPoints;
-            }
-        }
+    
 
 
 

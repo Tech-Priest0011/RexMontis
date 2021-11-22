@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     //Pour la mort
     public GameObject systemeDeParticules;
     private bool isDead = false;
+    private GameObject trappe;
 
     //Pour le score
     private GameManager scoreManager;
@@ -251,7 +252,7 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.tag == "vide")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
-            Invoke("DestroyParticules", 5);
+            Invoke("DestroyParticules", 3);
             Invoke("RespawnPlayer", 5);
             isDead = true;
             
@@ -261,7 +262,18 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             isDead = true;
+            trappe = collision.gameObject;
+            trappe.GetComponent<Animator>().SetBool("close", true);
+            Invoke("RemettreBoolFalse", 2);
+            Invoke("DestroyParticules", 3);
         }
+
+        
+    }
+
+    private void RemettreBoolFalse()
+    {
+        trappe.GetComponent<Animator>().SetBool("close", false);
     }
 
 

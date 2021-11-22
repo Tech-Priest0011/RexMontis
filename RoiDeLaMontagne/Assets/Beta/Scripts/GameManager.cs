@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
 
     public void Score()
     {
-        //Debug.Log("score is active");
+        
 
         if(scene != "Fin")
         {

@@ -16,6 +16,7 @@ TagManager:
   - Niveau3
   - Niveau2
   - Niveau1
+  - trappe
   layers:
   - Default
   - TransparentFX

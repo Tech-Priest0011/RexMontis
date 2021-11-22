@@ -1482,7 +1482,7 @@ GameObject:
   - component: {fileID: 936524289}
   - component: {fileID: 936524288}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: NiveauScore5
   m_TagString: Niveau5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4305,7 +4305,6 @@ GameObject:
   - component: {fileID: 7854798471827469064}
   - component: {fileID: 285968330731195284}
   - component: {fileID: 285968330731195286}
-  - component: {fileID: 285968330731195285}
   m_Layer: 0
   m_Name: Cube.015
   m_TagString: sol
@@ -4327,21 +4326,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3537709356157935800, guid: 59b98d7ea235b1a42afed4052c1db9f8, type: 3}
---- !u!114 &285968330731195285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285968330731195283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4bdcfa299977a4499bcef619ef10c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
-  areaPoints: 10
-  defaultPoints: 10
 --- !u!65 &285968330731195286
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6719,9 +6703,9 @@ RectTransform:
   m_Father: {fileID: 1301151653117340479}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: -25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301151652042975246
@@ -6907,9 +6891,9 @@ RectTransform:
   m_Father: {fileID: 1301151651709301714}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 290.6723, y: -28.5525}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 58.3666, y: 57.105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301151652627038978
@@ -6982,9 +6966,9 @@ RectTransform:
   m_Father: {fileID: 1301151653117340479}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 651.32776, y: -25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1301151652743746417
@@ -7027,9 +7011,9 @@ RectTransform:
   m_Father: {fileID: 1301151653117340479}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 277.10925, y: -25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301151652743746423
@@ -7084,9 +7068,9 @@ RectTransform:
   m_Father: {fileID: 1301151653117340479}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 464.2185, y: -25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301151652787214637
@@ -7280,7 +7264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1301151653258759251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7380,9 +7364,9 @@ RectTransform:
   m_Father: {fileID: 1301151651709301714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130.7445, y: -28.5529}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 261.489, y: 57.1058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1301151653581835560
@@ -11555,7 +11539,6 @@ GameObject:
   - component: {fileID: 944657279804120093}
   - component: {fileID: 2956467658095130807}
   - component: {fileID: 2956467658095130809}
-  - component: {fileID: 2956467658095130808}
   m_Layer: 0
   m_Name: Cube.006
   m_TagString: sol
@@ -11577,21 +11560,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2228417370725966487, guid: 59b98d7ea235b1a42afed4052c1db9f8, type: 3}
---- !u!114 &2956467658095130808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2956467658095130806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4bdcfa299977a4499bcef619ef10c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
-  areaPoints: 10
-  defaultPoints: 10
 --- !u!65 &2956467658095130809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12439,7 +12407,6 @@ GameObject:
   - component: {fileID: 2373760145811014761}
   - component: {fileID: 3286171501038139458}
   - component: {fileID: 3286171501038139459}
-  - component: {fileID: 3286171501038139461}
   - component: {fileID: 3286171501038139460}
   m_Layer: 0
   m_Name: Cube.007
@@ -12489,21 +12456,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.18871303, y: 0.10457051, z: 0.050538965}
   m_Center: {x: -0.037939377, y: -0.007090216, z: -0.0077883485}
---- !u!114 &3286171501038139461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3286171501038139457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4bdcfa299977a4499bcef619ef10c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
-  areaPoints: 10
-  defaultPoints: 10
 --- !u!33 &3316469530839865294
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13570,7 +13522,6 @@ GameObject:
   - component: {fileID: 4981352651696869631}
   - component: {fileID: 3683364914355115771}
   - component: {fileID: 3683364914355115773}
-  - component: {fileID: 3683364914355115772}
   m_Layer: 0
   m_Name: Cube.009
   m_TagString: sol
@@ -13592,21 +13543,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2477511411847689622, guid: 59b98d7ea235b1a42afed4052c1db9f8, type: 3}
---- !u!114 &3683364914355115772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3683364914355115770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4bdcfa299977a4499bcef619ef10c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
-  areaPoints: 10
-  defaultPoints: 10
 --- !u!65 &3683364914355115773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16047,7 +15983,6 @@ GameObject:
   - component: {fileID: 7744259181504835415}
   - component: {fileID: 4587207325130647833}
   - component: {fileID: 4587207325130647835}
-  - component: {fileID: 4587207325130647834}
   m_Layer: 0
   m_Name: Cube.011
   m_TagString: sol
@@ -16069,21 +16004,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -153830957423991239, guid: 59b98d7ea235b1a42afed4052c1db9f8, type: 3}
---- !u!114 &4587207325130647834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587207325130647832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4bdcfa299977a4499bcef619ef10c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
-  areaPoints: 10
-  defaultPoints: 10
 --- !u!65 &4587207325130647835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20141,7 +20061,6 @@ GameObject:
   - component: {fileID: 2618065573061128876}
   - component: {fileID: 5499542464831551396}
   - component: {fileID: 5499542464831551398}
-  - component: {fileID: 5499542464831551397}
   m_Layer: 0
   m_Name: Cube.003
   m_TagString: sol
@@ -20163,21 +20082,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8678823145569952518, guid: 59b98d7ea235b1a42afed4052c1db9f8, type: 3}
---- !u!114 &5499542464831551397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5499542464831551395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b4bdcfa299977a4499bcef619ef10c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
-  areaPoints: 10
-  defaultPoints: 10
 --- !u!65 &5499542464831551398
 BoxCollider:
   m_ObjectHideFlags: 0

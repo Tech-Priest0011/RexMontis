@@ -16,7 +16,9 @@ public class SpawnPoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     player = (GameObject)Resources.Load("Player1", typeof (GameObject));
+     int index = Random.Range(1, 5);
+
+     player = (GameObject)Resources.Load("Player1 " + index, typeof (GameObject));
 
      respawnLocation = player.transform.position;
 

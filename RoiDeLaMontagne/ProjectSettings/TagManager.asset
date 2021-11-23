@@ -17,6 +17,7 @@ TagManager:
   - Niveau2
   - Niveau1
   - trappe
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

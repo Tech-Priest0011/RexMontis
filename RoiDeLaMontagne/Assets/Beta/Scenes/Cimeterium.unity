@@ -2098,9 +2098,10 @@ GameObject:
   - component: {fileID: 1195490651}
   - component: {fileID: 1195490650}
   - component: {fileID: 1195490652}
+  - component: {fileID: 1195490653}
   m_Layer: 0
   m_Name: PlayerManager
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2166,7 +2167,7 @@ MonoBehaviour:
         m_Action: Join
         m_Flags: 0
     m_Reference: {fileID: -2871498705268458593, guid: 96d9eb2d6845d974793843abb3c0d642, type: 3}
-  m_PlayerPrefab: {fileID: 1704172413403271895, guid: b2ed530fd5778b14cb1d9d52a43ee27f, type: 3}
+  m_PlayerPrefab: {fileID: 5576452775904422447, guid: 46f8ad60ca214d846bc32fd2aba65e8b, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -2203,10 +2204,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fighters:
-  - {fileID: 1704172413403271895, guid: b2ed530fd5778b14cb1d9d52a43ee27f, type: 3}
-  - {fileID: 1704172413403271895, guid: 5de1081ea1034ed44a4e0150f192caca, type: 3}
-  - {fileID: 1704172413403271895, guid: 8bdc300e4e7c467488dd058d8f9ed2bd, type: 3}
-  - {fileID: 1704172413403271895, guid: 41c253f2d9f961446812bb170bb6a0bf, type: 3}
+  - {fileID: 5576452775904422447, guid: 46f8ad60ca214d846bc32fd2aba65e8b, type: 3}
+  - {fileID: 540532203556009873, guid: 951a8fe622c432d4f88b110b0fa4d79b, type: 3}
+  - {fileID: 7009896791883717820, guid: a0b9c099502981f4db627ff8cdcfe7f1, type: 3}
+  - {fileID: 993386928270544152, guid: 540103f70cdd86147867d4b033f6c44d, type: 3}
+  - {fileID: 7203213936758270043, guid: 3f55de41939019a4a8eeb738fe643a11, type: 3}
+--- !u!114 &1195490653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195490649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2828677241d6a46b86be312bae092f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnLocations: []
+  player: {fileID: 0}
 --- !u!1 &1228600231
 GameObject:
   m_ObjectHideFlags: 0
@@ -3738,7 +3754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1825065151
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,9 +54,9 @@ public class PlayerController : MonoBehaviour
 
     //Pour le score
     private GameManager scoreManager;
-    private float areaPoints = 10;
-    private float multiplicateur = 1;
-    private float defaultPoints = 10;
+    private float areaPoints = 10f;
+    private float multiplicateur = 1f;
+    private float defaultPoints;
     private int id;
     public bool doubleScore = false;
 
@@ -112,8 +112,7 @@ public class PlayerController : MonoBehaviour
         }
 
         doubleScore = GameObject.Find("temps").GetComponent<CountDown>().doublePoint;
-        Debug.Log("multiplicateur = " + multiplicateur);
-        Debug.Log("doublePoint = " + doubleScore);
+  
 
         //Section de méthodes appelées sans arrêts
         MoveCharacter();
@@ -236,27 +235,27 @@ public class PlayerController : MonoBehaviour
         
           if (collision.transform.tag == "Niveau5")
            {
-            Debug.Log("Niveau5");
+           
             scoreManager.setBonusScore(10 * multiplicateur, id);
            }
            if (collision.transform.tag == "Niveau4")
            {
-            Debug.Log("Niveau4");
+          
             scoreManager.setBonusScore(10 * multiplicateur, id);
            }
             if (collision.transform.tag == "Niveau3")
             {
-            Debug.Log("Niveau3");
+            
             scoreManager.setBonusScore(10 * multiplicateur, id);
             }
             if (collision.transform.tag == "Niveau2")
             {
-            Debug.Log("Niveau2");
+          
             scoreManager.setBonusScore(10 * multiplicateur, id);
             }
             if (collision.transform.tag == "Niveau1")
             {
-            Debug.Log("Niveau1");
+          
             scoreManager.setBonusScore(10 * multiplicateur, id);
             }
 
@@ -292,27 +291,27 @@ public class PlayerController : MonoBehaviour
         id = GameManager.playerList[transform.root.gameObject];
          if (collision.gameObject.tag == "Niveau5")
          {
-            Debug.Log("Exit Niveau5");
+           
             scoreManager.setBonusScore(defaultPoints * multiplicateur, id);                        
          }
         if (collision.gameObject.tag == "Niveau4")
         {
-            Debug.Log("Exit Niveau4");
+            
             scoreManager.setBonusScore(defaultPoints * multiplicateur, id);
         }
         if (collision.gameObject.tag == "Niveau3")
         {
-            Debug.Log("Exit Niveau3");
+            
             scoreManager.setBonusScore(defaultPoints * multiplicateur, id);
         }
         if (collision.gameObject.tag == "Niveau2")
         {
-            Debug.Log("Exit Niveau2");
+            
             scoreManager.setBonusScore(defaultPoints * multiplicateur, id);
         }
         if (collision.gameObject.tag == "Niveau1")
         {
-            Debug.Log("Exit Niveau1");
+            
             scoreManager.setBonusScore(defaultPoints * multiplicateur, id);
         }
 
@@ -329,9 +328,9 @@ public class PlayerController : MonoBehaviour
             multiplicateur = 2f;
             defaultPoints = 10f * multiplicateur;
         }
-        else
+        else if(doubleScore == false)
         {
-            defaultPoints = 10 * multiplicateur;
+            defaultPoints = 10f * multiplicateur;
             multiplicateur = 1f;
         }
     }

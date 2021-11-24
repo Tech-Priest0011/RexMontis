@@ -35,7 +35,7 @@ public class CountDown : MonoBehaviour
             timerStarted = true;
         }
 
-        Debug.Log("double score temps = " + doublePoint);
+        
         VerifieTemps();
     }
 
@@ -78,7 +78,6 @@ public class CountDown : MonoBehaviour
         
         if (tempsRestant <= 30)
         {
-            Debug.Log("SURPRISE !");
             doublePoint = true;
         }
         else

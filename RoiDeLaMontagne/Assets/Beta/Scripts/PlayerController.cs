@@ -61,6 +61,9 @@ public class PlayerController : MonoBehaviour
     public bool doubleScore;
 
 
+    //Variables Test
+    public Animator characterAnimator;
+
 
     // ===================================================================== **
     // Start is called at the start of the game
@@ -127,6 +130,7 @@ public class PlayerController : MonoBehaviour
             {
                 hips.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
+                characterAnimator.SetTrigger("jump");//
             }
     }
 
@@ -142,8 +146,6 @@ public class PlayerController : MonoBehaviour
 
         moveHorizontal = move.x;
         moveVertical = move.y;
-
-    
 
     }
 
@@ -162,9 +164,16 @@ public class PlayerController : MonoBehaviour
         if (!gravityController.GetComponent<Gravity>().isAttracting || (!gravityController.GetComponent<Gravity>().isTouchingPlayer && gravityController.GetComponent<Gravity>().isAttracting)) {
             hips.AddForce(direction * speed); 
 
+            if (x != 0 || y != 0) {
+                characterAnimator.SetBool("walk", true);
+            } else {
+                characterAnimator.SetBool("walk", false);
+            }
+
         } else {
 
             hips.AddForce(direction * 0);
+            characterAnimator.SetBool("walk", false);
         }
     }
 

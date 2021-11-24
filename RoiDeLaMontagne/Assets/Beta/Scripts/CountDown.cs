@@ -24,13 +24,19 @@ public class CountDown : MonoBehaviour
     private void Start()
     {
         timerStarted = false;
+
     }
 
     private void Update() {
+   
+
         if (gameManager.GetComponent<GameManager>().gameIsStarted && !timerStarted) { 
             Being(Durer);
             timerStarted = true;
         }
+
+        Debug.Log("double score temps = " + doublePoint);
+        VerifieTemps();
     }
 
     private void Being(int Second)
@@ -60,16 +66,25 @@ public class CountDown : MonoBehaviour
             yield return null;
         }
 
-        if(tempsRestant >= 30f)
-        {
-
-            doublePoint = true;
-
-        }
+        
 
 
         TempsTerminer();
 
+    }
+
+    private void VerifieTemps()
+    {
+        
+        if (tempsRestant <= 30)
+        {
+            Debug.Log("SURPRISE !");
+            doublePoint = true;
+        }
+        else
+        {
+            doublePoint = false;
+        }
     }
 
     private void TempsTerminer()

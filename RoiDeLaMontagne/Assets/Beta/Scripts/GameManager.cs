@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     //Test pour l'accueil
     public bool gameIsStarted;
 
-    // Score Points --------------------------------------------------------------------------------------------
+    // Score Points 
     public float scoreJoueur1 = 0;
     public float scoreJoueur2 = 0;
     public float scoreJoueur3 = 0;
@@ -254,27 +254,30 @@ public class GameManager : MonoBehaviour
        
                 interval += 2f;
 
-                if(tempsDejeu >= 30){
-                scoreJoueur1 += listeDesScores[0].bonusScore;
-                scoreJoueur2 += listeDesScores[1].bonusScore;
-                scoreJoueur3 += listeDesScores[2].bonusScore;
-                scoreJoueur4 += listeDesScores[3].bonusScore;
-                scoreJoueur5 += listeDesScores[4].bonusScore;
-                scoreJoueur6 += listeDesScores[5].bonusScore;
-                scoreJoueur7 += listeDesScores[6].bonusScore;
-                scoreJoueur8 += listeDesScores[7].bonusScore;
-                                
-                }else{
+                if (tempsDejeu >= 30)
+                {
+                    scoreJoueur1 += listeDesScores[0].bonusScore;
+                    scoreJoueur2 += listeDesScores[1].bonusScore;
+                    scoreJoueur3 += listeDesScores[2].bonusScore;
+                    scoreJoueur4 += listeDesScores[3].bonusScore;
+                    scoreJoueur5 += listeDesScores[4].bonusScore;
+                    scoreJoueur6 += listeDesScores[5].bonusScore;
+                    scoreJoueur7 += listeDesScores[6].bonusScore;
+                    scoreJoueur8 += listeDesScores[7].bonusScore;
 
-                multiplicateur = 2;
-                scoreJoueur1 += listeDesScores[0].bonusScore * multiplicateur;
-                scoreJoueur2 += listeDesScores[1].bonusScore * multiplicateur;
-                scoreJoueur3 += listeDesScores[2].bonusScore * multiplicateur;
-                scoreJoueur4 += listeDesScores[3].bonusScore * multiplicateur;
-                scoreJoueur5 += listeDesScores[4].bonusScore * multiplicateur;
-                scoreJoueur6 += listeDesScores[5].bonusScore * multiplicateur;
-                scoreJoueur7 += listeDesScores[6].bonusScore * multiplicateur;
-                scoreJoueur8 += listeDesScores[7].bonusScore * multiplicateur;
+                }
+                else
+                {
+
+                    multiplicateur = 2;
+                    scoreJoueur1 += listeDesScores[0].bonusScore * multiplicateur;
+                    scoreJoueur2 += listeDesScores[1].bonusScore * multiplicateur;
+                    scoreJoueur3 += listeDesScores[2].bonusScore * multiplicateur;
+                    scoreJoueur4 += listeDesScores[3].bonusScore * multiplicateur;
+                    scoreJoueur5 += listeDesScores[4].bonusScore * multiplicateur;
+                    scoreJoueur6 += listeDesScores[5].bonusScore * multiplicateur;
+                    scoreJoueur7 += listeDesScores[6].bonusScore * multiplicateur;
+                    scoreJoueur8 += listeDesScores[7].bonusScore * multiplicateur;
                 } 
             }
         } 

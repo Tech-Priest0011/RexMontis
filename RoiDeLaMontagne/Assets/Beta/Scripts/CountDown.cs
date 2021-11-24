@@ -21,6 +21,8 @@ public class CountDown : MonoBehaviour
 
     public bool doublePoint = false;
 
+    
+
 
     // ===================================================================== **
     // Cette fonction est appelé au début de la partie
@@ -28,7 +30,7 @@ public class CountDown : MonoBehaviour
     private void Start()
     {
         timerStarted = false;
-
+  
     }
 
     // ===================================================================== **
@@ -67,6 +69,8 @@ public class CountDown : MonoBehaviour
             }
             yield return null;
         }
+
+        TempsTerminer();
     }
 
    
@@ -78,5 +82,6 @@ public class CountDown : MonoBehaviour
     {
         //End Time , if want Do something
         SceneManager.LoadScene("Fin");
+      
     }
 }

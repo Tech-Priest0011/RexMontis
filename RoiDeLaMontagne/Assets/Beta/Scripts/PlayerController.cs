@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 move;
     public float speed;
     public float strafeSpeed;
-    
-
     private float moveHorizontal;
     private float moveVertical;
 
@@ -58,6 +56,9 @@ public class PlayerController : MonoBehaviour
     private float defaultPoints;
     private int id;
     public bool doubleScore = false;
+
+    //Pour le temps 
+    private float tempsRestant;
 
 
     //Variables Test
@@ -110,14 +111,14 @@ public class PlayerController : MonoBehaviour
             jumped = false;
         }
 
-       
-  
+        tempsRestant = GameObject.Find("temps").GetComponent<CountDown>().tempsRestant;
+
 
         //Section de méthodes appelées sans arrêts
         MoveCharacter();
         RotateCharacter();
-        //VerifieTemps();
         VerifieMort();
+        VerifieTemps();
     }
 
 
@@ -234,27 +235,26 @@ public class PlayerController : MonoBehaviour
         
           if (collision.transform.tag == "Niveau5")
            {
-           
             scoreManager.setBonusScore(50, id);
            }
+
            if (collision.transform.tag == "Niveau4")
            {
-          
             scoreManager.setBonusScore(40, id);
            }
+
             if (collision.transform.tag == "Niveau3")
             {
-            
             scoreManager.setBonusScore((30), id);
             }
+
             if (collision.transform.tag == "Niveau2")
             {
-          
             scoreManager.setBonusScore((20), id);
             }
+
             if (collision.transform.tag == "Niveau1")
             {
-          
             scoreManager.setBonusScore((15), id);
             }
 
@@ -314,6 +314,15 @@ public class PlayerController : MonoBehaviour
             scoreManager.setBonusScore(defaultPoints, id);
         }
 
+    }
+
+    private void VerifieTemps()
+    {
+        if(tempsRestant <= 0f)
+        {
+            defaultPoints = 0f;
+            scoreManager.setBonusScore(defaultPoints, id);
+        }
     }
 
 

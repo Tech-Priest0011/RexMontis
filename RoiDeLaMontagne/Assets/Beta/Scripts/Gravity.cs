@@ -31,6 +31,9 @@ public class Gravity : MonoBehaviour
     private bool isButtonPush;
     private bool isButtonSuck;
 
+    //Variables test
+    public Animator characterAnimator;
+
     // ===================================================================== **
     // Détecte si le joueur pousse.
     // ===================================================================== **
@@ -77,6 +80,12 @@ public class Gravity : MonoBehaviour
             isAttracting = true;
         } else {
             isAttracting = false;
+        }
+
+        if (isAttracting || isPushing) {
+            characterAnimator.SetBool("shoot", true);
+        } else {
+            characterAnimator.SetBool("shoot", false);
         }
 
         ChangeGravityDirection();

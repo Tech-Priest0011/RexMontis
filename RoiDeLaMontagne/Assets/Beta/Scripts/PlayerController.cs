@@ -262,7 +262,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             Invoke("DestroyParticules", 3);
-            Invoke("RespawnPlayer", 5);
+            Invoke("RespawnPlayer", 4);
             isDead = true;
             
         }
@@ -275,6 +275,7 @@ public class PlayerController : MonoBehaviour
             trappe.GetComponent<Animator>().SetBool("close", true);
             Invoke("RemettreBoolFalse", 2);
             Invoke("DestroyParticules", 3);
+           
         }
 
         
@@ -334,7 +335,7 @@ public class PlayerController : MonoBehaviour
         if(isDead == true)
         {
             gameObject.SetActive(false);
-            scoreManager.setBonusScore(0, id);
+            scoreManager.setBonusScore(defaultPoints -50, id);
         }
     }
 

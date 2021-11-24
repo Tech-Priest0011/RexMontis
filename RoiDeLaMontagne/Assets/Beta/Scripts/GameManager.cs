@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     private float interval = 2;
 
     //Variables pour le score
-    private int score;
     static private string pointageFinal;
     private float hauteurTemplate = 60f;
     private List<tableScores> listeDesScores;
@@ -132,6 +131,8 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     void Update()
     {
+        
+
         quelleScene = SceneManager.GetActiveScene().name;
         tempsDejeu = GameObject.Find("temps").GetComponent<CountDown>().tempsRestant;
       
@@ -264,11 +265,9 @@ public class GameManager : MonoBehaviour
                     scoreJoueur6 += listeDesScores[5].bonusScore;
                     scoreJoueur7 += listeDesScores[6].bonusScore;
                     scoreJoueur8 += listeDesScores[7].bonusScore;
-
                 }
                 else
                 {
-
                     multiplicateur = 2;
                     scoreJoueur1 += listeDesScores[0].bonusScore * multiplicateur;
                     scoreJoueur2 += listeDesScores[1].bonusScore * multiplicateur;

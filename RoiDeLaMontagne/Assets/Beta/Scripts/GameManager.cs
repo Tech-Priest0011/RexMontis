@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     //Variables pour le temps
-    private float tempsDejeu = 60f;
+    private int tempsDejeu;
     private float tempsDeDepart;
     static private float tempsFinal = 0f;
     private float interval = 2;
@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     private List<Transform> listeDesTransformDesScores;
     public GameObject tableauDesScores;
     public float pointIncreasedPerSecond;
+    
+    private float multiplicateur = 1f;
 
     //Variables non-class�es
     public GameObject character;
@@ -46,9 +48,6 @@ public class GameManager : MonoBehaviour
 
     //Test pour l'accueil
     public bool gameIsStarted;
-
-/*      public List<playersList> playersList; */
- /*    private GameObject[] arrayPlayers; */
 
     // Score Points --------------------------------------------------------------------------------------------
     public float scoreJoueur1 = 0;
@@ -77,68 +76,18 @@ public class GameManager : MonoBehaviour
     public static int playerID = 0;
     public static Dictionary<GameObject,int> playerList = new Dictionary<GameObject,int>();
 
-    public void setBonusScore(float score, int index){
-        listeDesScores[index].bonusScore = score;
-       
-    }
 
-    public static void addPlayerID(GameObject obj)
-    {
-        playerList.Add(obj,playerID);
-        playerID++;
-    }
 
-    private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
-    {
-        Transform scoreTransform = Instantiate(scoreTemplate, container); // Crée un clone dans un container
-        RectTransform scoreRectTransform = scoreTransform.GetComponent<RectTransform>(); // Va chercher la position du clone 
-        scoreRectTransform.anchoredPosition = new Vector2(hauteurTemplate * listeDeTransform.Count, 0 );  //Descend le score cloné d'une certaine hauteur
-        scoreTransform.gameObject.SetActive(true); // Active le clone 
-        tableData data = new tableData();
-        data.scoreTransform = scoreTransform;
-        data.Score = tableDesScores;
-        CounterObjects.Add(data);
-        
-        // --- Crée les positions --- //
-        int rang = listeDeTransform.Count + 1;
-        string rangString;
-        switch (rang)
-        {
-            default: rangString = rang + "e"; break;
-            case 1: rangString = "1er"; break;
-        }
 
-        scoreTransform.Find("positionText").GetComponent<Text>().text = rangString;
-
-        float scoreText = tableDesScores.scoreUnique;
-        scoreTransform.Find("nomsText").GetComponent<Text>().text = scoreText.ToString();
-
-        string nomsText = tableDesScores.nomUnique;
-        scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
-    
-        listeDeTransform.Add(scoreTransform);
-        
-    }
-
-    //Repr�sente un seul score et un seul nom
-    public class tableScores   
-    {
-        public float scoreUnique;
-        public string nomUnique;
-        public float bonusScore = 10;
-        
-
-    }
-
+    // ===================================================================== **
+    // Cette fonction est appelé au tout début de la partie
+    // ===================================================================== **
     void Start()
     {
-        //
         gameIsStarted = false;
 
-
-            listeDesScores = new List<tableScores>()
+        listeDesScores = new List<tableScores>()
         {
-             
             new tableScores { scoreUnique = scoreJoueur1, nomUnique = "Max" },
             new tableScores { scoreUnique = scoreJoueur2, nomUnique = "Caro" },
             new tableScores { scoreUnique = scoreJoueur3, nomUnique = "Gab" },
@@ -147,20 +96,15 @@ public class GameManager : MonoBehaviour
             new tableScores { scoreUnique = scoreJoueur6, nomUnique = "Sam" },
             new tableScores { scoreUnique = scoreJoueur7, nomUnique = "Mik" },
             new tableScores { scoreUnique = scoreJoueur8, nomUnique = "Rudy" },
-            
         };
- 
-
         
         listeDesTransformDesScores = new List<Transform>();
-
             foreach(tableScores tableDesScores in listeDesScores)
             {
              AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
             }
   
         scene = SceneManager.GetActiveScene().name;
-
         if (scene == "Scene1"){
             champsNom.text = nomDuJoueur;
             if (champsNom.text == "")
@@ -177,23 +121,20 @@ public class GameManager : MonoBehaviour
                 champsNom.text = "Joueur";
             }
             champsTemps.text = tempsFinal.ToString();
-            champsScore.text = pointageFinal;
-            
+            champsScore.text = pointageFinal; 
         }
 
-        //Test pour l'accueil
-        //playersList = new List<playersList>();
-
         Players = new List<GameObject>();
-
     }
 
-    
+    // ===================================================================== **
+    // Cette fonction est appelé à chaque frame
+    // ===================================================================== **
     void Update()
     {
-
         quelleScene = SceneManager.GetActiveScene().name;
-
+        tempsDejeu = GameObject.Find("temps").GetComponent<CountDown>().tempsRestant;
+      
         scoreTemplate.gameObject.SetActive(false);
         CounterObjects[0].Score.scoreUnique = scoreJoueur1;
         CounterObjects[1].Score.scoreUnique = scoreJoueur2;
@@ -237,12 +178,74 @@ public class GameManager : MonoBehaviour
         
     }
 
-    
+    // ===================================================================== **
+    // Cette fonction est ajoute un bonus au score du joueur
+    // ===================================================================== **
+    public void setBonusScore(float score, int index)
+    {
+        listeDesScores[index].bonusScore = score;
 
+    }
+
+    // ===================================================================== **
+    // Cette fonction est ajoute un ID au joueur qui se connecte
+    // ===================================================================== **
+    public static void addPlayerID(GameObject obj)
+    {
+        playerList.Add(obj, playerID);
+        playerID++;
+    }
+
+
+    // ===================================================================== **
+    // Cette fonction est ajoute un score à chaque joueur et l'affiche sur la scène
+    // ===================================================================== **
+    private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
+    {
+        Transform scoreTransform = Instantiate(scoreTemplate, container); // Crée un clone dans un container
+        RectTransform scoreRectTransform = scoreTransform.GetComponent<RectTransform>(); // Va chercher la position du clone 
+        scoreRectTransform.anchoredPosition = new Vector2(hauteurTemplate * listeDeTransform.Count, 0 );  //Descend le score cloné d'une certaine hauteur
+        scoreTransform.gameObject.SetActive(true); // Active le clone 
+        tableData data = new tableData();
+        data.scoreTransform = scoreTransform;
+        data.Score = tableDesScores;
+        CounterObjects.Add(data);
+        
+        // --- Crée les positions --- //
+        int rang = listeDeTransform.Count + 1;
+        string rangString;
+        switch (rang)
+        {
+            default: rangString = rang + "e"; break;
+            case 1: rangString = "1er"; break;
+        }
+
+        scoreTransform.Find("positionText").GetComponent<Text>().text = rangString;
+
+        float scoreText = tableDesScores.scoreUnique;
+        scoreTransform.Find("nomsText").GetComponent<Text>().text = scoreText.ToString();
+
+        string nomsText = tableDesScores.nomUnique;
+        scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
+    
+        listeDeTransform.Add(scoreTransform);
+    }
+
+    // ===================================================================== **
+    // Cette fonction représente un score et un nom pour chaque joueur
+    // ===================================================================== **
+    public class tableScores   
+    {
+        public float scoreUnique;
+        public string nomUnique;
+        public float bonusScore = 10;
+    }
+
+    // ===================================================================== **
+    // Cette fonction gère l'augmentation des scores avec le temps
+    // ===================================================================== **
     public void Score()
     {
-        
-
         if(scene != "Fin")
         {
             interval -= 1 * Time.deltaTime;
@@ -262,68 +265,59 @@ public class GameManager : MonoBehaviour
                 scoreJoueur8 += listeDesScores[7].bonusScore;
                                 
                 }else{
-                scoreJoueur1 += listeDesScores[0].bonusScore + 11f;
-                scoreJoueur2 += listeDesScores[1].bonusScore + 30f;
-                scoreJoueur3 += listeDesScores[2].bonusScore + 30f;
-                scoreJoueur4 += listeDesScores[3].bonusScore + 30f;
-                scoreJoueur5 += listeDesScores[4].bonusScore + 30f;
-                scoreJoueur6 += listeDesScores[5].bonusScore + 30f;
-                scoreJoueur7 += listeDesScores[6].bonusScore + 30f;
-                scoreJoueur8 += listeDesScores[7].bonusScore + 30f;
-                }
-                
-            }
 
-            if(score >= 1000)
-            {
-                champsScore.text = "Score : " + score;
+                multiplicateur = 2;
+                scoreJoueur1 += listeDesScores[0].bonusScore * multiplicateur;
+                scoreJoueur2 += listeDesScores[1].bonusScore * multiplicateur;
+                scoreJoueur3 += listeDesScores[2].bonusScore * multiplicateur;
+                scoreJoueur4 += listeDesScores[3].bonusScore * multiplicateur;
+                scoreJoueur5 += listeDesScores[4].bonusScore * multiplicateur;
+                scoreJoueur6 += listeDesScores[5].bonusScore * multiplicateur;
+                scoreJoueur7 += listeDesScores[6].bonusScore * multiplicateur;
+                scoreJoueur8 += listeDesScores[7].bonusScore * multiplicateur;
+                } 
             }
-            else if (score >= 100)
-            {
-                champsScore.text = "Score : 0" + score;
-            }
-            else if (score >= 10)
-            {
-                champsScore.text = "Score : 00" + score;
-            }
-            else if(score >= 0)
-            {
-                champsScore.text = "Score : 000" + score;
-            }
-
         } 
     }
 
+
+    // ===================================================================== **
+    // Cette fonction connecte un joueur lorsqu'un joueur appuies sur X
+    // ===================================================================== **
     public void connexionJoueur()
     {
-        //GameObject joueurDetruit = parentJoueurConnecte.transform.GetChild(0).gameObject;
-        //Destroy(joueurDetruit);
         nombreJoueur++;
-
         joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
-        
         Instantiate(joueurConnecte, parentJoueurConnecte.transform); 
-
     }
 
+
+    // ===================================================================== **
+    // Cette fonction démarre la partie
+    // ===================================================================== **
     public void Jouer(InputAction.CallbackContext context){
 
         if (nombreJoueur >= 2) {
             gameIsStarted = true;
             GameObject.Find("Instructions").SetActive(false);
         }
-
     }
 
+
+    // ===================================================================== **
+    // Cette fonction amène vers la scène de fin et garde le texte en mémoire
+    // ===================================================================== **
     public void FinDeJeu()
     {
         SceneManager.LoadScene("Fin");
-        tempsFinal = tempsDeDepart - tempsDejeu;
         pointageFinal = champsScore.text;
         gameIsStarted = false;
         
     }
 
+    // ===================================================================== **
+    // Cette fonction redémarre la partie
+    // ===================================================================== **
     public void Restart(InputAction.CallbackContext context){
 
         if(quelleScene == "Fin"){

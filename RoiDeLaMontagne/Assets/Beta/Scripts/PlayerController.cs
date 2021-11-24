@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
     //Pour le score
     private GameManager scoreManager;
     private float areaPoints = 10f;
-    private float multiplicateur = 1f;
     private float defaultPoints;
     private int id;
     public bool doubleScore = false;
@@ -111,13 +110,13 @@ public class PlayerController : MonoBehaviour
             jumped = false;
         }
 
-        doubleScore = GameObject.Find("temps").GetComponent<CountDown>().doublePoint;
+       
   
 
         //Section de méthodes appelées sans arrêts
         MoveCharacter();
         RotateCharacter();
-        VerifieTemps();
+        //VerifieTemps();
         VerifieMort();
     }
 
@@ -236,27 +235,27 @@ public class PlayerController : MonoBehaviour
           if (collision.transform.tag == "Niveau5")
            {
            
-            scoreManager.setBonusScore(10 * multiplicateur, id);
+            scoreManager.setBonusScore(50, id);
            }
            if (collision.transform.tag == "Niveau4")
            {
           
-            scoreManager.setBonusScore(10 * multiplicateur, id);
+            scoreManager.setBonusScore(40, id);
            }
             if (collision.transform.tag == "Niveau3")
             {
             
-            scoreManager.setBonusScore(10 * multiplicateur, id);
+            scoreManager.setBonusScore((30), id);
             }
             if (collision.transform.tag == "Niveau2")
             {
           
-            scoreManager.setBonusScore(10 * multiplicateur, id);
+            scoreManager.setBonusScore((20), id);
             }
             if (collision.transform.tag == "Niveau1")
             {
           
-            scoreManager.setBonusScore(10 * multiplicateur, id);
+            scoreManager.setBonusScore((15), id);
             }
 
         if (collision.transform.tag == "vide")
@@ -292,47 +291,29 @@ public class PlayerController : MonoBehaviour
          if (collision.gameObject.tag == "Niveau5")
          {
            
-            scoreManager.setBonusScore(defaultPoints * multiplicateur, id);                        
+            scoreManager.setBonusScore(defaultPoints, id);                        
          }
         if (collision.gameObject.tag == "Niveau4")
         {
             
-            scoreManager.setBonusScore(defaultPoints * multiplicateur, id);
+            scoreManager.setBonusScore(defaultPoints, id);
         }
         if (collision.gameObject.tag == "Niveau3")
         {
             
-            scoreManager.setBonusScore(defaultPoints * multiplicateur, id);
+            scoreManager.setBonusScore(defaultPoints, id);
         }
         if (collision.gameObject.tag == "Niveau2")
         {
             
-            scoreManager.setBonusScore(defaultPoints * multiplicateur, id);
+            scoreManager.setBonusScore(defaultPoints, id);
         }
         if (collision.gameObject.tag == "Niveau1")
         {
             
-            scoreManager.setBonusScore(defaultPoints * multiplicateur, id);
+            scoreManager.setBonusScore(defaultPoints, id);
         }
 
-    }
-
-    // ===================================================================== **
-    // Vérifie si le double points est actif
-    // ===================================================================== **
-    private void VerifieTemps()
-    {
-        
-        if (doubleScore == true)
-        {
-            multiplicateur = 2f;
-            defaultPoints = 10f * multiplicateur;
-        }
-        else if(doubleScore == false)
-        {
-            defaultPoints = 10f * multiplicateur;
-            multiplicateur = 1f;
-        }
     }
 
 
@@ -345,7 +326,6 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.SetActive(false);
             scoreManager.setBonusScore(0, id);
-
         }
     }
 

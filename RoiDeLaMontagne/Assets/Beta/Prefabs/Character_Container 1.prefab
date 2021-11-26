@@ -238,6 +238,7 @@ MonoBehaviour:
   jumpForce: 350
   systemeDeParticules: {fileID: 5856242391850329912, guid: 769986774dac8a54ca015ce38e551560, type: 3}
   doubleScore: 0
+  characterAnimator: {fileID: 5455415374305832330}
 --- !u!114 &8390518360691189539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,8 +497,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704172413634718314}
   m_LocalRotation: {x: -0.007221488, y: 0.70601195, z: -0.70812607, w: 0.0072431136}
-  m_LocalPosition: {x: 1.4499998, y: 0.049999997, z: 0.010000229}
-  m_LocalScale: {x: 1.446441, y: 0.4931, z: 1.0414599}
+  m_LocalPosition: {x: 1.425, y: 1.24, z: 0.098}
+  m_LocalScale: {x: 1.446441, y: 0.85049886, z: 1.6214712}
   m_Children: []
   m_Father: {fileID: 1704172412385660980}
   m_RootOrder: 2
@@ -533,6 +534,7 @@ MonoBehaviour:
   isPushing: 0
   isAttracting: 0
   isTouchingPlayer: 0
+  characterAnimator: {fileID: 5455415374305832330}
 --- !u!1 &7009292017805697466
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,5 +707,10 @@ PrefabInstance:
 --- !u!4 &5494178366859880707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7035095705999419746, guid: 9c59b26558d68734c88e79df119f745c, type: 3}
+  m_PrefabInstance: {fileID: 3287223489511620705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5455415374305832330 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7362003545590935019, guid: 9c59b26558d68734c88e79df119f745c, type: 3}
   m_PrefabInstance: {fileID: 3287223489511620705}
   m_PrefabAsset: {fileID: 0}

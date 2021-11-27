@@ -28,10 +28,11 @@ public class PlayerController : MonoBehaviour
     public GameObject gravityController; // GameObject GravityController
 
     //Attribution d'une couleur aléatoire - début
-    private static Color color1;
+    /*private static Color color1;
     private static Color color2;
     private static bool hasColorsAssigned = false;
-    private static string lastColor;
+    private static string lastColor;*/
+    private static Color couleur;
 
     //Pour se déplacer
     private Vector2 move;
@@ -93,6 +94,8 @@ public class PlayerController : MonoBehaviour
          }*/
 
          scoreManager = FindObjectOfType<GameManager>();
+
+        couleur = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
         ChangeColor();
     }
 
@@ -328,9 +331,23 @@ public class PlayerController : MonoBehaviour
     private void ChangeColor()
     {
         Transform enfant = gameObject.transform.GetChild(0).transform.GetChild(1);
-        List<Material> materials = new List<Material>();
+        /*List<Material> materials = new List<Material>();
         RandomColor couleurAleatoire = new RandomColor();
-        enfant.gameObject.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Color", Color.blue);
+        enfant.gameObject.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Color", Color.blue);*/
+
+        Material[] materiaux = enfant.GetComponent<Renderer>().materials;
+        foreach (Material mat in materiaux)
+        {            
+            if (mat.name == "meep-peau-dark (Instance)")
+            {
+                mat.color = couleur;
+            }
+            else if (mat.name == "meep-peau-light (Instance)")
+            {
+                mat.color = new Color(couleur.r + 0.3f, couleur.g + 0.3f, couleur.b + 0.3f);
+            }
+
+        }
 
     }
 

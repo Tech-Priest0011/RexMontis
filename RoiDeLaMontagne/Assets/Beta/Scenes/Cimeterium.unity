@@ -2167,7 +2167,7 @@ MonoBehaviour:
         m_Action: Join
         m_Flags: 0
     m_Reference: {fileID: -2871498705268458593, guid: 96d9eb2d6845d974793843abb3c0d642, type: 3}
-  m_PlayerPrefab: {fileID: 5576452775904422447, guid: 46f8ad60ca214d846bc32fd2aba65e8b, type: 3}
+  m_PlayerPrefab: {fileID: 5576452775904422447, guid: 5e5b312b15a1d934c99239a29a46952e, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -2198,7 +2198,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195490649}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcb2182cca5908f488a080b2d8821ad8, type: 3}
   m_Name: 

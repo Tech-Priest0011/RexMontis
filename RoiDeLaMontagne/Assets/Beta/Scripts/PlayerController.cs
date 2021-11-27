@@ -149,8 +149,36 @@ public class PlayerController : MonoBehaviour
 
         move = context.ReadValue<Vector2>();
 
-        moveHorizontal = move.x;
-        moveVertical = move.y;
+        float valueX = 0;
+        float valueY = 0;
+
+        if (move.x > 0) {
+            valueX = Mathf.Ceil(move.x);
+
+        } else if (move.x < 0) {
+            valueX = Mathf.Floor(move.x);
+
+        } else {
+            valueX = 0;
+
+        }
+
+        if (move.y > 0) {
+            valueY = Mathf.Ceil(move.y);
+
+        } else if (move.y < 0) {
+            valueY = Mathf.Floor(move.y);
+
+        } else {
+            valueY = 0;
+            
+        }
+
+        moveHorizontal = valueX;
+        moveVertical = valueY;
+
+        Debug.Log(moveHorizontal);
+        Debug.Log(moveVertical);
 
     }
 

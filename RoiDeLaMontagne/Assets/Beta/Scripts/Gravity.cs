@@ -57,8 +57,33 @@ public class Gravity : MonoBehaviour
     {
         move = context.ReadValue<Vector2>();
 
-        moveHorizontal = move.x;
-        moveVertical = move.y;
+        int valueX = 0;
+        int valueY = 0;
+
+        if (move.x > 0) {
+            valueX = 1;
+
+        } else if (move.x < 0) {
+            valueX = -1;
+
+        } else {
+            valueX = 0;
+
+        }
+
+        if (move.y > 0) {
+            valueY = 1;
+
+        } else if (move.y < 0) {
+            valueY = -1;
+
+        } else {
+            valueY = 0;
+            
+        }
+
+        moveHorizontal = valueX;
+        moveVertical = valueY;
     }
 
     // ===================================================================== **

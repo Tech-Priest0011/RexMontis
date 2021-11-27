@@ -275,7 +275,8 @@ public class PlayerController : MonoBehaviour
             trappe.GetComponent<Animator>().SetBool("close", true);
             Invoke("RemettreBoolFalse", 2);
             Invoke("DestroyParticules", 3);
-           
+            Invoke("RespawnPlayer", 4);
+
         }
 
         
@@ -334,7 +335,7 @@ public class PlayerController : MonoBehaviour
     {
         if(isDead == true)
         {
-            gameObject.SetActive(false);
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
             scoreManager.setBonusScore(defaultPoints -50, id);
         }
     }
@@ -355,6 +356,7 @@ public class PlayerController : MonoBehaviour
         gameObject.SetActive(true);
         gameObject.transform.position = new Vector3(Random.Range(30, 40), Random.Range(33, 42), Random.Range(17, 23));
         isDead = false;
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
     }
 
 

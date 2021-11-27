@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         hips = GetComponent<Rigidbody>();
 
         //Gérer les instances
-        if (hasColorsAssigned == false)
+      /*  if (hasColorsAssigned == false)
          {
              color1 = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
              color2 = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
@@ -90,9 +90,10 @@ public class PlayerController : MonoBehaviour
          {
              GetComponent<Renderer>().material.color = color1;
              lastColor = "color1";
-         }
+         }*/
 
          scoreManager = FindObjectOfType<GameManager>();
+        ChangeColor();
     }
 
 
@@ -282,6 +283,9 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    // ===================================================================== **
+    // Remet la booléenne de l'animation de la trappe à false
+    // ===================================================================== **
     private void RemettreBoolFalse()
     {
         trappe.GetComponent<Animator>().SetBool("close", false);
@@ -318,6 +322,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // ===================================================================== **
+    // Change la couleur du matériel du personnage 
+    // ===================================================================== **
+    private void ChangeColor()
+    {
+        Transform enfant = gameObject.transform.GetChild(0).transform.GetChild(1);
+        List<Material> materials = new List<Material>();
+        RandomColor couleurAleatoire = new RandomColor();
+        enfant.gameObject.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Color", Color.blue);
+
+    }
+
+
+    // ===================================================================== **
+    // Vérifie si le temps tombe à zéro
+    // ===================================================================== **
     private void VerifieTemps()
     {
         if(tempsRestant <= 0f)

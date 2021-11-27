@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     public bool gameIsStarted;
 
     // Score Points 
+    
     public float scoreJoueur1 = 0;
     public float scoreJoueur2 = 0;
     public float scoreJoueur3 = 0;
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
     public float scoreBonus6 = 15f;
     public float scoreBonus7 = 16f;
     public float scoreBonus8 = 17f;
+    [SerializeField] private List<Text> textList = new List<Text>();
 
     public List<GameObject> Players {get; set;}
     public static int playerID = 0;
@@ -157,19 +160,27 @@ public class GameManager : MonoBehaviour
        }
 
        //Met les scores dans le bon ordre
-        for (int i = 0; i < listeDesScores.Count; i++)
-        {
-            for (int j = i + 1; j < listeDesScores.Count; j++)
+        listeDesScores = listeDesScores.OrderByDescending(score => score.scoreUnique).ToList();
+       
+        for (int i = 0; i < textList.Count; i++)
             {
-                if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
-                {
-                    //Interchange les positions
-                    tableScores temporaire = listeDesScores[i];
-                    listeDesScores[i] = listeDesScores[j];
-                    listeDesScores[j] = temporaire;
-                }
+             textList[i].text = listeDesScores[i].scoreUnique.ToString(); 
             }
-        }
+
+            
+        // for (int i = 0; i < listeDesScores.Count; i++)
+        // {
+        //     for (int j = i + 1; j < listeDesScores.Count; j++)
+        //     {
+        //         if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
+        //         {
+        //             //Interchange les positions
+        //             tableScores temporaire = listeDesScores[i];
+        //             listeDesScores[i] = listeDesScores[j];
+        //             listeDesScores[j] = temporaire;
+        //         }
+        //     }
+        // }
 
         //Test début du jeu
         if (gameIsStarted) {
@@ -224,10 +235,12 @@ public class GameManager : MonoBehaviour
         scoreTransform.Find("positionText").GetComponent<Text>().text = rangString;
 
         float scoreText = tableDesScores.scoreUnique;
-        scoreTransform.Find("nomsText").GetComponent<Text>().text = scoreText.ToString();
+        scoreTransform.Find("scoreText").GetComponent<Text>().text = scoreText.ToString();
 
         string nomsText = tableDesScores.nomUnique;
-        scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
+        scoreTransform.Find("nomsText").GetComponent<Text>().text = nomsText;
+
+        textList.Add(scoreTransform.Find("nomsText").GetComponent<Text>());
     
         listeDeTransform.Add(scoreTransform);
     }

@@ -245,17 +245,17 @@ public class PlayerController : MonoBehaviour
 
             if (collision.transform.tag == "Niveau3")
             {
-            scoreManager.setBonusScore((30), id);
+            scoreManager.setBonusScore(30, id);
             }
 
             if (collision.transform.tag == "Niveau2")
             {
-            scoreManager.setBonusScore((20), id);
+            scoreManager.setBonusScore(20, id);
             }
 
             if (collision.transform.tag == "Niveau1")
             {
-            scoreManager.setBonusScore((15), id);
+            scoreManager.setBonusScore(15, id);
             }
 
         if (collision.transform.tag == "vide")

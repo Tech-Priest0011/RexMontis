@@ -324,11 +324,16 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     // Cette fonction connecte un joueur lorsqu'un joueur appuies sur X
     // ===================================================================== **
-    public void connexionJoueur()
+    public void connexionJoueur(InputAction.CallbackContext context)
     {
+        Debug.Log("Joigno !");
         nombreJoueur++;
-        joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
-        Instantiate(joueurConnecte, parentJoueurConnecte.transform); 
+        if(nombreJoueur <= 4)
+        {
+            joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
+            Instantiate(joueurConnecte, parentJoueurConnecte.transform); 
+        }
+        
     }
 
 

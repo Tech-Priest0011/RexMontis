@@ -238,6 +238,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Join"",
+                    ""type"": ""Button"",
+                    ""id"": ""2bbd0929-575e-4cce-a0ca-471370182563"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -256,7 +264,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""a8295f05-b6db-4bb0-9d6e-de8b092af7cd"",
                     ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Start"",
@@ -282,6 +290,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7e9368b-0074-465c-8450-7f78a2bd248b"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Join"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -323,6 +342,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_StartGame = asset.FindActionMap("StartGame", throwIfNotFound: true);
         m_StartGame_Start = m_StartGame.FindAction("Start", throwIfNotFound: true);
         m_StartGame_Restart = m_StartGame.FindAction("Restart", throwIfNotFound: true);
+        m_StartGame_Join = m_StartGame.FindAction("Join", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -431,12 +451,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IStartGameActions m_StartGameActionsCallbackInterface;
     private readonly InputAction m_StartGame_Start;
     private readonly InputAction m_StartGame_Restart;
+    private readonly InputAction m_StartGame_Join;
     public struct StartGameActions
     {
         private @PlayerInputActions m_Wrapper;
         public StartGameActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Start => m_Wrapper.m_StartGame_Start;
         public InputAction @Restart => m_Wrapper.m_StartGame_Restart;
+        public InputAction @Join => m_Wrapper.m_StartGame_Join;
         public InputActionMap Get() { return m_Wrapper.m_StartGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -452,6 +474,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Restart.started -= m_Wrapper.m_StartGameActionsCallbackInterface.OnRestart;
                 @Restart.performed -= m_Wrapper.m_StartGameActionsCallbackInterface.OnRestart;
                 @Restart.canceled -= m_Wrapper.m_StartGameActionsCallbackInterface.OnRestart;
+                @Join.started -= m_Wrapper.m_StartGameActionsCallbackInterface.OnJoin;
+                @Join.performed -= m_Wrapper.m_StartGameActionsCallbackInterface.OnJoin;
+                @Join.canceled -= m_Wrapper.m_StartGameActionsCallbackInterface.OnJoin;
             }
             m_Wrapper.m_StartGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -462,6 +487,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Restart.started += instance.OnRestart;
                 @Restart.performed += instance.OnRestart;
                 @Restart.canceled += instance.OnRestart;
+                @Join.started += instance.OnJoin;
+                @Join.performed += instance.OnJoin;
+                @Join.canceled += instance.OnJoin;
             }
         }
     }
@@ -495,5 +523,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnStart(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
+        void OnJoin(InputAction.CallbackContext context);
     }
 }

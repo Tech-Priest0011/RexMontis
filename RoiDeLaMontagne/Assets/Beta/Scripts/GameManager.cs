@@ -73,6 +73,9 @@ public class GameManager : MonoBehaviour
     public float scoreBonus7 = 16f;
     public float scoreBonus8 = 17f;
     [SerializeField] private List<Text> textList = new List<Text>();
+    [SerializeField] private List<Text> nameText = new List<Text>();
+
+    private bool closeUI = false;
 
     public List<GameObject> Players {get; set;}
     public static int playerID = 0;
@@ -165,23 +168,21 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < textList.Count; i++)
             {
              textList[i].text = listeDesScores[i].scoreUnique.ToString(); 
+             nameText[i].text = listeDesScores[i].nomUnique.ToString();
             }
 
-            
-        // for (int i = 0; i < listeDesScores.Count; i++)
-        // {
-        //     for (int j = i + 1; j < listeDesScores.Count; j++)
-        //     {
-        //         if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
-        //         {
-        //             //Interchange les positions
-        //             tableScores temporaire = listeDesScores[i];
-        //             listeDesScores[i] = listeDesScores[j];
-        //             listeDesScores[j] = temporaire;
-        //         }
-        //     }
-        // }
 
+        if (textList.Count >= 8)
+        {
+            for (int i = 0; i < textList.Count; i++)
+            {
+                if (i > (playerID - 1))
+                {
+                    textList[i].transform.parent.gameObject.SetActive(false);
+                }
+            }
+        }
+    
         //Test début du jeu
         if (gameIsStarted) {
            
@@ -241,6 +242,7 @@ public class GameManager : MonoBehaviour
         scoreTransform.Find("nomsText").GetComponent<Text>().text = nomsText;
 
         textList.Add(scoreTransform.Find("nomsText").GetComponent<Text>());
+        nameText.Add(scoreTransform.Find("scoreText").GetComponent<Text>());
     
         listeDeTransform.Add(scoreTransform);
     }

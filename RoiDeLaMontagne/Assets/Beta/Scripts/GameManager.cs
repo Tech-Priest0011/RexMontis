@@ -167,20 +167,7 @@ public class GameManager : MonoBehaviour
              textList[i].text = listeDesScores[i].scoreUnique.ToString(); 
             }
 
-            
-        // for (int i = 0; i < listeDesScores.Count; i++)
-        // {
-        //     for (int j = i + 1; j < listeDesScores.Count; j++)
-        //     {
-        //         if(listeDesScores[j].scoreUnique > listeDesScores[i].scoreUnique)
-        //         {
-        //             //Interchange les positions
-        //             tableScores temporaire = listeDesScores[i];
-        //             listeDesScores[i] = listeDesScores[j];
-        //             listeDesScores[j] = temporaire;
-        //         }
-        //     }
-        // }
+           
 
         //Test début du jeu
         if (gameIsStarted) {

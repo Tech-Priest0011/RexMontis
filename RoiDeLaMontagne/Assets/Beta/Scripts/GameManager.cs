@@ -168,9 +168,11 @@ public class GameManager : MonoBehaviour
         listeDesScores = listeDesScores.OrderByDescending(score => score.scoreUnique).ToList();
        
         for (int i = 0; i < textList.Count; i++)
-        {
-            textList[i].text = listeDesScores[i].scoreUnique.ToString(); 
-        }
+            {
+             textList[i].text = listeDesScores[i].scoreUnique.ToString(); 
+            }
+
+           
 
         //Test début du jeu
         if (countdownIsActive) {

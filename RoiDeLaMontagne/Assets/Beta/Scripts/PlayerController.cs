@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
     //Pour la mort
     public GameObject systemeDeParticules;
     private bool isDead = false;
-    private GameObject trappe;
+   
+    public GameObject trappeTrigger;
 
     //Pour le score
     private GameManager scoreManager;
@@ -76,24 +77,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         hips = GetComponent<Rigidbody>();
-
-        //Gérer les instances
-      /*  if (hasColorsAssigned == false)
-         {
-             color1 = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
-             color2 = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
-             hasColorsAssigned = true;
-         }
-         if (lastColor == "color1")
-         {
-             GetComponent<Renderer>().material.color = color2;
-             lastColor = "color2";
-         }
-         else
-         {
-             GetComponent<Renderer>().material.color = color1;
-             lastColor = "color1";
-         }*/
 
          scoreManager = FindObjectOfType<GameManager>();
 
@@ -303,28 +286,20 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        if (collision.transform.tag == "trappe")
-        {
-            Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
-            isDead = true;
-            trappe = collision.gameObject;
-            trappe.GetComponent<Animator>().SetBool("close", true);
-            Invoke("RemettreBoolFalse", 2);
-            Invoke("DestroyParticules", 3);
-            Invoke("RespawnPlayer", 4);
-
-        }
 
         
     }
 
-    // ===================================================================== **
-    // Remet la booléenne de l'animation de la trappe à false
-    // ===================================================================== **
-    private void RemettreBoolFalse()
+    public void VerifieTrappe()
+
     {
-        trappe.GetComponent<Animator>().SetBool("close", false);
+        Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+        isDead = true;
+        Invoke("DestroyParticules", 3);
+        Invoke("RespawnPlayer", 4);
     }
+
+  
 
 
     void OnTriggerExit(Collider collision){

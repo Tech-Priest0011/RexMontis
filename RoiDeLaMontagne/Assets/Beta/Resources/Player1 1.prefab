@@ -1,5 +1,86 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1379419159324525376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 994065608346687439}
+  - component: {fileID: 6525280207057160660}
+  - component: {fileID: 8149197670512338008}
+  - component: {fileID: 5363061166454706695}
+  - component: {fileID: 4954511589909739550}
+  m_Layer: 0
+  m_Name: trappeTrigger
+  m_TagString: trappeTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &994065608346687439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379419159324525376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.25299835, z: 0}
+  m_LocalScale: {x: 0.42106998, y: 0.42106998, z: 0.42106998}
+  m_Children: []
+  m_Father: {fileID: 5576452776905320652}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6525280207057160660
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379419159324525376}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!135 &8149197670512338008
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379419159324525376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &5363061166454706695
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379419159324525376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4954511589909739550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379419159324525376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada0f627454c7224590ac28c5d3b766b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Joueur: {fileID: 5576452776905320648}
 --- !u!1 &5576452775406834322
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +272,7 @@ Transform:
   - {fileID: 8609251726140970612}
   - {fileID: 5576452776328698705}
   - {fileID: 5576452775406834321}
+  - {fileID: 994065608346687439}
   m_Father: {fileID: 5576452775904422446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -388,6 +470,7 @@ MonoBehaviour:
   strafeSpeed: 20
   jumpForce: 500
   systemeDeParticules: {fileID: 5856242391850329912, guid: 769986774dac8a54ca015ce38e551560, type: 3}
+  trappeTrigger: {fileID: 1379419159324525376}
   doubleScore: 0
   characterAnimator: {fileID: 8138160286737658269}
 --- !u!114 &3365594614849216475

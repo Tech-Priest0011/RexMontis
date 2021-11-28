@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
 
     //Variables Test
     public Animator characterAnimator;
+    //
+    public GameManager GameManager;
 
 
     // ===================================================================== **
@@ -97,6 +99,9 @@ public class PlayerController : MonoBehaviour
 
         couleur = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
         ChangeColor();
+
+        //Test
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
@@ -177,9 +182,6 @@ public class PlayerController : MonoBehaviour
         moveHorizontal = valueX;
         moveVertical = valueY;
 
-        Debug.Log(moveHorizontal);
-        Debug.Log(moveVertical);
-
     }
 
 
@@ -187,26 +189,28 @@ public class PlayerController : MonoBehaviour
     // Déplacement du joueur.
     // ===================================================================== **
     private void MoveCharacter() {
+        
+        if (GameManager.gameIsStarted) {
+            float x = moveHorizontal;
+            float y = moveVertical;
 
-        float x = moveHorizontal;
-        float y = moveVertical;
+            Vector3 direction = new Vector3(x, 0, y).normalized;
 
-        Vector3 direction = new Vector3(x, 0, y).normalized;
+            // Autorise le déplacement lorsque le joueur n'utilise pas l'aspirateur OU utilise l'aspirateur, mais n'est pas en contact avec un autre joueur.
+            if (!gravityController.GetComponent<Gravity>().isAttracting || (!gravityController.GetComponent<Gravity>().isTouchingPlayer && gravityController.GetComponent<Gravity>().isAttracting)) {
+                hips.AddForce(direction * speed); 
 
-        // Autorise le déplacement lorsque le joueur n'utilise pas l'aspirateur OU utilise l'aspirateur, mais n'est pas en contact avec un autre joueur.
-        if (!gravityController.GetComponent<Gravity>().isAttracting || (!gravityController.GetComponent<Gravity>().isTouchingPlayer && gravityController.GetComponent<Gravity>().isAttracting)) {
-            hips.AddForce(direction * speed); 
+                if (x != 0 || y != 0) {
+                    characterAnimator.SetBool("walk", true);
+                } else {
+                    characterAnimator.SetBool("walk", false);
+                }
 
-            if (x != 0 || y != 0) {
-                characterAnimator.SetBool("walk", true);
             } else {
+
+                hips.AddForce(direction * 0);
                 characterAnimator.SetBool("walk", false);
             }
-
-        } else {
-
-            hips.AddForce(direction * 0);
-            characterAnimator.SetBool("walk", false);
         }
     }
 

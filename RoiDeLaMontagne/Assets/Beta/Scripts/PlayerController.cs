@@ -381,6 +381,12 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
             scoreManager.setBonusScore(defaultPoints -50, id);
+            GameObject particules = GameObject.Find("confetti(Clone)");
+
+            if (particules)
+            {
+                Invoke("DestroyParticules", 4);
+            }
         }
     }
 

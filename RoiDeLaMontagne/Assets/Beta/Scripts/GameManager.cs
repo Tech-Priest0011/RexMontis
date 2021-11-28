@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour
 
     //Test pour l'accueil
     public bool gameIsStarted;
+    private GameObject countdownText;
+    private float countdownTime = 3f; //
+    private bool countdownIsActive = false; //
 
     // Score Points 
     
@@ -90,6 +93,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameIsStarted = false;
+        
+        countdownText = GameObject.Find("Countdown");
 
         listeDesScores = new List<tableScores>()
         {
@@ -184,10 +189,28 @@ public class GameManager : MonoBehaviour
         }
     
         //Test début du jeu
+        if (countdownIsActive) {
+            countdownTime -= Time.deltaTime;
+            CountDownBegin();
+
+
+            if (countdownTime <= -1) {
+                gameIsStarted = true;
+                countdownIsActive = false;
+                
+                countdownText.SetActive(false);
+            }
+        }
+
         if (gameIsStarted) {
            
             Score();
+
+
+            Invoke("CountDownEnd", 0.1f);
         }
+
+        
         
     }
 
@@ -315,8 +338,8 @@ public class GameManager : MonoBehaviour
     public void Jouer(InputAction.CallbackContext context){
 
         if (nombreJoueur >= 2) {
-            gameIsStarted = true;
-            GameObject.Find("Instructions").SetActive(false);
+            countdownIsActive = true;
+            GameObject.Find("Instructions").SetActive(false); //
         }
     }
 
@@ -341,6 +364,30 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Cimeterium");
         }
         
+    }
+
+    private void CountDownBegin() {
+
+        if (countdownTime <= 0f) {
+            GameObject.Find("Countdown").GetComponent<Text>().text = "GO!";
+        } else {
+            GameObject.Find("Countdown").GetComponent<Text>().text = Mathf.Ceil(countdownTime).ToString();
+        }
+        
+    }
+
+    private void CountDownEnd() {
+        if (tempsDejeu <= 5) {
+            countdownText.SetActive(true);
+            GameObject.Find("Countdown").GetComponent<Text>().text = tempsDejeu.ToString();
+        }
+
+        if (tempsDejeu <= 1f) {
+            GameObject.Find("Countdown").GetComponent<Text>().text = "C'est fini!";
+            
+        } else if (tempsDejeu <= -1f) {
+            FinDeJeu();
+        }
     }
 
 }

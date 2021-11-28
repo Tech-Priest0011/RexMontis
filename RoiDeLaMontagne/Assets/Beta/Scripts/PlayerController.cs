@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
     //Pour la mort
     public GameObject systemeDeParticules;
     private bool isDead = false;
-    private GameObject trappe;
+   
+    public GameObject trappeTrigger;
 
     //Pour le score
     private GameManager scoreManager;
@@ -64,6 +65,8 @@ public class PlayerController : MonoBehaviour
 
     //Variables Test
     public Animator characterAnimator;
+    //
+    public GameManager GameManager;
 
 
     // ===================================================================== **
@@ -75,28 +78,13 @@ public class PlayerController : MonoBehaviour
     {
         hips = GetComponent<Rigidbody>();
 
-        //Gérer les instances
-      /*  if (hasColorsAssigned == false)
-         {
-             color1 = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
-             color2 = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
-             hasColorsAssigned = true;
-         }
-         if (lastColor == "color1")
-         {
-             GetComponent<Renderer>().material.color = color2;
-             lastColor = "color2";
-         }
-         else
-         {
-             GetComponent<Renderer>().material.color = color1;
-             lastColor = "color1";
-         }*/
-
          scoreManager = FindObjectOfType<GameManager>();
 
         couleur = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
         ChangeColor();
+
+        //Test
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
@@ -149,8 +137,33 @@ public class PlayerController : MonoBehaviour
 
         move = context.ReadValue<Vector2>();
 
-        moveHorizontal = move.x;
-        moveVertical = move.y;
+        float valueX = 0;
+        float valueY = 0;
+
+        if (move.x > 0) {
+            valueX = Mathf.Ceil(move.x);
+
+        } else if (move.x < 0) {
+            valueX = Mathf.Floor(move.x);
+
+        } else {
+            valueX = 0;
+
+        }
+
+        if (move.y > 0) {
+            valueY = Mathf.Ceil(move.y);
+
+        } else if (move.y < 0) {
+            valueY = Mathf.Floor(move.y);
+
+        } else {
+            valueY = 0;
+            
+        }
+
+        moveHorizontal = valueX;
+        moveVertical = valueY;
 
     }
 
@@ -159,26 +172,28 @@ public class PlayerController : MonoBehaviour
     // Déplacement du joueur.
     // ===================================================================== **
     private void MoveCharacter() {
+        
+        if (GameManager.gameIsStarted) {
+            float x = moveHorizontal;
+            float y = moveVertical;
 
-        float x = moveHorizontal;
-        float y = moveVertical;
+            Vector3 direction = new Vector3(x, 0, y).normalized;
 
-        Vector3 direction = new Vector3(x, 0, y).normalized;
+            // Autorise le déplacement lorsque le joueur n'utilise pas l'aspirateur OU utilise l'aspirateur, mais n'est pas en contact avec un autre joueur.
+            if (!gravityController.GetComponent<Gravity>().isAttracting || (!gravityController.GetComponent<Gravity>().isTouchingPlayer && gravityController.GetComponent<Gravity>().isAttracting)) {
+                hips.AddForce(direction * speed); 
 
-        // Autorise le déplacement lorsque le joueur n'utilise pas l'aspirateur OU utilise l'aspirateur, mais n'est pas en contact avec un autre joueur.
-        if (!gravityController.GetComponent<Gravity>().isAttracting || (!gravityController.GetComponent<Gravity>().isTouchingPlayer && gravityController.GetComponent<Gravity>().isAttracting)) {
-            hips.AddForce(direction * speed); 
+                if (x != 0 || y != 0) {
+                    characterAnimator.SetBool("walk", true);
+                } else {
+                    characterAnimator.SetBool("walk", false);
+                }
 
-            if (x != 0 || y != 0) {
-                characterAnimator.SetBool("walk", true);
             } else {
+
+                hips.AddForce(direction * 0);
                 characterAnimator.SetBool("walk", false);
             }
-
-        } else {
-
-            hips.AddForce(direction * 0);
-            characterAnimator.SetBool("walk", false);
         }
     }
 
@@ -271,28 +286,20 @@ public class PlayerController : MonoBehaviour
             
         }
 
-        if (collision.transform.tag == "trappe")
-        {
-            Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
-            isDead = true;
-            trappe = collision.gameObject;
-            trappe.GetComponent<Animator>().SetBool("close", true);
-            Invoke("RemettreBoolFalse", 2);
-            Invoke("DestroyParticules", 3);
-            Invoke("RespawnPlayer", 4);
-
-        }
 
         
     }
 
-    // ===================================================================== **
-    // Remet la booléenne de l'animation de la trappe à false
-    // ===================================================================== **
-    private void RemettreBoolFalse()
+    public void VerifieTrappe()
+
     {
-        trappe.GetComponent<Animator>().SetBool("close", false);
+        Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+        isDead = true;
+        Invoke("DestroyParticules", 3);
+        Invoke("RespawnPlayer", 4);
     }
+
+  
 
 
     void OnTriggerExit(Collider collision){

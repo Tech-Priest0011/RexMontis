@@ -25,7 +25,7 @@ public class CountDown : MonoBehaviour
 
 
     // ===================================================================== **
-    // Cette fonction est appelé au début de la partie
+    // Cette fonction est appelï¿½ au dï¿½but de la partie
     // ===================================================================== **
     private void Start()
     {
@@ -34,17 +34,21 @@ public class CountDown : MonoBehaviour
     }
 
     // ===================================================================== **
-    // Cette fonction est appelé à chaque frame
+    // Cette fonction est appelï¿½ ï¿½ chaque frame
     // ===================================================================== **
     private void Update() {
         if (gameManager.GetComponent<GameManager>().gameIsStarted && !timerStarted) { 
             Being(Durer);
             timerStarted = true;
         }
+
+/*         if (tempsRestant <= 0 && timerStarted) {
+            GameObject.Find("Countdown").GetComponent<Text>().text = "C'est fini!";
+        } */
     }
 
     // ===================================================================== **
-    // Cette fonction cette fonction démarre la couroutine UpdateTemps
+    // Cette fonction cette fonction dï¿½marre la couroutine UpdateTemps
     // ===================================================================== **
     private void Being(int Second)
     {
@@ -54,7 +58,7 @@ public class CountDown : MonoBehaviour
 
 
     // ===================================================================== **
-    // Cette fonction actualise le temps à chaque seconde 
+    // Cette fonction actualise le temps ï¿½ chaque seconde 
     // ===================================================================== **
     private IEnumerator UpdateTemps()
     {
@@ -76,7 +80,7 @@ public class CountDown : MonoBehaviour
    
 
     // ===================================================================== **
-    // Cette fonction charge la scène de fin quand le temps atteint zéro
+    // Cette fonction charge la scï¿½ne de fin quand le temps atteint zï¿½ro
     // ===================================================================== **
     private void TempsTerminer()
     {

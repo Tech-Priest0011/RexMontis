@@ -20,6 +20,10 @@ public class Gravity : MonoBehaviour
 
     public bool isTouchingPlayer = false;
 
+    //Pour les particules
+    public GameObject particulesPush;
+    public GameObject particulesPull;
+
     //INPUT_ACTIONS
 
     //Pour se déplacer
@@ -60,26 +64,36 @@ public class Gravity : MonoBehaviour
         int valueX = 0;
         int valueY = 0;
 
-        if (move.x > 0) {
+        if (move.x > 0)
+        {
             valueX = 1;
 
-        } else if (move.x < 0) {
+        }
+        else if (move.x < 0)
+        {
             valueX = -1;
 
-        } else {
+        }
+        else
+        {
             valueX = 0;
 
         }
 
-        if (move.y > 0) {
+        if (move.y > 0)
+        {
             valueY = 1;
 
-        } else if (move.y < 0) {
+        }
+        else if (move.y < 0)
+        {
             valueY = -1;
 
-        } else {
+        }
+        else
+        {
             valueY = 0;
-            
+
         }
 
         moveHorizontal = valueX;
@@ -93,23 +107,33 @@ public class Gravity : MonoBehaviour
 
     void FixedUpdate()
     {
+        gererParticules();
         //Détecte si le joueur pousse
-        if (isButtonPush) {
+        if (isButtonPush)
+        {
             isPushing = true;
-        } else {
+        }
+        else
+        {
             isPushing = false;
         }
 
         //Détecte si le joueur attire
-        if (isButtonSuck) {
+        if (isButtonSuck)
+        {
             isAttracting = true;
-        } else {
+        }
+        else
+        {
             isAttracting = false;
         }
 
-        if (isAttracting || isPushing) {
+        if (isAttracting || isPushing)
+        {
             characterAnimator.SetBool("shoot", true);
-        } else {
+        }
+        else
+        {
             characterAnimator.SetBool("shoot", false);
         }
 
@@ -122,34 +146,41 @@ public class Gravity : MonoBehaviour
     // (lorsqu'il souffle) en fonction de ses mouvements.
     // ===================================================================== **
 
-    private void ChangeGravityDirection() {
+    private void ChangeGravityDirection()
+    {
         int gravityValue = 6;
 
         float x = moveHorizontal;
         float y = moveVertical;
 
-        if (y > 0) {
-            direction = new Vector3 (0, 0, gravityValue);
+        if (y > 0)
+        {
+            direction = new Vector3(0, 0, gravityValue);
         }
 
-        if (x > 0) {
-            direction = new Vector3 (gravityValue, 0, 0);
+        if (x > 0)
+        {
+            direction = new Vector3(gravityValue, 0, 0);
         }
 
-        if (y < 0) {
-            direction = new Vector3 (0, 0, -gravityValue);
+        if (y < 0)
+        {
+            direction = new Vector3(0, 0, -gravityValue);
         }
 
-        if (x < 0) {
-            direction = new Vector3 (-gravityValue, 0, 0);
+        if (x < 0)
+        {
+            direction = new Vector3(-gravityValue, 0, 0);
         }
     }
 
     // ===================================================================== **
     // Détecte l'entrée en collision avec un autre joueur.
     // ===================================================================== **
-    void OnTriggerEnter(Collider col) {
-        if (col.gameObject.tag == "Player") {
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
             isTouchingPlayer = true;
         }
     }
@@ -157,9 +188,33 @@ public class Gravity : MonoBehaviour
     // ===================================================================== **
     // Détecte la sortie d'un joueur dans la zone de collision.
     // ===================================================================== **
-    void OnTriggerExit(Collider col) {
-        if (col.gameObject.tag == "Player") {
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
             isTouchingPlayer = false;
         }
     }
+
+
+    // ===================================================================== **
+    // Gerer les particules (push, pull)
+    // ===================================================================== **
+    private void gererParticules()
+    {
+        if (isPushing == true)
+        {
+            particulesPush.SetActive(true);
+        }
+        else if (isAttracting == true)
+        {
+            particulesPull.SetActive(true);
+        }
+        else
+        {
+            particulesPush.SetActive(false);
+            particulesPull.SetActive(false);
+        }
+    }
+
 }

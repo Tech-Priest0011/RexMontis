@@ -3969,7 +3969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7056872199025932505, guid: 5476d8d934ecb534a8d07acd61706482, type: 3}
       propertyPath: m_Name
-      value: Instructions_tortue
+      value: Instructions
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5476d8d934ecb534a8d07acd61706482, type: 3}

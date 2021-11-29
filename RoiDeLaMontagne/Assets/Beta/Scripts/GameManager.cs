@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         }
 
         scene = SceneManager.GetActiveScene().name;
-        if (scene == "Fin")
+/*         if (scene == "Fin")
         {
 
             champsNom.text = nomDuJoueur;
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
 
             
 
-        }
+        } */
 
         Players = new List<GameObject>();
     }
@@ -375,6 +375,7 @@ public class GameManager : MonoBehaviour
 
         if (quelleScene == "Fin")
         {
+            //SceneManager.LoadScene("ile-tortue");
             SceneManager.LoadScene("Cimeterium");
         }
 

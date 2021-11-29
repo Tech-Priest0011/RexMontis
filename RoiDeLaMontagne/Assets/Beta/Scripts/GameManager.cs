@@ -310,6 +310,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Joigno !");
         nombreJoueur++;
+
+        if (nombreJoueur <= 4)
+        {
+            joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
+            Instantiate(joueurConnecte, parentJoueurConnecte.transform);
+        }
+
         int index = 0;
 
         GameObject[] joueurs = GameObject.FindGameObjectsWithTag("Player");
@@ -327,11 +334,7 @@ public class GameManager : MonoBehaviour
             index++;
         }
 
-        if (nombreJoueur <= 4)
-        {
-            joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
-            Instantiate(joueurConnecte, parentJoueurConnecte.transform);
-        }
+        
 
     }
 

@@ -591,9 +591,9 @@ MonoBehaviour:
     m_ActionName: StartGame/Start[/Keyboard/f1,/XInputControllerWindows/buttonNorth,/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1117465477}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 1117465480}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Restart
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -624,6 +624,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b44d72e1a3d062040962be29725f8560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1117465480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
+  m_PrefabInstance: {fileID: 1074578072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117465476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f77165a004127647a58dc674eb73063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1921535358

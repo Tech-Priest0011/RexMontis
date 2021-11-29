@@ -13,6 +13,13 @@ public class GameManagerFin : MonoBehaviour
     private float scoreFinal3;
     private float scoreFinal4;
 
+    //
+    private string player1;
+    private string player2;
+    private string player3;
+    private string player4;
+    //
+
     private GameObject premierePlace;
     private GameObject deuxiemePlace;
     private GameObject troisiemePlace;
@@ -21,7 +28,10 @@ public class GameManagerFin : MonoBehaviour
     List<float> stockScore = new List<float>();
     private float[] listeDesScores;
 
-
+        public GameObject couronne1;
+        public GameObject couronne2;
+        public GameObject couronne3;
+        public GameObject couronne4;
 
     void Start()
     {
@@ -41,11 +51,51 @@ public class GameManagerFin : MonoBehaviour
         stockScore.Add(scoreFinal3);
         stockScore.Add(scoreFinal4);
 
+        //
+/*         public GameObject couronne1;
+        public GameObject couronne2;
+        public GameObject couronne3;
+        public GameObject couronne4; */
+        //
+
         //Cette ligne classe les scores en ordre et les place dans un tableau
-        listeDesScores = stockScore.OrderByDescending(score => score).ToArray();
+        //listeDesScores = stockScore.OrderByDescending(score => score).ToArray();
       
        
         AssignationScore();
+
+        //TEST
+        if (scoreFinal1 >= scoreFinal2 && scoreFinal1 >= scoreFinal3 && scoreFinal1 >= scoreFinal4) {
+            couronne2.SetActive(false);
+            couronne3.SetActive(false);
+            couronne4.SetActive(false);
+
+            Debug.Log("joueur 1 win");
+        }
+
+        if (scoreFinal2 >= scoreFinal1 && scoreFinal2 >= scoreFinal3 && scoreFinal2 >= scoreFinal4) {
+            couronne1.SetActive(false);
+            couronne3.SetActive(false);
+            couronne4.SetActive(false);
+
+            Debug.Log("joueur 2 win");
+        }
+
+        if (scoreFinal3 >= scoreFinal2 && scoreFinal3 >= scoreFinal1 && scoreFinal3 >= scoreFinal4) {
+            couronne2.SetActive(false);
+            couronne1.SetActive(false);
+            couronne4.SetActive(false);
+
+            Debug.Log("joueur 3 win");
+        }
+
+        if (scoreFinal4 >= scoreFinal2 && scoreFinal4 >= scoreFinal3 && scoreFinal4 >= scoreFinal1) {
+            couronne2.SetActive(false);
+            couronne3.SetActive(false);
+            couronne1.SetActive(false);
+
+            Debug.Log("joueur 4 win");
+        }
     }
 
 
@@ -54,9 +104,9 @@ public class GameManagerFin : MonoBehaviour
     // ===================================================================== **
     private void AssignationScore()
     {
-        premierePlace.GetComponent<Text>().text = listeDesScores[0].ToString();
-        deuxiemePlace.GetComponent<Text>().text = listeDesScores[1].ToString();
-        troisiemePlace.GetComponent<Text>().text = listeDesScores[2].ToString();
-        quatriemePlace.GetComponent<Text>().text = listeDesScores[3].ToString(); 
+        premierePlace.GetComponent<Text>().text = scoreFinal1.ToString();
+        deuxiemePlace.GetComponent<Text>().text = scoreFinal2.ToString();
+        troisiemePlace.GetComponent<Text>().text = scoreFinal3.ToString();
+        quatriemePlace.GetComponent<Text>().text = scoreFinal4.ToString(); 
     }
 }

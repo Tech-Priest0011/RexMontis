@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         quelleScene = SceneManager.GetActiveScene().name;
         tempsDejeu = GameObject.Find("temps").GetComponent<CountDown>().tempsRestant;
 
-        scoreTemplate.gameObject.SetActive(false);
+   
         CounterObjects[0].Score.scoreUnique = scoreJoueur1;
         CounterObjects[1].Score.scoreUnique = scoreJoueur2;
         CounterObjects[2].Score.scoreUnique = scoreJoueur3;
@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour
             if (interval <= 0)
             {
 
-                interval += 2f;
+                interval += 1f;
 
                 if (tempsDejeu >= 30)
                 {
@@ -321,7 +321,7 @@ public class GameManager : MonoBehaviour
 
         GameObject[] joueurs = GameObject.FindGameObjectsWithTag("Player");
 
-
+        
         GameObject liste = GameObject.Find("joueur_1");
         foreach (Transform child in liste.transform)
         {

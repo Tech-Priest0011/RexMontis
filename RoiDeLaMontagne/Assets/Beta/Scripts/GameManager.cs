@@ -314,6 +314,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Joigno !");
         nombreJoueur++;
+        int index = 0;
 
         GameObject[] joueurs = GameObject.FindGameObjectsWithTag("Player");
 
@@ -321,15 +322,13 @@ public class GameManager : MonoBehaviour
         GameObject liste = GameObject.Find("joueur_1");
         foreach (Transform child in liste.transform)
         {
-
             Transform pastille = child.Find("Pastille").transform;
             Transform contourPastille = child.Find("PastilleContour").transform;
 
+            pastille.GetComponent<Graphic>().color = joueurs[index].GetComponentInChildren<PlayerController>().couleur;
+            contourPastille.GetComponent<Graphic>().color = joueurs[index].GetComponentInChildren<PlayerController>().couleur;
 
-            pastille.GetComponent<Graphic>().color = joueurs[nombreJoueur].GetComponentInChildren<PlayerController>().couleur;
-            contourPastille.GetComponent<Graphic>().color = joueurs[nombreJoueur].GetComponentInChildren<PlayerController>().couleur;
-
-
+            index++;
         }
 
         if (nombreJoueur <= 4)

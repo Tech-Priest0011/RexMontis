@@ -184,17 +184,13 @@ public class GameManager : MonoBehaviour
             {
                 gameIsStarted = true;
                 countdownIsActive = false;
-
                 countdownText.SetActive(false);
             }
         }
 
         if (gameIsStarted)
         {
-
             Score();
-
-
             Invoke("CountDownEnd", 0.1f);
         }
 

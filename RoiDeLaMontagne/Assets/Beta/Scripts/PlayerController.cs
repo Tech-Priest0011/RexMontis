@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     //Pour le saut
     private bool jumped = false;
     public float jumpForce;
-
+    private float fallSpeed = -3;
 
     //Pour la mort
     public GameObject systemeDeParticules;
@@ -87,10 +87,13 @@ public class PlayerController : MonoBehaviour
         couleur = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         ChangeColor();
 
-        //Test
+
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         audioSrc = GetComponent<AudioSource>();
+
+
+        
     }
 
     // ===================================================================== **
@@ -125,12 +128,6 @@ public class PlayerController : MonoBehaviour
     // ===================================================================== **
     void FixedUpdate()
     {
-        if (isGrounded && jumped)
-        {
-            hips.AddForce(new Vector3(0, jumpForce, 0));
-            isGrounded = false;
-            jumped = false;
-        }
 
         tempsRestant = GameObject.Find("temps").GetComponent<CountDown>().tempsRestant;
 
@@ -152,7 +149,7 @@ public class PlayerController : MonoBehaviour
             {
                 hips.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
-                characterAnimator.SetTrigger("jump");//
+                characterAnimator.SetTrigger("jump");
 
 
                 // //joue le son

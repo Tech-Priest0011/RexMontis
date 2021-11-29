@@ -57,9 +57,6 @@ public class GameManagerFin : MonoBehaviour
         premierePlace.GetComponent<Text>().text = listeDesScores[0].ToString();
         deuxiemePlace.GetComponent<Text>().text = listeDesScores[1].ToString();
         troisiemePlace.GetComponent<Text>().text = listeDesScores[2].ToString();
-        quatriemePlace.GetComponent<Text>().text = listeDesScores[3].ToString();
-
-       
-        
+        quatriemePlace.GetComponent<Text>().text = listeDesScores[3].ToString(); 
     }
 }

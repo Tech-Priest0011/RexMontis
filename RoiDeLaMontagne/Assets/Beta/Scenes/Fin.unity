@@ -1726,8 +1726,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 8
   m_Text: Joueur 3
 --- !u!222 &1400002437
@@ -1830,7 +1830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2686211525649778049, guid: e7531bf175e3a89499b9b8d5f27f0724, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2686211525649778050, guid: e7531bf175e3a89499b9b8d5f27f0724, type: 3}
       propertyPath: m_Pivot.x
@@ -2873,7 +2873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4010653952743290267
 RectTransform:
   m_ObjectHideFlags: 0

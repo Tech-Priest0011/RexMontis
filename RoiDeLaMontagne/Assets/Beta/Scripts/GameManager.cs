@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameIsStarted = false;
+        GameObject.Find("MusiqueLobby").GetComponent<AudioSource>().enabled = true;
         
         countdownText = GameObject.Find("Countdown");
 
@@ -344,7 +345,9 @@ public class GameManager : MonoBehaviour
 
         if (nombreJoueur >= 2) {
             countdownIsActive = true;
-            GameObject.Find("Instructions").SetActive(false); //
+            GameObject.Find("Instructions").SetActive(false); 
+            GameObject.Find("MusiqueLobby").GetComponent<AudioSource>().enabled = false;
+            GameObject.Find("MusiqueNiveau").GetComponent<AudioSource>().enabled = true;
         }
     }
 

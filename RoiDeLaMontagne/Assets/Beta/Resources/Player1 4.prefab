@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5576452775904422447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.76, y: 32.44, z: 13.49}
+  m_LocalPosition: {x: 63.96, y: 16.1, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5576452776905320652}
@@ -385,7 +385,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 40.76, y: 32.94, z: 13.49}
+  m_ConnectedAnchor: {x: 63.96, y: 16.6, z: -0.1}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -615,6 +615,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4a8052fd-7b90-45b6-800b-fc54809b0844
     m_ActionName: StartGame/Restart[/XInputControllerWindows/buttonNorth,/XInputControllerWindows/buttonNorth,/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2bbd0929-575e-4cce-a0ca-471370182563
+    m_ActionName: StartGame/Join[/XInputControllerWindows/buttonWest,/XInputControllerWindows/buttonWest,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -636,7 +640,7 @@ MonoBehaviour:
   gravityZone: {fileID: 0}
   inThrowZone: 0
   throwZone: {fileID: 0}
-  throwingStrength: 24
+  throwingStrength: 3
 --- !u!1001 &1060303718974408643
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,16 +8,11 @@ public class trappe : MonoBehaviour
     private GameObject trappes;
     public GameObject Joueur;
 
-     //Pour le son
-    public AudioClip playerDie;
-
-    private static AudioSource audioSrc;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSrc = GetComponent<AudioSource>();
+        
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -28,9 +23,6 @@ public class trappe : MonoBehaviour
             trappes.GetComponent<Animator>().SetBool("close", true);
             Invoke("RemettreBoolFalse", 2);
             Joueur.GetComponent<PlayerController>().VerifieTrappe();
-
-            //joue le son
-            audioSrc.PlayOneShot(playerDie);
         }
     }
 
@@ -38,7 +30,7 @@ public class trappe : MonoBehaviour
 
 
     // ===================================================================== **
-    // Remet la boolï¿½enne de l'animation de la trappe ï¿½ false
+    // Remet la booléenne de l'animation de la trappe à false
     // ===================================================================== **
     private void RemettreBoolFalse()
     {

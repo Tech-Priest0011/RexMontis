@@ -90,6 +90,13 @@ public class PlayerController : MonoBehaviour
         //Test
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
+        //SON
+        // playerAttire = Audio.Load<AudioClip> ("AttirerSouffleuse_mixdown");
+        // playerPousse = Audio.Load<AudioClip> ("PousserSouffleuse_mixdown");
+        // playerSaute = Audio.Load<AudioClip> ("hop3_01");
+        // playerMarche = Audio.Load<AudioClip> ("punch2");
+        // playerDie = Audio.Load<AudioClip> ("aie5_01");
+
         audioSrc = GetComponent<AudioSource>();
     }
 
@@ -153,6 +160,9 @@ public class PlayerController : MonoBehaviour
                 hips.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
                 characterAnimator.SetTrigger("jump");//
+
+                // audioSrc.clip = playerSaute;
+                // audioSrc.Play();
 
                 // //joue le son
                 audioSrc.PlayOneShot(playerSaute);
@@ -316,10 +326,10 @@ public class PlayerController : MonoBehaviour
             Invoke("RespawnPlayer", 4);
             isDead = true;
             
-            
-            //joue le son
-            audioSrc.PlayOneShot(playerDie);
-        }        
+        }
+
+
+        
     }
 
     public void VerifieTrappe()
@@ -329,8 +339,6 @@ public class PlayerController : MonoBehaviour
         isDead = true;
         Invoke("DestroyParticules", 3);
         Invoke("RespawnPlayer", 4);
-
-        
     }
 
   

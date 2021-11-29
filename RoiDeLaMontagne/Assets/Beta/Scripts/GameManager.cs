@@ -60,14 +60,22 @@ public class GameManager : MonoBehaviour
     public float scoreJoueur4 = 0;
 
     public List<tableData> CounterObjects = new List<tableData>();
-    public struct tableData{
-    public Transform scoreTransform;
-    public tableScores Score;
+
+    public struct tableData
+    {
+        public Transform scoreTransform;
+        public tableScores Score;
     }
+
     public float scoreBonus1 = 11f;
     public float scoreBonus2 = 11f;
     public float scoreBonus3 = 12f;
     public float scoreBonus4 = 13f;
+
+    public string scoreFinal1;
+    public string scoreFinal2;
+    public string scoreFinal3;
+    public string scoreFinal4;
 
     [SerializeField] private List<Text> textList = new List<Text>();
     [SerializeField] private List<Text> nameText = new List<Text>();
@@ -341,6 +349,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Fin");
         pointageFinal = champsScore.text;
         gameIsStarted = false;
+
+        scoreFinal1 = scoreJoueur1.ToString();
+        scoreFinal2 = scoreJoueur1.ToString();
+        scoreFinal3 = scoreJoueur1.ToString();
+        scoreFinal4 = scoreJoueur1.ToString();
+
     }
 
     // ===================================================================== **

@@ -35,8 +35,19 @@ public class Gravity : MonoBehaviour
     private bool isButtonPush;
     private bool isButtonSuck;
 
+    //Pour le son
+    public AudioClip playerAttire;
+    public AudioClip playerPousse;
+
+    private static AudioSource audioSrc;
+
     //Variables test
     public Animator characterAnimator;
+
+     void Start()
+    {
+        audioSrc = GetComponent<AudioSource>();
+    }
 
     // ===================================================================== **
     // Détecte si le joueur pousse.
@@ -112,6 +123,9 @@ public class Gravity : MonoBehaviour
         if (isButtonPush)
         {
             isPushing = true;
+            
+            // //joue le son
+            audioSrc.PlayOneShot(playerPousse);
         }
         else
         {
@@ -122,6 +136,9 @@ public class Gravity : MonoBehaviour
         if (isButtonSuck)
         {
             isAttracting = true;
+
+            // //joue le son
+            audioSrc.PlayOneShot(playerAttire);
         }
         else
         {

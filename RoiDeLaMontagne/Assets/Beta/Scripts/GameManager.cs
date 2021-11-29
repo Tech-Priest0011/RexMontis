@@ -98,14 +98,11 @@ public class GameManager : MonoBehaviour
 
         listeDesScores = new List<tableScores>()
         {
-            new tableScores { scoreUnique = scoreJoueur1, nomUnique = "Max" },
-            new tableScores { scoreUnique = scoreJoueur2, nomUnique = "Caro" },
-            new tableScores { scoreUnique = scoreJoueur3, nomUnique = "Gab" },
-            new tableScores { scoreUnique = scoreJoueur4, nomUnique = "Jerry" },
-            new tableScores { scoreUnique = scoreJoueur5, nomUnique = "J�" },
-            new tableScores { scoreUnique = scoreJoueur6, nomUnique = "Sam" },
-            new tableScores { scoreUnique = scoreJoueur7, nomUnique = "Mik" },
-            new tableScores { scoreUnique = scoreJoueur8, nomUnique = "Rudy" },
+            new tableScores { scoreUnique = scoreJoueur1, nomUnique = "Joueur 1" },
+            new tableScores { scoreUnique = scoreJoueur2, nomUnique = "Joueur 2" },
+            new tableScores { scoreUnique = scoreJoueur3, nomUnique = "Joueur 3" },
+            new tableScores { scoreUnique = scoreJoueur4, nomUnique = "Joueur 4" },
+
         };
         
         listeDesTransformDesScores = new List<Transform>();
@@ -152,10 +149,7 @@ public class GameManager : MonoBehaviour
         CounterObjects[1].Score.scoreUnique = scoreJoueur2;
         CounterObjects[2].Score.scoreUnique = scoreJoueur3;
         CounterObjects[3].Score.scoreUnique = scoreJoueur4;
-        CounterObjects[4].Score.scoreUnique = scoreJoueur5;
-        CounterObjects[5].Score.scoreUnique = scoreJoueur6;
-        CounterObjects[6].Score.scoreUnique = scoreJoueur7;
-        CounterObjects[7].Score.scoreUnique = scoreJoueur8;
+
 
        foreach(tableData data in CounterObjects)
        {
@@ -299,10 +293,7 @@ public class GameManager : MonoBehaviour
                     scoreJoueur2 += listeDesScores[1].bonusScore;
                     scoreJoueur3 += listeDesScores[2].bonusScore;
                     scoreJoueur4 += listeDesScores[3].bonusScore;
-                    scoreJoueur5 += listeDesScores[4].bonusScore;
-                    scoreJoueur6 += listeDesScores[5].bonusScore;
-                    scoreJoueur7 += listeDesScores[6].bonusScore;
-                    scoreJoueur8 += listeDesScores[7].bonusScore;
+
                 }
                 else
                 {
@@ -311,10 +302,7 @@ public class GameManager : MonoBehaviour
                     scoreJoueur2 += listeDesScores[1].bonusScore * multiplicateur;
                     scoreJoueur3 += listeDesScores[2].bonusScore * multiplicateur;
                     scoreJoueur4 += listeDesScores[3].bonusScore * multiplicateur;
-                    scoreJoueur5 += listeDesScores[4].bonusScore * multiplicateur;
-                    scoreJoueur6 += listeDesScores[5].bonusScore * multiplicateur;
-                    scoreJoueur7 += listeDesScores[6].bonusScore * multiplicateur;
-                    scoreJoueur8 += listeDesScores[7].bonusScore * multiplicateur;
+
                 } 
             }
         } 
@@ -326,7 +314,6 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     public void connexionJoueur(InputAction.CallbackContext context)
     {
-        Debug.Log("Joigno !");
         nombreJoueur++;
         if(nombreJoueur <= 4)
         {
@@ -340,11 +327,11 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     // Cette fonction démarre la partie
     // ===================================================================== **
-    public void Jouer(InputAction.CallbackContext context){
-
+    public void Jouer(InputAction.CallbackContext context)
+    {
         if (nombreJoueur >= 2) {
             countdownIsActive = true;
-            GameObject.Find("Instructions").SetActive(false); //
+            GameObject.Find("Instructions").SetActive(false); 
         }
     }
 
@@ -357,13 +344,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Fin");
         pointageFinal = champsScore.text;
         gameIsStarted = false;
-        
     }
 
     // ===================================================================== **
     // Cette fonction redémarre la partie
     // ===================================================================== **
-    public void Restart(InputAction.CallbackContext context){
+    public void Restart(InputAction.CallbackContext context)
+    {
 
         if(quelleScene == "Fin"){
             SceneManager.LoadScene("Cimeterium");

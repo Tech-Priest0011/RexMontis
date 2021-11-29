@@ -319,10 +319,7 @@ public class PlayerController : MonoBehaviour
 
             // //joue le son
             audioSrc.PlayOneShot(playerDie);
-        }
-
-
-        
+        }   
     }
 
     public void VerifieTrappe()

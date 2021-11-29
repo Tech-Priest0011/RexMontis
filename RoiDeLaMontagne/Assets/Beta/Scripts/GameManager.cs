@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private float interval = 2;
 
     //Variables pour le score
-    
+
     private float hauteurTemplate = 60f;
     private List<tableScores> listeDesScores;
     private List<Transform> listeDesTransformDesScores;
@@ -75,6 +75,9 @@ public class GameManager : MonoBehaviour
     static public float scoreFinal3;
     static public float scoreFinal4;
 
+    public bool performed { get; }
+
+
     [SerializeField] private List<Text> textList = new List<Text>();
     [SerializeField] private List<Text> nameText = new List<Text>();
 
@@ -94,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         gameIsStarted = false;
         GameObject.Find("MusiqueLobby").GetComponent<AudioSource>().enabled = true;
-
+        
         countdownText = GameObject.Find("Countdown");
 
         listeDesScores = new List<tableScores>()
@@ -168,6 +171,7 @@ public class GameManager : MonoBehaviour
         {
             textList[i].text = listeDesScores[i].scoreUnique.ToString();
             nameText[i].text = listeDesScores[i].nomUnique.ToString();
+
         }
 
 
@@ -308,20 +312,25 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     public void connexionJoueur(InputAction.CallbackContext context)
     {
-        Debug.Log("Joigno !");
-        nombreJoueur++;
-
-        if (nombreJoueur <= 4)
+        
+        if (nombreJoueur <= 3)
         {
-            joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
-            Instantiate(joueurConnecte, parentJoueurConnecte.transform);
+            
+            if (context.performed)
+            {
+                nombreJoueur++;
+                Debug.Log(nombreJoueur);
+                joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
+
+                Instantiate(joueurConnecte, parentJoueurConnecte.transform);
+            }
+          
+        
         }
-
-        int index = 0;
-
         GameObject[] joueurs = GameObject.FindGameObjectsWithTag("Player");
 
-        
+        int index = 0;
+  
         GameObject liste = GameObject.Find("joueur_1");
         foreach (Transform child in liste.transform)
         {

@@ -319,7 +319,7 @@ public class PlayerController : MonoBehaviour
         if (collision.transform.tag == "vide")
         {
             Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
-            Invoke("DestroyParticules", 3);
+            Invoke("DestroyParticules", 2);
             Invoke("RespawnPlayer", 4);
             isDead = true;
 
@@ -344,7 +344,7 @@ public class PlayerController : MonoBehaviour
     {
         Instantiate(systemeDeParticules, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
         isDead = true;
-        Invoke("DestroyParticules", 3);
+        Invoke("DestroyParticules", 2);
         Invoke("RespawnPlayer", 4);
     }
 

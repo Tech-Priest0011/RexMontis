@@ -115,20 +115,12 @@ public class GameManager : MonoBehaviour
             AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
         }
 
+        scoreJoueur1 = 0f;
+        scoreJoueur2 = 0f;
+        scoreJoueur3 = 0f;
+        scoreJoueur4 = 0f;
+
         scene = SceneManager.GetActiveScene().name;
-/*         if (scene == "Fin")
-        {
-
-            champsNom.text = nomDuJoueur;
-            if (champsNom.text == "")
-            {
-                champsNom.text = "Joueur";
-            }
-           
-
-            
-
-        } */
 
         Players = new List<GameObject>();
     }

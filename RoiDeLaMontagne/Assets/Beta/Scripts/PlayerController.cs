@@ -28,11 +28,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gravityController; // GameObject GravityController
 
     //Attribution d'une couleur aléatoire - début
-    /*private static Color color1;
-    private static Color color2;
-    private static bool hasColorsAssigned = false;
-    private static string lastColor;*/
-    private static Color couleur;
+    public static Color couleur;
 
     //Pour se déplacer
     private Vector2 move;
@@ -102,6 +98,29 @@ public class PlayerController : MonoBehaviour
         // playerDie = Audio.Load<AudioClip> ("aie5_01");
 
         audioSrc = GetComponent<AudioSource>();
+    }
+
+    // ===================================================================== **
+    // Change la couleur du matériel du personnage 
+    // ===================================================================== **
+    private void ChangeColor()
+    {
+        Transform enfant = gameObject.transform.GetChild(0).transform.GetChild(1);
+
+        Material[] materiaux = enfant.GetComponent<Renderer>().materials;
+        foreach (Material mat in materiaux)
+        {
+            if (mat.name == "meep-peau-dark (Instance)")
+            {
+                mat.color = couleur;
+            }
+            else if (mat.name == "meep-peau-light (Instance)")
+            {
+                mat.color = new Color(couleur.r + 0.3f, couleur.g + 0.3f, couleur.b + 0.3f);
+            }
+
+        }
+
     }
 
 
@@ -355,31 +374,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // ===================================================================== **
-    // Change la couleur du matériel du personnage 
-    // ===================================================================== **
-    private void ChangeColor()
-    {
-        Transform enfant = gameObject.transform.GetChild(0).transform.GetChild(1);
-        /*List<Material> materials = new List<Material>();
-        RandomColor couleurAleatoire = new RandomColor();
-        enfant.gameObject.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Color", Color.blue);*/
-
-        Material[] materiaux = enfant.GetComponent<Renderer>().materials;
-        foreach (Material mat in materiaux)
-        {            
-            if (mat.name == "meep-peau-dark (Instance)")
-            {
-                mat.color = couleur;
-            }
-            else if (mat.name == "meep-peau-light (Instance)")
-            {
-                mat.color = new Color(couleur.r + 0.3f, couleur.g + 0.3f, couleur.b + 0.3f);
-            }
-
-        }
-
-    }
+   
 
 
     // ===================================================================== **

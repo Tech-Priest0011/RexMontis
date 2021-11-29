@@ -39,7 +39,7 @@ public class Gravity : MonoBehaviour
     public AudioClip playerAttirer;
     public AudioClip playerPousser;
 
-    private static AudioSource audioSrc;
+    private AudioSource audioSrc;
 
     //Variables test
     public Animator characterAnimator;

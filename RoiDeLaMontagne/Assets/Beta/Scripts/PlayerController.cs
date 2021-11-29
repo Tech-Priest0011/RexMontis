@@ -368,7 +368,7 @@ public class PlayerController : MonoBehaviour
             scoreManager.setBonusScore(defaultPoints, id);
              Debug.Log("Exit Niveau 1­");
         }
-
+        
     }
 
    
@@ -395,7 +395,7 @@ public class PlayerController : MonoBehaviour
         if(isDead == true)
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            scoreManager.setBonusScore(defaultPoints -50, id);
+            scoreManager.setBonusScore(-10, id);
             GameObject particules = GameObject.Find("confetti(Clone)");
 
             if (particules)

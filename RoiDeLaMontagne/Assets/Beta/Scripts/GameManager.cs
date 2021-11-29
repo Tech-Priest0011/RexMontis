@@ -11,12 +11,11 @@ public class GameManager : MonoBehaviour
 {
     //Variables pour le temps
     private int tempsDejeu;
-    private float tempsDeDepart;
-    static private float tempsFinal = 0f;
+
     private float interval = 2;
 
     //Variables pour le score
-    static private string pointageFinal;
+    
     private float hauteurTemplate = 60f;
     private List<tableScores> listeDesScores;
     private List<Transform> listeDesTransformDesScores;
@@ -72,10 +71,10 @@ public class GameManager : MonoBehaviour
     public float scoreBonus3 = 12f;
     public float scoreBonus4 = 13f;
 
-    public string scoreFinal1;
-    public string scoreFinal2;
-    public string scoreFinal3;
-    public string scoreFinal4;
+    static public float scoreFinal1;
+    static public float scoreFinal2;
+    static public float scoreFinal3;
+    static public float scoreFinal4;
 
     [SerializeField] private List<Text> textList = new List<Text>();
     [SerializeField] private List<Text> nameText = new List<Text>();
@@ -115,23 +114,18 @@ public class GameManager : MonoBehaviour
             }
   
         scene = SceneManager.GetActiveScene().name;
-        if (scene == "Scene1"){
-            champsNom.text = nomDuJoueur;
-            if (champsNom.text == "")
-            {
-                champsNom.text = "Joueur";
-            }
-            tempsDeDepart = tempsDejeu;
-
-        }else if (scene == "Fin")
+        if (scene == "Fin")
         {
+
             champsNom.text = nomDuJoueur;
             if (champsNom.text == "")
             {
                 champsNom.text = "Joueur";
             }
-            champsTemps.text = tempsFinal.ToString();
-            champsScore.text = pointageFinal; 
+           
+
+            
+
         }
 
         Players = new List<GameObject>();
@@ -142,7 +136,11 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     void Update()
     {
-        
+
+        scoreFinal1 = scoreJoueur1;
+        scoreFinal2 = scoreJoueur2;
+        scoreFinal3 = scoreJoueur3;
+        scoreFinal4 = scoreJoueur4;
 
         quelleScene = SceneManager.GetActiveScene().name;
         tempsDejeu = GameObject.Find("temps").GetComponent<CountDown>().tempsRestant;
@@ -347,13 +345,9 @@ public class GameManager : MonoBehaviour
     public void FinDeJeu()
     {
         SceneManager.LoadScene("Fin");
-        pointageFinal = champsScore.text;
         gameIsStarted = false;
 
-        scoreFinal1 = scoreJoueur1.ToString();
-        scoreFinal2 = scoreJoueur1.ToString();
-        scoreFinal3 = scoreJoueur1.ToString();
-        scoreFinal4 = scoreJoueur1.ToString();
+       
 
     }
 

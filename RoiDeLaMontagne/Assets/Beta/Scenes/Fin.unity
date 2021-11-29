@@ -447,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5317775696323348554, guid: b6d4fa5ebe55632408de1464130eac61, type: 3}
       propertyPath: champsScore
@@ -605,11 +605,27 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4a8052fd-7b90-45b6-800b-fc54809b0844
     m_ActionName: StartGame/Restart[/XInputControllerWindows/buttonNorth,/XInputControllerWindows/buttonNorth,/Keyboard/f1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2bbd0929-575e-4cce-a0ca-471370182563
+    m_ActionName: StartGame/Join[/XInputControllerWindows/buttonWest,/XInputControllerWindows/buttonWest,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: d650624c-ce84-41c7-848d-3b8b25a67519
+  m_DefaultActionMap: StartGame
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1117465479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117465476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44d72e1a3d062040962be29725f8560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1921535358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -623,7 +639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2686211525649778049, guid: e7531bf175e3a89499b9b8d5f27f0724, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2686211525649778050, guid: e7531bf175e3a89499b9b8d5f27f0724, type: 3}
       propertyPath: m_Pivot.x
@@ -1164,7 +1180,7 @@ GameObject:
   - component: {fileID: 2959501411556588308}
   - component: {fileID: 2959501411556588309}
   m_Layer: 5
-  m_Name: scores
+  m_Name: scoreJ3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1265,7 +1281,7 @@ GameObject:
   - component: {fileID: 2959501411615172070}
   - component: {fileID: 2959501411615172071}
   m_Layer: 5
-  m_Name: scores
+  m_Name: scoreJ1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1961,7 +1977,7 @@ GameObject:
   - component: {fileID: 2959501412552892401}
   - component: {fileID: 2959501412552892402}
   m_Layer: 5
-  m_Name: nomjoueur (1)
+  m_Name: nomJoueur4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2295,7 +2311,7 @@ GameObject:
   - component: {fileID: 2959501412919813266}
   - component: {fileID: 2959501412919813267}
   m_Layer: 5
-  m_Name: scores
+  m_Name: scoreJ2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2690,7 +2706,7 @@ GameObject:
   - component: {fileID: 2959501413339173836}
   - component: {fileID: 2959501413339173837}
   m_Layer: 5
-  m_Name: scores
+  m_Name: scoreJ4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -62,6 +62,14 @@ public class PlayerController : MonoBehaviour
     //Pour le temps 
     private float tempsRestant;
 
+    //Pour le son
+    public AudioClip playerMarche;
+    public AudioClip playerDie;
+    public AudioClip playerSaute;
+
+    private static AudioSource audioSrc;
+
+
 
     //Variables Test
     public Animator characterAnimator;
@@ -85,6 +93,15 @@ public class PlayerController : MonoBehaviour
 
         //Test
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        //SON
+        // playerAttire = Audio.Load<AudioClip> ("AttirerSouffleuse_mixdown");
+        // playerPousse = Audio.Load<AudioClip> ("PousserSouffleuse_mixdown");
+        // playerSaute = Audio.Load<AudioClip> ("hop3_01");
+        // playerMarche = Audio.Load<AudioClip> ("punch2");
+        // playerDie = Audio.Load<AudioClip> ("aie5_01");
+
+        audioSrc = GetComponent<AudioSource>();
     }
 
 
@@ -124,6 +141,9 @@ public class PlayerController : MonoBehaviour
                 hips.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
                 characterAnimator.SetTrigger("jump");//
+
+                //joue le son
+                audioSrc.PlayOneShot(playerSaute);
             }
     }
 

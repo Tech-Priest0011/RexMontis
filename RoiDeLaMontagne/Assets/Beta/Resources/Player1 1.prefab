@@ -491,6 +491,9 @@ MonoBehaviour:
   systemeDeParticules: {fileID: 5856242391850329912, guid: 769986774dac8a54ca015ce38e551560, type: 3}
   trappeTrigger: {fileID: 1379419159324525376}
   doubleScore: 0
+  playerMarche: {fileID: 8300000, guid: b02ffb63cc12ce644bac635d5807c952, type: 3}
+  playerDie: {fileID: 8300000, guid: 2a3e0cf4671da0046b1d08f2f33eed05, type: 3}
+  playerSaute: {fileID: 8300000, guid: 4299e1835f1300b4c868eecfd5ffadb8, type: 3}
   characterAnimator: {fileID: 8138160286737658269}
   GameManager: {fileID: 0}
 --- !u!114 &3365594614849216475

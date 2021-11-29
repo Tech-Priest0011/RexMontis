@@ -250,24 +250,6 @@ public class GameManager : MonoBehaviour
         RectTransform scoreRectTransform = scoreTransform.GetComponent<RectTransform>(); // Va chercher la position du clone 
 
 
-
-
-        /*GameObject[] joueurs = GameObject.FindGameObjectsWithTag("Player");
-
-        Transform pastille = scoreRectTransform.Find("Image");
-        foreach (GameObject player in joueurs)
-        {
-            
-            Debug.Log(player.GetComponentInChildren<PlayerController>().GetComponent<PlayerController>());
-
-            Debug.Log("Gameasjkdnas" + player.GetComponentInChildren<PlayerController>().couleur);
-            pastille.GetComponent<Graphic>().color = player.GetComponentInChildren<PlayerController>().couleur;
-        }*/
-
-
-
-
-
         scoreRectTransform.anchoredPosition = new Vector2(hauteurTemplate * listeDeTransform.Count, 0);  //Descend le score cloné d'une certaine hauteur
         scoreTransform.gameObject.SetActive(true); // Active le clone 
         tableData data = new tableData();
@@ -362,6 +344,7 @@ public class GameManager : MonoBehaviour
 
         Transform pastille = GameObject.Find("Pastille").transform;
         Transform contourPastille = GameObject.Find("PastilleContour").transform;
+
         foreach (GameObject player in joueurs)
         {
             pastille.GetComponent<Graphic>().color = player.GetComponentInChildren<PlayerController>().couleur;

@@ -21706,7 +21706,7 @@ GameObject:
   - component: {fileID: 4931802108252199855}
   - component: {fileID: 4931802108252199854}
   m_Layer: 5
-  m_Name: contourPastille
+  m_Name: PastilleContour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

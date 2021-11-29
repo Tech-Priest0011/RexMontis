@@ -41,18 +41,17 @@ public class GameManagerFin : MonoBehaviour
         stockScore.Add(scoreFinal3);
         stockScore.Add(scoreFinal4);
 
-        //Array.Sort(stockScore.ToArray());
+        //Cette ligne classe les scores en ordre et les place dans un tableau
         listeDesScores = stockScore.OrderByDescending(score => score).ToArray();
       
-        foreach(float f in listeDesScores)
-        {
-            Debug.Log(f);
-        }
-
-
+       
         AssignationScore();
     }
 
+
+    // ===================================================================== **
+    // Cette fonction assigne les scores au tableau de fin
+    // ===================================================================== **
     private void AssignationScore()
     {
         premierePlace.GetComponent<Text>().text = listeDesScores[0].ToString();

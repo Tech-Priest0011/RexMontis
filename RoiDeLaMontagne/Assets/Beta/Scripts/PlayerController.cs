@@ -142,7 +142,10 @@ public class PlayerController : MonoBehaviour
                 isGrounded = false;
                 characterAnimator.SetTrigger("jump");//
 
-                //joue le son
+                // audioSrc.clip = playerSaute;
+                // audioSrc.Play();
+
+                // //joue le son
                 audioSrc.PlayOneShot(playerSaute);
             }
     }

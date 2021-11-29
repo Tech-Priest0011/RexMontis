@@ -58,10 +58,7 @@ public class GameManager : MonoBehaviour
     public float scoreJoueur2 = 0;
     public float scoreJoueur3 = 0;
     public float scoreJoueur4 = 0;
-    public float scoreJoueur5 = 0;
-    public float scoreJoueur6 = 0;
-    public float scoreJoueur7 = 0;
-    public float scoreJoueur8 = 0; 
+
     public List<tableData> CounterObjects = new List<tableData>();
     public struct tableData{
     public Transform scoreTransform;
@@ -71,10 +68,7 @@ public class GameManager : MonoBehaviour
     public float scoreBonus2 = 11f;
     public float scoreBonus3 = 12f;
     public float scoreBonus4 = 13f;
-    public float scoreBonus5 = 14f;
-    public float scoreBonus6 = 15f;
-    public float scoreBonus7 = 16f;
-    public float scoreBonus8 = 17f;
+
     [SerializeField] private List<Text> textList = new List<Text>();
     [SerializeField] private List<Text> nameText = new List<Text>();
 

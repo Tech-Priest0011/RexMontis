@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private List<Transform> listeDesTransformDesScores;
     public GameObject tableauDesScores;
     public float pointIncreasedPerSecond;
-    
+
     private float multiplicateur = 1f;
 
     //Variables non-class�es
@@ -53,38 +53,37 @@ public class GameManager : MonoBehaviour
     private bool countdownIsActive = false; //
 
     // Score Points 
-    
+
     public float scoreJoueur1 = 0;
     public float scoreJoueur2 = 0;
     public float scoreJoueur3 = 0;
     public float scoreJoueur4 = 0;
-
+    public float scoreJoueur5 = 0;
+    public float scoreJoueur6 = 0;
+    public float scoreJoueur7 = 0;
+    public float scoreJoueur8 = 0;
     public List<tableData> CounterObjects = new List<tableData>();
-
     public struct tableData
     {
         public Transform scoreTransform;
         public tableScores Score;
     }
-
     public float scoreBonus1 = 11f;
     public float scoreBonus2 = 11f;
     public float scoreBonus3 = 12f;
     public float scoreBonus4 = 13f;
-
-    public string scoreFinal1;
-    public string scoreFinal2;
-    public string scoreFinal3;
-    public string scoreFinal4;
-
+    public float scoreBonus5 = 14f;
+    public float scoreBonus6 = 15f;
+    public float scoreBonus7 = 16f;
+    public float scoreBonus8 = 17f;
     [SerializeField] private List<Text> textList = new List<Text>();
     [SerializeField] private List<Text> nameText = new List<Text>();
 
     private bool closeUI = false;
 
-    public List<GameObject> Players {get; set;}
+    public List<GameObject> Players { get; set; }
     public static int playerID = 0;
-    public static Dictionary<GameObject,int> playerList = new Dictionary<GameObject,int>();
+    public static Dictionary<GameObject, int> playerList = new Dictionary<GameObject, int>();
 
 
 
@@ -96,26 +95,30 @@ public class GameManager : MonoBehaviour
     {
         gameIsStarted = false;
         GameObject.Find("MusiqueLobby").GetComponent<AudioSource>().enabled = true;
-        
+
         countdownText = GameObject.Find("Countdown");
 
         listeDesScores = new List<tableScores>()
         {
-            new tableScores { scoreUnique = scoreJoueur1, nomUnique = "Joueur 1" },
-            new tableScores { scoreUnique = scoreJoueur2, nomUnique = "Joueur 2" },
-            new tableScores { scoreUnique = scoreJoueur3, nomUnique = "Joueur 3" },
-            new tableScores { scoreUnique = scoreJoueur4, nomUnique = "Joueur 4" },
-
+            new tableScores { scoreUnique = scoreJoueur1, nomUnique = "Max" },
+            new tableScores { scoreUnique = scoreJoueur2, nomUnique = "Caro" },
+            new tableScores { scoreUnique = scoreJoueur3, nomUnique = "Gab" },
+            new tableScores { scoreUnique = scoreJoueur4, nomUnique = "Jerry" },
+            new tableScores { scoreUnique = scoreJoueur5, nomUnique = "J�" },
+            new tableScores { scoreUnique = scoreJoueur6, nomUnique = "Sam" },
+            new tableScores { scoreUnique = scoreJoueur7, nomUnique = "Mik" },
+            new tableScores { scoreUnique = scoreJoueur8, nomUnique = "Rudy" },
         };
-        
+
         listeDesTransformDesScores = new List<Transform>();
-            foreach(tableScores tableDesScores in listeDesScores)
-            {
-             AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
-            }
-  
+        foreach (tableScores tableDesScores in listeDesScores)
+        {
+            AjouterScore(tableDesScores, scoreContainer, listeDesTransformDesScores);
+        }
+
         scene = SceneManager.GetActiveScene().name;
-        if (scene == "Scene1"){
+        if (scene == "Scene1")
+        {
             champsNom.text = nomDuJoueur;
             if (champsNom.text == "")
             {
@@ -123,7 +126,8 @@ public class GameManager : MonoBehaviour
             }
             tempsDeDepart = tempsDejeu;
 
-        }else if (scene == "Fin")
+        }
+        else if (scene == "Fin")
         {
             champsNom.text = nomDuJoueur;
             if (champsNom.text == "")
@@ -131,7 +135,7 @@ public class GameManager : MonoBehaviour
                 champsNom.text = "Joueur";
             }
             champsTemps.text = tempsFinal.ToString();
-            champsScore.text = pointageFinal; 
+            champsScore.text = pointageFinal;
         }
 
         Players = new List<GameObject>();
@@ -142,36 +146,39 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     void Update()
     {
-        
+
 
         quelleScene = SceneManager.GetActiveScene().name;
         tempsDejeu = GameObject.Find("temps").GetComponent<CountDown>().tempsRestant;
-      
+
         scoreTemplate.gameObject.SetActive(false);
         CounterObjects[0].Score.scoreUnique = scoreJoueur1;
         CounterObjects[1].Score.scoreUnique = scoreJoueur2;
         CounterObjects[2].Score.scoreUnique = scoreJoueur3;
         CounterObjects[3].Score.scoreUnique = scoreJoueur4;
+        CounterObjects[4].Score.scoreUnique = scoreJoueur5;
+        CounterObjects[5].Score.scoreUnique = scoreJoueur6;
+        CounterObjects[6].Score.scoreUnique = scoreJoueur7;
+        CounterObjects[7].Score.scoreUnique = scoreJoueur8;
 
+        foreach (tableData data in CounterObjects)
+        {
 
-       foreach(tableData data in CounterObjects)
-       {
-        
-        float scoreText = data.Score.scoreUnique;
-        data.scoreTransform.Find("nomsText").GetComponent<Text>().text = scoreText.ToString();
+            float scoreText = data.Score.scoreUnique;
+            data.scoreTransform.Find("nomsText").GetComponent<Text>().text = scoreText.ToString();
 
-        string nomsText = data.Score.nomUnique;
-        data.scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
-       }
+            string nomsText = data.Score.nomUnique;
+            data.scoreTransform.Find("scoreText").GetComponent<Text>().text = nomsText;
+        }
 
-       //Met les scores dans le bon ordre
+        //Met les scores dans le bon ordre
         listeDesScores = listeDesScores.OrderByDescending(score => score.scoreUnique).ToList();
-       
+
         for (int i = 0; i < textList.Count; i++)
-            {
-             textList[i].text = listeDesScores[i].scoreUnique.ToString(); 
-             nameText[i].text = listeDesScores[i].nomUnique.ToString();
-            }
+        {
+            textList[i].text = listeDesScores[i].scoreUnique.ToString();
+            nameText[i].text = listeDesScores[i].nomUnique.ToString();
+        }
 
 
         if (textList.Count >= 8)
@@ -184,31 +191,34 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-    
+
         //Test début du jeu
-        if (countdownIsActive) {
+        if (countdownIsActive)
+        {
             countdownTime -= Time.deltaTime;
             CountDownBegin();
 
 
-            if (countdownTime <= -1) {
+            if (countdownTime <= -1)
+            {
                 gameIsStarted = true;
                 countdownIsActive = false;
-                
+
                 countdownText.SetActive(false);
             }
         }
 
-        if (gameIsStarted) {
-           
+        if (gameIsStarted)
+        {
+
             Score();
 
 
             Invoke("CountDownEnd", 0.1f);
         }
 
-        
-        
+
+
     }
 
     // ===================================================================== **
@@ -233,17 +243,38 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     // Cette fonction est ajoute un score à chaque joueur et l'affiche sur la scène
     // ===================================================================== **
-    private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
+     private void AjouterScore(tableScores tableDesScores, Transform container, List<Transform> listeDeTransform)
     {
+
         Transform scoreTransform = Instantiate(scoreTemplate, container); // Crée un clone dans un container
         RectTransform scoreRectTransform = scoreTransform.GetComponent<RectTransform>(); // Va chercher la position du clone 
-        scoreRectTransform.anchoredPosition = new Vector2(hauteurTemplate * listeDeTransform.Count, 0 );  //Descend le score cloné d'une certaine hauteur
+
+
+
+
+        /*GameObject[] joueurs = GameObject.FindGameObjectsWithTag("Player");
+
+        Transform pastille = scoreRectTransform.Find("Image");
+        foreach (GameObject player in joueurs)
+        {
+            
+            Debug.Log(player.GetComponentInChildren<PlayerController>().GetComponent<PlayerController>());
+
+            Debug.Log("Gameasjkdnas" + player.GetComponentInChildren<PlayerController>().couleur);
+            pastille.GetComponent<Graphic>().color = player.GetComponentInChildren<PlayerController>().couleur;
+        }*/
+
+
+
+
+
+        scoreRectTransform.anchoredPosition = new Vector2(hauteurTemplate * listeDeTransform.Count, 0);  //Descend le score cloné d'une certaine hauteur
         scoreTransform.gameObject.SetActive(true); // Active le clone 
         tableData data = new tableData();
         data.scoreTransform = scoreTransform;
         data.Score = tableDesScores;
         CounterObjects.Add(data);
-        
+
         // --- Crée les positions --- //
         int rang = listeDeTransform.Count + 1;
         string rangString;
@@ -263,14 +294,14 @@ public class GameManager : MonoBehaviour
 
         textList.Add(scoreTransform.Find("nomsText").GetComponent<Text>());
         nameText.Add(scoreTransform.Find("scoreText").GetComponent<Text>());
-    
+
         listeDeTransform.Add(scoreTransform);
     }
 
     // ===================================================================== **
     // Cette fonction représente un score et un nom pour chaque joueur
     // ===================================================================== **
-    public class tableScores   
+    public class tableScores
     {
         public float scoreUnique;
         public string nomUnique;
@@ -282,12 +313,13 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     public void Score()
     {
-        if(scene != "Fin")
+        if (scene != "Fin")
         {
             interval -= 1 * Time.deltaTime;
-            
-            if(interval <= 0){
-       
+
+            if (interval <= 0)
+            {
+
                 interval += 2f;
 
                 if (tempsDejeu >= 30)
@@ -296,7 +328,10 @@ public class GameManager : MonoBehaviour
                     scoreJoueur2 += listeDesScores[1].bonusScore;
                     scoreJoueur3 += listeDesScores[2].bonusScore;
                     scoreJoueur4 += listeDesScores[3].bonusScore;
-
+                    scoreJoueur5 += listeDesScores[4].bonusScore;
+                    scoreJoueur6 += listeDesScores[5].bonusScore;
+                    scoreJoueur7 += listeDesScores[6].bonusScore;
+                    scoreJoueur8 += listeDesScores[7].bonusScore;
                 }
                 else
                 {
@@ -305,10 +340,13 @@ public class GameManager : MonoBehaviour
                     scoreJoueur2 += listeDesScores[1].bonusScore * multiplicateur;
                     scoreJoueur3 += listeDesScores[2].bonusScore * multiplicateur;
                     scoreJoueur4 += listeDesScores[3].bonusScore * multiplicateur;
-
-                } 
+                    scoreJoueur5 += listeDesScores[4].bonusScore * multiplicateur;
+                    scoreJoueur6 += listeDesScores[5].bonusScore * multiplicateur;
+                    scoreJoueur7 += listeDesScores[6].bonusScore * multiplicateur;
+                    scoreJoueur8 += listeDesScores[7].bonusScore * multiplicateur;
+                }
             }
-        } 
+        }
     }
 
 
@@ -317,13 +355,27 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     public void connexionJoueur(InputAction.CallbackContext context)
     {
+        Debug.Log("Joigno !");
         nombreJoueur++;
-        if(nombreJoueur <= 4)
+
+        GameObject[] joueurs = GameObject.FindGameObjectsWithTag("Player");
+
+        Transform pastille = GameObject.Find("Pastille").transform;
+        Transform contourPastille = GameObject.Find("PastilleContour").transform;
+        foreach (GameObject player in joueurs)
+        {
+            pastille.GetComponent<Graphic>().color = player.GetComponentInChildren<PlayerController>().couleur;
+            contourPastille.GetComponent<Graphic>().color = player.GetComponentInChildren<PlayerController>().couleur;
+        }
+
+
+
+        if (nombreJoueur <= 4)
         {
             joueurConnecte.GetComponent<Text>().text = "Joueur " + nombreJoueur.ToString();
-            Instantiate(joueurConnecte, parentJoueurConnecte.transform); 
+            Instantiate(joueurConnecte, parentJoueurConnecte.transform);
         }
-        
+
     }
 
 
@@ -332,9 +384,11 @@ public class GameManager : MonoBehaviour
     // ===================================================================== **
     public void Jouer(InputAction.CallbackContext context)
     {
-        if (nombreJoueur >= 2) {
+
+        if (nombreJoueur >= 2)
+        {
             countdownIsActive = true;
-            GameObject.Find("Instructions").SetActive(false); 
+            GameObject.Find("Instructions").SetActive(false);
             GameObject.Find("MusiqueLobby").GetComponent<AudioSource>().enabled = false;
             GameObject.Find("MusiqueNiveau").GetComponent<AudioSource>().enabled = true;
         }
@@ -350,11 +404,6 @@ public class GameManager : MonoBehaviour
         pointageFinal = champsScore.text;
         gameIsStarted = false;
 
-        scoreFinal1 = scoreJoueur1.ToString();
-        scoreFinal2 = scoreJoueur1.ToString();
-        scoreFinal3 = scoreJoueur1.ToString();
-        scoreFinal4 = scoreJoueur1.ToString();
-
     }
 
     // ===================================================================== **
@@ -363,32 +412,42 @@ public class GameManager : MonoBehaviour
     public void Restart(InputAction.CallbackContext context)
     {
 
-        if(quelleScene == "Fin"){
+        if (quelleScene == "Fin")
+        {
             SceneManager.LoadScene("Cimeterium");
         }
-        
+
     }
 
-    private void CountDownBegin() {
+    private void CountDownBegin()
+    {
 
-        if (countdownTime <= 0f) {
+        if (countdownTime <= 0f)
+        {
             GameObject.Find("Countdown").GetComponent<Text>().text = "GO!";
-        } else {
+        }
+        else
+        {
             GameObject.Find("Countdown").GetComponent<Text>().text = Mathf.Ceil(countdownTime).ToString();
         }
-        
+
     }
 
-    private void CountDownEnd() {
-        if (tempsDejeu <= 5) {
+    private void CountDownEnd()
+    {
+        if (tempsDejeu <= 5)
+        {
             countdownText.SetActive(true);
             GameObject.Find("Countdown").GetComponent<Text>().text = tempsDejeu.ToString();
         }
 
-        if (tempsDejeu <= 1f) {
+        if (tempsDejeu <= 1f)
+        {
             GameObject.Find("Countdown").GetComponent<Text>().text = "C'est fini!";
-            
-        } else if (tempsDejeu <= -1f) {
+
+        }
+        else if (tempsDejeu <= -1f)
+        {
             FinDeJeu();
         }
     }

@@ -20853,7 +20853,7 @@ GameObject:
   - component: {fileID: 4931802107391866441}
   - component: {fileID: 4931802107391866440}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Pastille
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21706,7 +21706,7 @@ GameObject:
   - component: {fileID: 4931802108252199855}
   - component: {fileID: 4931802108252199854}
   m_Layer: 5
-  m_Name: Image
+  m_Name: contourPastille
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

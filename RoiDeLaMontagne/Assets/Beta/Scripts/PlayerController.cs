@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gravityController; // GameObject GravityController
 
     //Attribution d'une couleur aléatoire - début
-    public static Color couleur;
+    public Color couleur;
 
     //Pour se déplacer
     private Vector2 move;
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
          scoreManager = FindObjectOfType<GameManager>();
 
-        couleur = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+        couleur = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         ChangeColor();
 
         //Test

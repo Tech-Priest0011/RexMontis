@@ -325,11 +325,10 @@ public class GameManager : MonoBehaviour
             Transform pastille = child.Find("Pastille").transform;
             Transform contourPastille = child.Find("PastilleContour").transform;
 
-            foreach (GameObject player in joueurs)
-            {
-                pastille.GetComponent<Graphic>().color = player.GetComponentInChildren<PlayerController>().couleur;
-                contourPastille.GetComponent<Graphic>().color = player.GetComponentInChildren<PlayerController>().couleur;
-            }
+
+            pastille.GetComponent<Graphic>().color = joueurs[nombreJoueur].GetComponentInChildren<PlayerController>().couleur;
+            contourPastille.GetComponent<Graphic>().color = joueurs[nombreJoueur].GetComponentInChildren<PlayerController>().couleur;
+
 
         }
 

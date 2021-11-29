@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviour
     //Pour la mort
     public GameObject systemeDeParticules;
     private bool isDead = false;
+    
+    //
+    public GameObject waterParticles;
+    //
    
     public GameObject trappeTrigger;
 
@@ -322,6 +326,17 @@ public class PlayerController : MonoBehaviour
             // //joue le son
             audioSrc.PlayOneShot(playerDie);
         }   
+
+        if (collision.transform.tag == "Water")
+        {
+            Instantiate(waterParticles, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            Invoke("DestroyParticules", 3);
+            Invoke("RespawnPlayer", 4);
+            isDead = true;
+
+            // //joue le son
+            audioSrc.PlayOneShot(playerDie);
+        }   
     }
 
     public void VerifieTrappe()
@@ -397,8 +412,9 @@ public class PlayerController : MonoBehaviour
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
             scoreManager.setBonusScore(-10, id);
             GameObject particules = GameObject.Find("confetti(Clone)");
+            GameObject particulesWater = GameObject.Find("fontaine(Clone)");
 
-            if (particules)
+            if (particules || particulesWater)
             {
                 Invoke("DestroyParticules", 4);
             }
@@ -411,6 +427,7 @@ public class PlayerController : MonoBehaviour
     private void DestroyParticules()
     {
         Destroy(GameObject.Find("confetti(Clone)"));
+        Destroy(GameObject.Find("fontaine(Clone)"));
     }
 
     // ===================================================================== **

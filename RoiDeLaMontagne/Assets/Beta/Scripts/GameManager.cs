@@ -384,8 +384,8 @@ public class GameManager : MonoBehaviour
 
         if (quelleScene == "Fin")
         {
-            SceneManager.LoadScene("ile-tortue");
-            //SceneManager.LoadScene("Cimeterium");
+            //SceneManager.LoadScene("ile-tortue");
+            SceneManager.LoadScene("Cimeterium");
         }
 
     }

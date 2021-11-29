@@ -951,10 +951,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 8
-  m_Text: 2000
+  m_Text: 200000
 --- !u!222 &941865575
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1568,10 +1568,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 8
-  m_Text: 2000
+  m_Text: 200000
 --- !u!222 &1262803914
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1830,7 +1830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2686211525649778049, guid: e7531bf175e3a89499b9b8d5f27f0724, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2686211525649778050, guid: e7531bf175e3a89499b9b8d5f27f0724, type: 3}
       propertyPath: m_Pivot.x
@@ -1994,10 +1994,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 8
-  m_Text: 2000
+  m_Text: 200000
 --- !u!222 &1923337883
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2601,10 +2601,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 8
-  m_Text: 2000
+  m_Text: 200000
 --- !u!114 &2959501411714800210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2835,8 +2835,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 8
   m_Text: points
 --- !u!224 &2959501413233451351
@@ -2873,7 +2873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4010653952743290267
 RectTransform:
   m_ObjectHideFlags: 0

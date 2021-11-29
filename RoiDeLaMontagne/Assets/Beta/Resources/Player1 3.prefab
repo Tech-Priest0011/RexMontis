@@ -779,11 +779,14 @@ MonoBehaviour:
   isGrounded: 0
   hipJoint: {fileID: 5576452776905320641}
   gravityController: {fileID: 5576452775406834322}
+  couleur: {r: 0, g: 0, b: 0, a: 0}
   speed: 25
   strafeSpeed: 20
   jumpForce: 500
   systemeDeParticules: {fileID: 5856242391850329912, guid: 769986774dac8a54ca015ce38e551560, type: 3}
+  waterParticles: {fileID: 2187084071396971699, guid: 48785d354458ef747a2af0ab5608bc11, type: 3}
   trappeTrigger: {fileID: 1379419159324525376}
+  id: 0
   doubleScore: 0
   playerMarche: {fileID: 0}
   playerDie: {fileID: 8300000, guid: 2a3e0cf4671da0046b1d08f2f33eed05, type: 3}

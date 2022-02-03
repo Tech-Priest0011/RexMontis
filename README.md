@@ -1,2 +1,2 @@
 # RexMontis (roi-de-la-montagne)
-Projet scolaire dans le cadre du cours production interactive. Partie Unity
+Jeu multijoueur créé pour l'évènement chaos média de 2021 !
